@@ -3,11 +3,8 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-<<<<<<< HEAD
 **/*.vcxproj
 
-=======
->>>>>>> parent of d99f24f... Revert "unipmortant_changes_EdDiE"
 # User-specific files
 *.suo
 *.user
