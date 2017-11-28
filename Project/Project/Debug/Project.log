@@ -1,7 +1,0 @@
-﻿  Texture_loader.cpp
-  Render.cpp
-c:\users\ed\documents\github\projectx\project\project\render.cpp(31): warning C4244: =: преобразование "sf::Int64" в "unsigned int", возможна потеря данных
-  main.cpp
-  Level.cpp
-  Project.vcxproj -> C:\Users\ed\Documents\GitHub\ProjectX\Project\Debug\Project.exe
-  Project.vcxproj -> C:\Users\ed\Documents\GitHub\ProjectX\Project\Debug\Project.pdb (Partial PDB)
