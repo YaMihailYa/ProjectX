@@ -1,6 +1,6 @@
 #include "Render.h"
 
-
+// Commit by Kolya
 
 Render::Render()
 {
