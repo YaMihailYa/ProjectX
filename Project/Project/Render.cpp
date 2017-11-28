@@ -1,7 +1,5 @@
 #include "Render.h"
 
-
-
 Render::Render()
 {
 	Init();
