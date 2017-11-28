@@ -4,6 +4,7 @@
 
 Render::Render()
 {
+	Init();
 }
 
 
