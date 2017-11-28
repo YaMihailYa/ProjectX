@@ -120,10 +120,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Render.cpp" />
+    <ClCompile Include="Texture_loader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Level.h" />
+    <ClInclude Include="Render.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Texture_loader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
