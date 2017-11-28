@@ -1,10 +1,10 @@
 #include "Render.h"
 
 //
-// Commit by Kolya
-// Commit by Kolya
-// Commit by Kolya
-// Commit by Kolya
+// Commit by Kolya asshole
+// Commit by Kolya asshole
+// Commit by Kolya asshole
+// Commit by Kolya asshole
 //
 
 Render::Render()
