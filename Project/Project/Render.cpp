@@ -1,6 +1,11 @@
 #include "Render.h"
 
+//
 // Commit by Kolya
+// Commit by Kolya
+// Commit by Kolya
+// Commit by Kolya
+//
 
 Render::Render()
 {
