@@ -1,6 +1,5 @@
 #include "Render.h"
 
-<<<<<<< HEAD
 //
 // Commit by Kolya asshole
 // Commit by Kolya asshole
@@ -8,8 +7,6 @@
 // Commit by Kolya asshole
 //
 
-=======
->>>>>>> parent of d99f24f... Revert "unipmortant_changes_EdDiE"
 Render::Render()
 {
 	Init();
