@@ -16,9 +16,10 @@ public:
 	~Texture_loader();
 
 	// Get texture by id
-	sf::Texture Get_texture(unsigned int id);
+	sf::Texture& Get_texture(unsigned int id);
 	static Texture_loader* Get() { return m_this; }
 protected:
+
 	static Texture_loader* m_this;
 
 	static std::vector<texture_t> m_textures;
