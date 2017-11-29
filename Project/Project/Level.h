@@ -1,6 +1,7 @@
 #pragma once
 /**
-* Base class for all levels
+*	Base class for all levels
+*	
 */
 
 class Level
@@ -15,10 +16,3 @@ public:
 protected:
 	const unsigned int m_id;
 };
-
-/* 
-*	MADE	YEAR
-*	BY	BITCH
-*	LEO		COME
-*	GASS	ON
-*/
