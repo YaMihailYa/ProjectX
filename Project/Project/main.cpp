@@ -11,6 +11,7 @@ int main()
 	Render *render = new Render;
 	render->Rendering();
 	delete render;
+
 	/*Player p;
 	p.Set_c_room(0);
 
