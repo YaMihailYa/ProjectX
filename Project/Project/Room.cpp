@@ -36,6 +36,7 @@ sf::IntRect Room::move_player(sf::IntRect old_coords, sf::IntRect new_coords, Di
 		}
 		else
 		{
+			Player::Get()->Set_c_room(m_id);
 			return new_coords;
 		}
 	}
@@ -57,7 +58,10 @@ sf::IntRect Room::move_player(sf::IntRect old_coords, sf::IntRect new_coords, Di
 			}
 		}
 		else
+		{
+			Player::Get()->Set_c_room(m_id);
 			return new_coords;
+		}
 	}
 	else
 		exit(EXIT_FAILURE);

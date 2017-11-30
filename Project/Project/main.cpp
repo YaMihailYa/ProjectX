@@ -22,14 +22,23 @@ int main()
 	r2.Set_right_room(&r3);
 	r3.Set_left_room(&r2);
 
+	std::vector<Room_regular*> rooms;
+	rooms.push_back(&r1);
+	rooms.push_back(&r2);
+	rooms.push_back(&r3);
+
 	sf::IntRect old_rect, new_rect;
 	old_rect.height = 0;
 	old_rect.top = 0;
 	new_rect.height = 0;
 	new_rect.top = 0;
+	sf::IntRect new_coords;
+	int dir;
 	while(true)
 	{
-		scanf("%f %f %f %f", )
+		scanf_s("%d %d %d %d %d", &old_rect.left, &old_rect.width, &new_rect.left, &new_rect.width, &dir);
+		new_coords = rooms[Player::Get()->Get_c_room()]->move_player(old_rect, new_rect, static_cast<Direction_t>(dir));
+		printf("new: %d %d %u\n", new_coords.left, new_coords.width, Player::Get()->Get_c_room());
 	}*/
 
 

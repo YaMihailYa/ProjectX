@@ -11,3 +11,8 @@ Static_Object::Static_Object()
 Static_Object::~Static_Object()
 {
 }
+
+void Static_Object::display(sf::RenderWindow *window)
+{
+
+}

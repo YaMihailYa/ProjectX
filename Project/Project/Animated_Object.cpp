@@ -17,3 +17,8 @@ void Animated_Object::animate(unsigned int time)
 {
 
 }
+
+void Animated_Object::display(sf::RenderWindow *window)
+{
+
+}
