@@ -19,7 +19,7 @@ protected:
 
 	static Texture_loader* m_this;
 
-	static std::map<int, sf::Texture*> m_textures;
+	std::map<int, sf::Texture*> m_textures;
 	// id of last loaded texture
 	int m_last_id;
 };
