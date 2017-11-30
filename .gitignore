@@ -303,6 +303,7 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 **/*.vcxproj
+**/*.vcxproj.filters
 
 # OpenCover UI analysis results
 OpenCover/
