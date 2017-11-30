@@ -9,6 +9,8 @@ Player::Player(unsigned int speed)
 	if (m_this != nullptr)
 		exit(EXIT_FAILURE);
 	m_this = this;
+
+	// m_rect = 
 }
 
 

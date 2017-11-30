@@ -21,6 +21,8 @@ public:
 
 	void Set_c_room(unsigned int id) { m_c_room_id = id; }
 	unsigned int Get_c_room() const { return m_c_room_id; }
+	
+	sf::IntRect Get_boundary() const { return m_rect; }
 protected:
 	static Player* m_this;
 
@@ -29,6 +31,7 @@ protected:
 	Animated_Object *m_right_anim;
 	Animated_Object *m_stay_anim;
 	sf::Vector2u m_c_pos;
+	sf::IntRect m_rect;
 	unsigned int m_speed; // pixels per MICROSECONDS
 
 	// ID of current room
