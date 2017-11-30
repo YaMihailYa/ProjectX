@@ -33,10 +33,10 @@
     <ClCompile Include="Texture_loader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Object.cpp">
+    <ClCompile Include="Animated_Object.cpp">
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="Animated_Object.cpp">
+    <ClCompile Include="Object.cpp">
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
     <ClCompile Include="Static_Object.cpp">
@@ -45,10 +45,13 @@
     <ClCompile Include="Animation_loader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Room.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
+    <ClCompile Include="Room_regular.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Room_regular.cpp">
@@ -71,22 +74,25 @@
     <ClInclude Include="Animated_Object.h">
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Static_Object.h">
+    <ClInclude Include="Object.h">
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Object.h">
+    <ClInclude Include="Static_Object.h">
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Animation_loader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Room.h">
+    <ClInclude Include="globals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="globals.h">
+    <ClInclude Include="Room.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_regular.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Room_regular.h">
