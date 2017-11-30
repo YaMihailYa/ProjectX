@@ -15,6 +15,8 @@ public:
 	// Display sprite
 	virtual void display(sf::RenderWindow *window) = 0;
 
+	sf::Sprite Get_sprite() const { return m_sprite; }
+
 protected:
 	sf::Sprite m_sprite;
 	const Object_t m_type;

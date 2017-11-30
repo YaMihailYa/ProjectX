@@ -1,14 +1,21 @@
 #pragma once
 #include "globals.h"
+#include "Animated_Object.h"
 
 class Player
 {
 public:
-	Player();
+	Player(unsigned int speed);
 	~Player();
 
-
+	/**
+	* Move player
+	* @param dir direction
+	* @param time time from last call of function 
+	*/
 	void Move(Direction_t dir, unsigned int time);
+
+	void display(sf::RenderWindow *window, unsigned int time);
 
 	static Player* Get() { return m_this; }
 
@@ -17,7 +24,12 @@ public:
 protected:
 	static Player* m_this;
 
-	sf::Sprite m_sprite;
+	//sf::Sprite m_sprite;
+	Animated_Object *m_left_anim;
+	Animated_Object *m_right_anim;
+	Animated_Object *m_stay_anim;
+	sf::Vector2u m_c_pos;
+	unsigned int m_speed; // pixels per MICROSECONDS
 
 	// ID of current room
 	unsigned int m_c_room_id;

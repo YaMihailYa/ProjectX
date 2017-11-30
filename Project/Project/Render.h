@@ -7,6 +7,8 @@ public:
 
 	// Start displaying objects
 	void Rendering();
+
+	
 private:
 	void Init();
 
