@@ -37,3 +37,8 @@ sf::Sprite Animation_loader::getSprite(unsigned int animation_id, unsigned int f
 {
 	return m_map_animations[animation_id][frame_id];
 }
+
+unsigned int Animation_loader::getNumberOfSprites(unsigned int id)
+{
+	return m_map_animations[id].size();
+}

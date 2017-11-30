@@ -4,10 +4,9 @@ class Animated_Object :
 	public Object
 {
 public:
-	Animated_Object(unsigned int fps, unsigned int m_frames_array);
+	Animated_Object(unsigned int fps, unsigned int frames_array);
 	~Animated_Object();
 
-	
 	void display(sf::RenderWindow *window);
 	/**
 	* Animate sprite
