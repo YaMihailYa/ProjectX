@@ -1,5 +1,7 @@
 #include "Animation_loader.h"
 
+Animation_loader* Animation_loader::m_this = nullptr;
+
 Animation_loader::Animation_loader()
 {
 	m_last_id = 0;

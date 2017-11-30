@@ -16,7 +16,9 @@ public:
 	void add(unsigned int texture_id, int countOfFrames);
 	sf::Sprite getSprite(unsigned int animation_id, unsigned int frame_id);
 
+	static Animation_loader* Get() { return m_this; }
 protected:
+	static Animation_loader* m_this;
 	std::map<int, std::vector<sf::Sprite>> m_map_animations;
 	unsigned int m_last_id;
 };
