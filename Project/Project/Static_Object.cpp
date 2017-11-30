@@ -21,5 +21,6 @@ Static_Object::~Static_Object()
 
 void Static_Object::display(sf::RenderWindow *window)
 {
-
+	// Drawing the sprite
+	window->draw(this->m_sprite);
 }

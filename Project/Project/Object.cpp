@@ -11,3 +11,8 @@ Object::Object(Object_t type)
 Object::~Object()
 {
 }
+
+
+void Object::setPosition(float _x, float _y) {
+	this->m_sprite.setPosition(_x, _y);
+}
