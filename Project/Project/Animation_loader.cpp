@@ -30,3 +30,8 @@ void Animation_loader::add(unsigned int texture_id, int countOfFrames)
 	m_map_animations.insert(std::pair<unsigned int, std::vector<sf::Sprite>>(m_last_id, animation));
 	m_last_id++;
 }
+
+sf::Sprite Animation_loader::getSprite(unsigned int animation_id, unsigned int frame_id)
+{
+	return m_map_animations[animation_id][frame_id];
+}

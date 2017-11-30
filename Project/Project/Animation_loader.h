@@ -14,10 +14,9 @@ public:
 	~Animation_loader();
 
 	void add(unsigned int texture_id, int countOfFrames);
-
+	sf::Sprite getSprite(unsigned int animation_id, unsigned int frame_id);
 
 protected:
-	//std::vector<Animation_t> m_animations;
 	std::map<int, std::vector<sf::Sprite>> m_map_animations;
 	unsigned int m_last_id;
 };
