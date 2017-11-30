@@ -21,10 +21,10 @@ void Animation_loader::add(unsigned int texture_id, int countOfFrames)
 	std::vector<sf::Sprite> animation;
 
 	for (int i = 0; i < countOfFrames; i++) {
-		sf::Sprite grandMa;
-		grandMa.setTexture(*texture);
-		grandMa.setTextureRect(sf::IntRect(i * objWidth, 0, objWidth, objHeight));
-		animation.push_back(grandMa);
+		sf::Sprite sprite;
+		sprite.setTexture(*texture);
+		sprite.setTextureRect(sf::IntRect(i * objWidth, 0, objWidth, objHeight));
+		animation.push_back(sprite);
 	}
 
 	m_map_animations.insert(std::pair<unsigned int, std::vector<sf::Sprite>>(m_last_id, animation));
