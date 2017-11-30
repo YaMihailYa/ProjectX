@@ -5,7 +5,7 @@ class Static_Object :
 	public Object
 {
 public:
-	Static_Object();
+	Static_Object(int id);
 	~Static_Object();
 
 	// Display sprite
