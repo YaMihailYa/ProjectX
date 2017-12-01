@@ -14,7 +14,7 @@ int main()
 	delete render;
 */
 	Texture_loader loader;
-	loader.Add_texture("img/Paused.png");
+	loader.Add_texture("img/background.png");
 
 	Render *render = new Render;
 	render->Rendering();
