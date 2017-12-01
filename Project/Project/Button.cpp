@@ -27,6 +27,7 @@ bool Button::isClicked()
 {
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
+		//printf("mouse\n");
 		// get global mouse position
 		sf::Vector2i position = sf::Mouse::getPosition();
 

@@ -1,6 +1,10 @@
 #include "Menu.h"
 
-Menu::Menu(unsigned int id) { menu = new Static_Object(id); }
+Menu::Menu(unsigned int id) 
+{
+	menu = new Static_Object(id);
+	temp = false;
+}
 
 Menu::~Menu() { }
 
@@ -22,7 +26,7 @@ void Menu::fillVectorButtons(menu_type_t type)
 	}
 	case PAUSE:
 	{
-		Button btn1 = Button(626, 772, 140, 92, PAUSE, BTN_NEXT_LEVEL);
+		Button btn1 = Button(626, 772, 140, 92, PAUSE, BTN_RESUME);
 		Button btn2 = Button(890, 767, 140, 92, PAUSE, BTN_LEVEL_SELECTION);
 		Button btn3 = Button(1153, 767, 140, 92, PAUSE, BTN_HOME);
 
@@ -61,64 +65,86 @@ void Menu::fillVectorButtons(menu_type_t type)
 
 void Menu::onClick()
 {
-	for (int i = 0; i < buttons.size(); i++) 
+	if (temp == false)
 	{
-		//BTN_START, BTN_OPTIONS, BTN_QUIT, BTN_NEXT_LEVEL, BTN_LEVEL_SELECTION, BTN_HOME, BTN_LEV_1, BTN_LEV_2, BTN_LEV_3
+		for (int i = 0; i < buttons.size(); i++)
+		{
+			//BTN_START, BTN_OPTIONS, BTN_QUIT, BTN_NEXT_LEVEL, BTN_LEVEL_SELECTION, BTN_HOME, BTN_LEV_1, BTN_LEV_2, BTN_LEV_3
 
-		if (!buttons[i].isClicked()) { continue; }
+			if (!buttons[i].isClicked()) { continue; }
 
-		if (buttons[i].getBtnName() == BTN_START) { printf("BTN_START\n"); }
-		else if (buttons[i].getBtnName() == BTN_OPTIONS) { printf("BTN_OPTIONS\n"); }
-		else if (buttons[i].getBtnName() == BTN_QUIT) { printf("BTN_QUIT\n"); }
-		
-		/*switch (buttons[i].getBtnName()) 
-		{
-		case BTN_START:
-		{
-			printf("BTN_START\n");
-			break;
+			btn_type_t btn = buttons[i].getBtnName();
+
+			switch (btn)
+			{
+			case BTN_START:
+			{
+				temp = true;
+				start();
+				break;
+			}
+			case BTN_OPTIONS:
+			{
+				temp = true;
+				options();
+				break;
+			}
+			case BTN_QUIT:
+			{
+				temp = true;
+				quit();
+				exit(0);
+				//break;
+			}
+			case BTN_RESUME:
+			{
+				temp = true;
+				resume();
+				break;
+			}
+			case BTN_NEXT_LEVEL:
+			{
+				temp = true;
+				next_level();
+				break;
+			}
+			case BTN_LEVEL_SELECTION:
+			{
+				temp = true;
+				level_selection();
+				break;
+			}
+			case BTN_HOME:
+			{
+				temp = true;
+				home();
+				break;
+			}
+			case BTN_LEV_1:
+			{
+				temp = true;
+				lev_1();
+				break;
+			}
+			case BTN_LEV_2:
+			{
+				temp = true;
+				lev_2();
+				break;
+			}
+			case BTN_LEV_3:
+			{
+				temp = true;
+				lev_3();
+				break;
+			}
+			}
+
+			if (temp == true)
+			{
+				break;
+			}
 		}
-		case BTN_OPTIONS:
-		{
-			printf("BTN_OPTIONS\n");
-			break;
-		}
-		case BTN_QUIT:
-		{
-			printf("BTN_QUIT\n");
-			break;
-		}
-		case BTN_NEXT_LEVEL: 
-		{
-			printf("BTN_NEXT_LEVEL\n");
-			break;
-		}
-		case BTN_LEVEL_SELECTION: 
-		{
-			printf("BTN_LEVEL_SELECTION\n");
-			break;
-		}
-		case BTN_HOME:
-		{
-			printf("BTN_HOME\n");
-			break;
-		}
-		case BTN_LEV_1: 
-		{
-			printf("BTN_LEV_1\n");
-			break;
-		}
-		case BTN_LEV_2: 
-		{
-			printf("BTN_LEV_2\n");
-			break;
-		}
-		case BTN_LEV_3: 
-		{
-			printf("BTN_LEV_3\n");
-			break;
-		}
-		}*/
 	}
 }
 
@@ -126,3 +152,58 @@ void Menu::display(sf::RenderWindow *window)
 {
 	menu->display(window);
 }
+
+void Menu::start()
+{
+	printf("BTN_START\n");
+}
+
+void Menu::options()
+{
+	printf("BTN_OPTIONS\n");
+}
+
+void Menu::quit()
+{
+	printf("BTN_QUIT\n");
+}
+
+void Menu::resume()
+{
+	printf("BTN_RESUME\n");
+}
+
+void Menu::next_level()
+{
+	printf("BTN_NEXT_LEVEL\n");
+}
+
+void Menu::level_selection()
+{
+	printf("BTN_LEVEL_SELECTION\n");
+}
+
+void Menu::home()
+{
+	printf("BTN_HOME\n");
+}
+
+void Menu::lev_1()
+{
+	printf("BTN_LEV_1\n");
+}
+
+void Menu::lev_2()
+{
+	printf("BTN_LEV_2\n");
+}
+
+void Menu::lev_3()
+{
+	printf("BTN_LEV_3\n");
+}
+
+
+
+
+
