@@ -13,6 +13,7 @@ public:
 
 	// Display sprite
 	void display(sf::RenderWindow *window);
+	void defHovered();
 
 
 protected:
