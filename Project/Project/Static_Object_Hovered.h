@@ -1,6 +1,12 @@
 #pragma once
 #include "Static_Object.h"
 
+/**
+*
+*	Objects that are hovered when player is nearly
+*
+*/
+
 class Static_Object_Hovered :
 	public Static_Object
 {
@@ -11,13 +17,15 @@ public:
 	void setIsHovered(bool _isHovered);
 	bool getIsHovered();
 
+	// Checking if door is need to be hovered
+	void checkHovered();
+
 	// Display sprite
 	void display(sf::RenderWindow *window);
-	void defHovered();
 
 
 protected:
-	sf::Sprite m_sprite_hovered;		// Same sprite with yellow outline
+	sf::Sprite m_sprite_hovered;			// Same sprite with yellow outline
 
 	bool m_isHovered;						// True if outline is needed (Player is nearly)
 

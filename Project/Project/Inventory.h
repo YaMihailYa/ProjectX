@@ -13,22 +13,34 @@
 struct Inventory_item_t
 {
 	Item_t type;
-	Static_Object* obj;
+	Static_Object *obj;
+	Inventory_item_t::Inventory_item_t() { }
+	Inventory_item_t::Inventory_item_t(Item_t &_type, Static_Object &_obj)
+	{
+		type = _type;
+		obj = &_obj;
+	}
 };
 
 class Inventory
 {
+private:
+	sf::Vector2<float> begin_draw_pos;
+	
+
 public:
 	Inventory(sf::IntRect rect);
 	~Inventory();
 
-	//void add_item(Item_t);
-	//void display(sf::RenderWindow *window);
+	
+	void add_item(Item_t&);
+	bool change_item(Item_t&);
+	void del_item(Item_t *item);
+	void display(sf::RenderWindow &window);
 	
 
 protected:
 	std::vector<Inventory_item_t> m_items;
-
 	sf::IntRect m_rect;
 };
 
