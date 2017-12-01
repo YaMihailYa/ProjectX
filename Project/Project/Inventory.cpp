@@ -13,9 +13,8 @@ Inventory::~Inventory()
 	if (m_items.empty())
 		for (int i = 0; i < m_items.size(); i++)
 		{
-			Inventory_item_t * temp = &m_items[i];
+			delete m_items[i].obj;
 			m_items.erase(m_items.begin() + (i - 1));
-			delete temp;
 		}
 }
 
@@ -41,9 +40,8 @@ void Inventory::del_item(Item_t * item)
 	for (int i = 0; i < m_items.size(); i++)
 		if (m_items[i].type._type == item->_type)
 		{
-			Inventory_item_t * temp = &m_items[i];
+			delete m_items[i].obj;
 			m_items.erase(m_items.begin() + (i - 1));
-			delete temp;
 		}
 	return;
 }
