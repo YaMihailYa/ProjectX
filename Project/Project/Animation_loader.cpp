@@ -1,5 +1,7 @@
 #include "Animation_loader.h"
 
+Animation_loader* Animation_loader::m_this = nullptr;
+
 Animation_loader::Animation_loader()
 {
 	m_last_id = 0;
@@ -34,4 +36,9 @@ void Animation_loader::add(unsigned int texture_id, int countOfFrames)
 sf::Sprite Animation_loader::getSprite(unsigned int animation_id, unsigned int frame_id)
 {
 	return m_map_animations[animation_id][frame_id];
+}
+
+unsigned int Animation_loader::getNumberOfSprites(unsigned int id)
+{
+	return m_map_animations[id].size();
 }
