@@ -19,6 +19,15 @@ Room::Room(Room_t type, unsigned int id, sf::IntRect rect, bool enterable)
 
 Room::~Room()
 {
+	for (int i = 0; i < this->m_staticObjects.size(); i++)
+	{
+		delete this->m_staticObjects[i];
+	}
+
+	for (int i = 0; i < this->m_animatedObjects.size(); i++)
+	{
+		delete this->m_animatedObjects[i];
+	}
 }
 
 sf::Vector2u Room::move_player(sf::Vector2u old_coords, sf::Vector2u new_coords, Direction_t dir)
@@ -71,4 +80,32 @@ sf::Vector2u Room::move_player(sf::Vector2u old_coords, sf::Vector2u new_coords,
 	}
 	else
 		exit(EXIT_FAILURE);
+}
+
+
+void Room::setStaticObjects(std::vector<Static_Object_Hovered*> _staticObjects)
+{
+	this->m_staticObjects = _staticObjects;
+}
+
+
+void Room::setAnimatedObjects(std::vector<Animated_Object*> _animatedObjects)
+{
+	this->m_animatedObjects = _animatedObjects;
+}
+
+
+void Room::display(sf::RenderWindow *window, unsigned int time) {
+	// Displaying static objects
+	for (int i = 0; i < this->m_staticObjects.size(); i++)
+	{
+		this->m_staticObjects[i]->display(window);
+	}
+
+	// Displaying animated objects
+	for (int i = 0; i < this->m_animatedObjects.size(); i++)
+	{
+		this->m_animatedObjects[i]->animate(time);
+		this->m_animatedObjects[i]->display(window);
+	}
 }

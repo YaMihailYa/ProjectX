@@ -59,6 +59,8 @@ void Static_Object_Hovered::checkHovered()
 
 void Static_Object_Hovered::display(sf::RenderWindow *window)
 {
+	this->checkHovered();
+
 	if (this->m_isHovered)
 	{
 		window->draw(this->m_sprite);
