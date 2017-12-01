@@ -1,6 +1,6 @@
 #include "Static_Object.h"
 #include "Texture_loader.h"
-
+#include "Render.h"
 
 
 Static_Object::Static_Object(int id)
@@ -12,6 +12,7 @@ Static_Object::Static_Object(int id)
 
 	this->m_sprite = sf::Sprite();
 	this->m_sprite.setTexture(*texture);
+	this->m_sprite.setScale(Render::Get()->Get_coef());
 }
 
 

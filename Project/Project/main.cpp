@@ -1,17 +1,24 @@
 #include "Render.h"
 #include "Room_regular.h"
 #include "Player.h"
-
+#include "Menu.h"
+#include "Texture_loader.h"
 /*
 |100|50|100|
 
 */
 int main()
 {
+	/*Render *render = new Render;
+	render->Rendering();
+	delete render;
+*/
+	Texture_loader loader;
+	loader.Add_texture("img/background.png");
+
 	Render *render = new Render;
 	render->Rendering();
 	delete render;
-
 	/*Player p;
 	p.Set_c_room(0);
 

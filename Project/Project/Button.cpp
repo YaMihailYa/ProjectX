@@ -1,8 +1,10 @@
 #include "Button.h"
+#include "Render.h"
 
 Button::Button(int x0, int y0, int width, int height, menu_type_t m_menu_name, btn_type_t m_btn_name)
 {
-	rectangle = sf::IntRect(x0, y0, width, height);
+	sf::Vector2f coef = Render::Get()->Get_coef();
+	rectangle = sf::IntRect(x0*coef.x, y0*coef.y, width*coef.x, height*coef.y);
 	this->m_menu_name = m_menu_name;
 	this->m_btn_name = m_btn_name;
 }

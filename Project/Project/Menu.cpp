@@ -65,43 +65,64 @@ void Menu::onClick()
 	{
 		//BTN_START, BTN_OPTIONS, BTN_QUIT, BTN_NEXT_LEVEL, BTN_LEVEL_SELECTION, BTN_HOME, BTN_LEV_1, BTN_LEV_2, BTN_LEV_3
 
-		switch (buttons[i].getBtnName()) {
-		case BTN_START: {
+		if (!buttons[i].isClicked()) { continue; }
 
+		if (buttons[i].getBtnName() == BTN_START) { printf("BTN_START\n"); }
+		else if (buttons[i].getBtnName() == BTN_OPTIONS) { printf("BTN_OPTIONS\n"); }
+		else if (buttons[i].getBtnName() == BTN_QUIT) { printf("BTN_QUIT\n"); }
+		
+		/*switch (buttons[i].getBtnName()) 
+		{
+		case BTN_START:
+		{
+			printf("BTN_START\n");
 			break;
 		}
-		case BTN_OPTIONS: {
-
+		case BTN_OPTIONS:
+		{
+			printf("BTN_OPTIONS\n");
 			break;
 		}
-		case BTN_QUIT: {
-
+		case BTN_QUIT:
+		{
+			printf("BTN_QUIT\n");
 			break;
 		}
-		case BTN_NEXT_LEVEL: {
-
+		case BTN_NEXT_LEVEL: 
+		{
+			printf("BTN_NEXT_LEVEL\n");
 			break;
 		}
-		case BTN_LEVEL_SELECTION: {
-
+		case BTN_LEVEL_SELECTION: 
+		{
+			printf("BTN_LEVEL_SELECTION\n");
 			break;
 		}
-		case BTN_HOME: {
-
+		case BTN_HOME:
+		{
+			printf("BTN_HOME\n");
 			break;
 		}
-		case BTN_LEV_1: {
-
+		case BTN_LEV_1: 
+		{
+			printf("BTN_LEV_1\n");
 			break;
 		}
-		case BTN_LEV_2: {
-
+		case BTN_LEV_2: 
+		{
+			printf("BTN_LEV_2\n");
 			break;
 		}
-		case BTN_LEV_3: {
-
+		case BTN_LEV_3: 
+		{
+			printf("BTN_LEV_3\n");
 			break;
 		}
-		}
+		}*/
 	}
+}
+
+void Menu::display(sf::RenderWindow *window)
+{
+	menu->display(window);
 }

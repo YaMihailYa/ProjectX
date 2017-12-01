@@ -1,11 +1,14 @@
 #include "Render.h"
-
+#include "Menu.h"
 
 Render* Render::m_this = nullptr;
 
 Render::Render()
 {
 	Init();
+	if (m_this != nullptr)
+		exit(EXIT_FAILURE);
+	m_this = this;
 }
 
 
@@ -29,6 +32,8 @@ void Render::Rendering()
 {
 	sf::Clock time_delay;
 	unsigned int time_delay_mcs; // Time passed from last iteration in MICROSECONDS
+	Menu m(0);
+	m.fillVectorButtons(menu_type_t::START);
 	while (m_window->isOpen())
 	{
 		time_delay_mcs = time_delay.getElapsedTime().asMicroseconds();
@@ -44,6 +49,8 @@ void Render::Rendering()
 		m_window->clear();
 
 		// Here display level
+		m.display(m_window);
+		m.onClick();
 		
 		m_window->display();
 	}

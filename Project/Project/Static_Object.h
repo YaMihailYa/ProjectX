@@ -7,7 +7,7 @@ class Static_Object :
 public:
 	Static_Object(int id);
 	~Static_Object();
-
+	
 	// Display sprite
 	void display(sf::RenderWindow *window);
 };
