@@ -12,21 +12,19 @@ Render::Render()
 	Init();
 }
 
-
 Render::~Render()
 {
 	delete m_window;
 }
 
-
 void Render::Init()
 {
 	// Create window
-	m_window = new sf::RenderWindow(sf::VideoMode(1920, 1080), "Game", sf::Style::Fullscreen);
+	m_window = new sf::RenderWindow(sf::VideoMode(800, 600), "Game");
 	// Calculate coef
 	sf::Vector2u window_size = m_window->getSize();
-	m_coef_x = window_size.x / 1920.0f;
-	m_coef_y = window_size.y / 1080.0f;
+	m_coef_x = window_size.x / 800.0f;
+	m_coef_y = window_size.y / 600.0f;
 }
 
 void Render::Rendering()

@@ -29,4 +29,10 @@ struct Item_t
 {
 	Items_category _type;
 	Colour_t _colour;
+	Item_t::Item_t() { }
+	Item_t::Item_t(Items_category type, Colour_t colour)
+	{
+		_type = type;
+		_colour = colour;
+	}
 };
