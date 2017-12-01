@@ -42,6 +42,5 @@ protected:
 
 	Room *m_right_room;
 	Room *m_left_room;
-
 };
 
