@@ -17,6 +17,8 @@ public:
 protected:
 	unsigned int m_all_time; // Time from begin of animation in MICROSECONDS
 	unsigned int m_fps; // Frames per SECONDS
-	unsigned int m_frames_array;
+	unsigned int m_frames_array_index;
+	unsigned int m_curr_frame_index;
+	unsigned int m_animation_time;
 };
 
