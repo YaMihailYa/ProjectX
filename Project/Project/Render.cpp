@@ -10,6 +10,8 @@ Render::Render()
 	if (m_this != nullptr)
 		exit(EXIT_FAILURE);
 	m_this = this;
+
+	this->m_status = RENDER_STATUS_MENU;
 }
 
 
