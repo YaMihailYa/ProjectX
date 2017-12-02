@@ -1,4 +1,4 @@
-#pragma once
+	#pragma once
 #include "Static_Object.h"
 
 /**
@@ -17,9 +17,6 @@ public:
 	void setIsHovered(bool _isHovered);
 	bool getIsHovered();
 
-	// Checking if door is need to be hovered
-	void checkHovered();
-
 	// Display sprite
 	void display(sf::RenderWindow *window);
 
@@ -28,5 +25,8 @@ protected:
 	sf::Sprite m_sprite_hovered;			// Same sprite with yellow outline
 
 	bool m_isHovered;						// True if outline is needed (Player is nearly)
+
+	// Checking if door is need to be hovered
+	void checkHovered();
 
 };

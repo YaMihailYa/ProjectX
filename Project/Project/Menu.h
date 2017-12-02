@@ -5,7 +5,7 @@
 class Menu
 {
 public:
-	Menu(unsigned int id);
+	Menu(menu_type_t type);
 	~Menu();
 
 	void fillVectorButtons(menu_type_t type);
@@ -13,7 +13,20 @@ public:
 
 	void display(sf::RenderWindow *window);
 
+	void start();
+	void options();
+	void quit();
+	void resume();
+	void again();
+	void next_level();
+	void level_selection();
+	void home();
+	void lev_1();
+	void lev_2();
+	void lev_3();
+
 private:
 	Static_Object* menu;
 	std::vector<Button> buttons;
+	bool temp;
 };
