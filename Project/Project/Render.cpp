@@ -148,28 +148,18 @@ void Render::Init()
 	m_textures->Add_texture("Resurses/Images/animations/grandfather/skins/pink/gf_left_pink.png");   // 84
 	m_textures->Add_texture("Resurses/Images/animations/grandfather/skins/pink/gf_right_pink.png");  // 85
 	// Load lootbox 
-<<<<<<< HEAD
-=======
-	m_textures->Add_texture("Resurses/Images/gameplay/lootbox.png");  // 86
-	// Load options
-	m_textures->Add_texture("Resurses/Images/interface/options/ball.png");				    // 87
-	m_textures->Add_texture("Resurses/Images/interface/options/blue_santa.png");			// 88
-	m_textures->Add_texture("Resurses/Images/interface/options/choosed_red_santa.png");     // 89
-	m_textures->Add_texture("Resurses/Images/interface/options/green_santa.png");			// 90
-	m_textures->Add_texture("Resurses/Images/interface/options/pink_santa.png");			// 91
-
-
->>>>>>> origin/master
 	m_textures->Add_texture("Resurses/Images/lootbox/lootbox.png");				 // 86
 	m_textures->Add_texture("Resurses/Images/lootbox/lootbox_blue_santa.png");   // 87
 	m_textures->Add_texture("Resurses/Images/lootbox/lootbox_green_santa.png");  // 88
 	m_textures->Add_texture("Resurses/Images/lootbox/lootbox_pink_santa.png");   // 89
+	
 	// Load options
 	m_textures->Add_texture("Resurses/Images/interface/options/ball.png");				    // 90
 	m_textures->Add_texture("Resurses/Images/interface/options/green_santa.png");			// 91
 	m_textures->Add_texture("Resurses/Images/interface/options/pink_santa.png");			// 92
 	m_textures->Add_texture("Resurses/Images/interface/options/blue_santa.png");			// 93
 	m_textures->Add_texture("Resurses/Images/interface/options/choosed_red_santa.png");     // 94
+	
 
 	// Initialization animations
 	// #grandfather
