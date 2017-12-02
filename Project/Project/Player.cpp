@@ -5,14 +5,18 @@
 Player* Player::m_this = nullptr;
 
 Player::Player(unsigned int speed)
-	: m_c_pos(sf::Vector2u(1416, 83)), m_target_pos(sf::Vector2u(1416, 83)), m_status(ANIMATION_STAY),
+	: m_c_pos(sf::Vector2u(1516, 181)), m_target_pos(sf::Vector2u(1516, 181)), m_status(ANIMATION_STAY),
 		m_c_room_id(0), m_clicked(false)
 {
 	if (m_this != nullptr)
 		exit(EXIT_FAILURE);
 	m_this = this;
 	
-	this->m_speed = speed * Render::Get()->Get_coef().x;
+	sf::Vector2f coef = Render::Get()->Get_coef();
+	this->m_speed = speed * coef.x;
+	m_c_pos.x *= coef.x;
+	m_c_pos.y *= coef.y;
+	m_target_pos = m_c_pos;
 
 	this->m_left_anim = new Animated_Object(25, 0);
 	this->m_right_anim = new Animated_Object(25, 1);
@@ -79,22 +83,26 @@ void Player::display(sf::RenderWindow *window, unsigned int time)
 		}		
 	}
 
+
 	// Displaying the player
 	switch (m_status)
 	{
-	case ANIMATION_STAY:
+	case ANIMATION_STAY:	
 		m_stay_anim->animate(time);
-		m_stay_anim->setPosition(m_c_pos.x, m_c_pos.y);
+		m_rect = (sf::IntRect) m_stay_anim->Get_sprite().getGlobalBounds();
+		m_stay_anim->setPosition(m_c_pos.x - m_rect.width / 2., m_c_pos.y - m_rect.width / 2.);
 		m_stay_anim->display(window);
 		break;
 	case ANIMATION_LEFT:
 		m_left_anim->animate(time);
-		m_left_anim->setPosition(m_c_pos.x, m_c_pos.y);
+		m_rect = (sf::IntRect) m_left_anim->Get_sprite().getGlobalBounds();
+		m_left_anim->setPosition(m_c_pos.x - m_rect.width / 2., m_c_pos.y - m_rect.height / 2.);
 		m_left_anim->display(window);
 		break;
 	case ANIMATION_RIGHT:
 		m_right_anim->animate(time);
-		m_right_anim->setPosition(m_c_pos.x, m_c_pos.y);
+		m_rect = (sf::IntRect) m_right_anim->Get_sprite().getGlobalBounds();
+		m_right_anim->setPosition(m_c_pos.x - m_rect.width / 2., m_c_pos.y - m_rect.height / 2.);
 		m_right_anim->display(window);
 		break;
 	default:
