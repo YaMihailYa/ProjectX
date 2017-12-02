@@ -116,6 +116,13 @@ void Render::Init()
 	m_textures->Add_texture("Resurses/Images/gameplay/small_items/keys/key_YELLOW.png");	// 62
 	// gameplay_folder
 	m_textures->Add_texture("Resurses/Images/gameplay/panel.png");	// 63
+	// Load levels
+	m_textures->Add_texture("Resurses/Images/levels/level1.png");	// 64
+	m_textures->Add_texture("Resurses/Images/levels/level2.png");	// 65
+	m_textures->Add_texture("Resurses/Images/levels/level3.png");	// 66
+																
+
+
 
 
 	// Initialization animations
