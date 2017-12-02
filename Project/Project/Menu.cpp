@@ -431,7 +431,7 @@ void Menu::lev_1()
 {
 	printf("BTN_LEV_1\n");
 	
-	/*// Preparing to creating the level
+	// Preparing to creating the level
 	// Creating the background
 	Static_Object *background = new Static_Object(64);
 
@@ -461,8 +461,8 @@ void Menu::lev_1()
 	// Room 1
 	Room_Tree *currTreeRoom = new Room_Tree(TREE, 1, sf::IntRect(568, 24, 606, 285));
 
-	std::vector<Static_Object_Hovered*> staticObjects;
-	std::vector<Animated_Object*> animatedObjects;
+	staticObjects.clear();
+	animatedObjects.clear();
 
 	currTreeRoom->setStaticObjects(staticObjects);
 	currTreeRoom->setAnimatedObjects(animatedObjects);
@@ -475,10 +475,10 @@ void Menu::lev_1()
 	// Room 3
 	currRoom = new Room(REGULAR, 2, sf::IntRect(568, 332, 606, 285));
 
-	std::vector<Static_Object_Hovered*> staticObjects;
-	std::vector<Animated_Object*> animatedObjects;
+	staticObjects.clear();
+	animatedObjects.clear();
 
-	Static_Object_Hovered *currStaticObject = new Static_Object_Hovered(48, 49);		// Sofa
+	currStaticObject = new Static_Object_Hovered(48, 49);		// Sofa
 	currStaticObject->setPosition(766, 361);
 	staticObjects.push_back(currStaticObject);
 
@@ -492,7 +492,10 @@ void Menu::lev_1()
 
 	// ...
 
-	Level *level = new Level(1, background, rooms, doors);*/
+	Level *level = new Level(1, background, rooms, doors);
+
+	Render::Get()->setStatus(RENDER_STATUS_GAME);
+	Render::Get()->setLevel(level);
 }
 
 void Menu::lev_2()
