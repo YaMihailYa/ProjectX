@@ -1,19 +1,34 @@
 #include "Menu.h"
 
-Menu::Menu(unsigned int id) 
+Menu::Menu(menu_type_t type) 
 {
-	menu = new Static_Object(id);
+	menu = nullptr;
 	temp = false;
+	fillVectorButtons(type);
+	
 }
 
 Menu::~Menu() { }
 
 void Menu::fillVectorButtons(menu_type_t type)
 {
+	if (menu != nullptr)
+	{
+		delete menu;
+		menu = nullptr;
+	}
+
+	if (buttons.size() != 0)
+	{
+		buttons.clear();
+	}
+
 	switch (type)
 	{
 	case START:
 	{
+		menu = new Static_Object(0);
+
 		Button btn1 = Button(760, 335, 458, 140, START, BTN_START);
 		Button btn2 = Button(760, 551, 458, 140, START, BTN_OPTIONS);
 		Button btn3 = Button(760, 769, 458, 140, START, BTN_QUIT);
@@ -26,6 +41,8 @@ void Menu::fillVectorButtons(menu_type_t type)
 	}
 	case PAUSE:
 	{
+		menu = new Static_Object(1);
+
 		Button btn1 = Button(626, 772, 140, 92, PAUSE, BTN_RESUME);
 		Button btn2 = Button(890, 767, 140, 92, PAUSE, BTN_LEVEL_SELECTION);
 		Button btn3 = Button(1153, 767, 140, 92, PAUSE, BTN_HOME);
@@ -38,9 +55,25 @@ void Menu::fillVectorButtons(menu_type_t type)
 	}
 	case LEVEL_END:
 	{
+		menu = new Static_Object(2);
+
 		Button btn1 = Button(626, 772, 140, 92, LEVEL_END, BTN_NEXT_LEVEL);
 		Button btn2 = Button(890, 767, 140, 92, LEVEL_END, BTN_LEVEL_SELECTION);
 		Button btn3 = Button(1153, 767, 140, 92, LEVEL_END, BTN_HOME);
+
+		buttons.push_back(btn1);
+		buttons.push_back(btn2);
+		buttons.push_back(btn3);
+		
+		break;
+	}
+	case LEVEL_FAILED:
+	{
+		menu = new Static_Object(3);
+
+		Button btn1 = Button(626, 772, 140, 92, LEVEL_FAILED, BTN_AGAIN);
+		Button btn2 = Button(890, 767, 140, 92, LEVEL_FAILED, BTN_LEVEL_SELECTION);
+		Button btn3 = Button(1153, 767, 140, 92, LEVEL_FAILED, BTN_HOME);
 
 		buttons.push_back(btn1);
 		buttons.push_back(btn2);
@@ -50,6 +83,8 @@ void Menu::fillVectorButtons(menu_type_t type)
 	}
 	case LEVEL_SELECTION:
 	{
+		menu = new Static_Object(4);
+
 		Button btn1 = Button(670, 271, 184, 128, LEVEL_SELECTION, BTN_LEV_1);
 		Button btn2 = Button(871, 271, 184, 128, LEVEL_SELECTION, BTN_LEV_2);
 		Button btn3 = Button(1072, 271, 184, 128, LEVEL_SELECTION, BTN_LEV_3);
@@ -100,6 +135,12 @@ void Menu::onClick()
 			{
 				temp = true;
 				resume();
+				break;
+			}
+			case BTN_AGAIN:
+			{
+				temp = true;
+				again();
 				break;
 			}
 			case BTN_NEXT_LEVEL:
@@ -172,6 +213,12 @@ void Menu::resume()
 {
 	printf("BTN_RESUME\n");
 }
+
+void Menu::again()
+{
+	printf("BTN_AGAIN\n");
+}
+
 
 void Menu::next_level()
 {

@@ -32,7 +32,7 @@ void Render::Rendering()
 {
 	sf::Clock time_delay;
 	unsigned int time_delay_mcs; // Time passed from last iteration in MICROSECONDS
-	Menu m(0);
+	Menu m(START);
 	m.fillVectorButtons(menu_type_t::START);
 	while (m_window->isOpen())
 	{

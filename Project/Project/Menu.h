@@ -5,7 +5,7 @@
 class Menu
 {
 public:
-	Menu(unsigned int id);
+	Menu(menu_type_t type);
 	~Menu();
 
 	void fillVectorButtons(menu_type_t type);
@@ -17,6 +17,7 @@ public:
 	void options();
 	void quit();
 	void resume();
+	void again();
 	void next_level();
 	void level_selection();
 	void home();
