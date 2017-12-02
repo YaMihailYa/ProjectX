@@ -30,7 +30,10 @@ void Room_Grandma::setGrandmaPosition(float _x, float _y)
 
 void Room_Grandma::display(sf::RenderWindow *window, unsigned int time)
 {
-	this->m_passedTime += time;
+	if (Render::Get()->Get_c_level()->Get_status() == LEVEL_STATUS_GAME)
+	{
+		this->m_passedTime += time;
+	}
 	
 	// If it is time to change the phase
 	if (this->m_passedTime >= this->m_timeOfPhase)

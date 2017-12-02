@@ -73,7 +73,10 @@ void Room_Dog::display(sf::RenderWindow *window, unsigned int time)
 	}
 	case ACTIVE:
 	{
-		this->m_passedTime += time;
+		if (Render::Get()->Get_c_level()->Get_status() == LEVEL_STATUS_GAME)
+		{
+			this->m_passedTime += time;
+		}
 		
 		// If it is time to finish the game
 		if (this->m_passedTime >= this->m_timeOfBarking)

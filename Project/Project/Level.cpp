@@ -18,31 +18,51 @@ Level::~Level()
 
 void Level::Display(sf::RenderWindow *window, unsigned int _time)
 {
+	// Displaying background
+	this->m_backGround->display(window);
+
+	// Displaying the rooms
+	int roomsSize = this->m_rooms.size();
+	for (int i = 0; i < roomsSize; i++)
+	{
+		this->m_rooms[i]->display(window, _time);
+	}
+
+	// Displaying the backgrounds of doors
+	int doorsSize = this->m_doors.size();
+	for (int i = 0; i < doorsSize; i++)
+	{
+		this->m_doors[i]->display_background(window);
+	}
+
+	// Displaying the player
+	this->m_player->display(window, _time);
+
+	// Displaying the foregrounds of doors
+	for (int i = 0; i < doorsSize; i++)
+	{
+		this->m_doors[i]->display_foreground(window);
+	}
+
+	// If not active game
 	switch (this->m_status)
 	{
-	case LEVEL_STATUS_GAME:
+	case LEVEL_STATUS_PAUSE: {
+
+
+		break;
+	}
+	case LEVEL_STATUS_END:
 	{
-		// Displaying background
-		this->m_backGround->display(window);
-
-		// Displaying the rooms
-		int roomsSize = this->m_rooms.size();
-		for (int i = 0; i < roomsSize; i++)
-		{
-			this->m_rooms[i]->display(window, _time);
-		}
-
-		// Displaying the backgrounds of doors
-		int doorsSize = this->m_doors.size();
-		for (int i = 0; i < doorsSize; i++)
-		{
-			this->m_doors[i]->display_background(window);
-		}
-
-		// Displaying the player
-		this->m_player->display(window, _time);
 
 
+		break;
+	}
+	case LEVEL_STATUS_FAILED:
+	{
+
+
+		break;
 	}
 	default:
 		break;

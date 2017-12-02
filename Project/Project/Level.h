@@ -26,7 +26,9 @@ public:
 	void Display(sf::RenderWindow *window, unsigned int _time);
 
 	Room* Get_room_by_id(unsigned int room_id) { return m_rooms[room_id]; }
+
 	void Set_status(Level_status_t status) { m_status = status; }
+	Level_status_t Get_status() { return this->m_status; }
 
 	std::vector<Room*> Get_rooms() { return m_rooms; }
 	int Get_quantity_of_rooms() { return m_rooms.size(); }

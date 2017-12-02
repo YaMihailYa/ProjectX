@@ -1,5 +1,6 @@
 #include "Room.h"
 #include "Player.h"
+#include "Render.h"
 
 
 Room::Room(Room_t type, unsigned int id, sf::IntRect rect, bool enterable)
@@ -171,7 +172,11 @@ void Room::display(sf::RenderWindow *window, unsigned int time) {
 	// Displaying animated objects
 	for (int i = 0; i < this->m_animatedObjects.size(); i++)
 	{
-		this->m_animatedObjects[i]->animate(time);
+		if (Render::Get()->Get_c_level()->Get_status() == LEVEL_STATUS_GAME)
+		{
+			this->m_animatedObjects[i]->animate(time);
+		}
+
 		this->m_animatedObjects[i]->display(window);
 	}
 }
