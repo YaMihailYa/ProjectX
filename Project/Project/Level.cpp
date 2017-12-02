@@ -59,6 +59,7 @@ void Level::Display(sf::RenderWindow *window, unsigned int _time)
 	}
 
 	// Displaying the player
+	this->m_player->Move();
 	this->m_player->display(window, _time);
 
 	// Displaying the foregrounds of doors
