@@ -308,9 +308,9 @@ void Menu::display(sf::RenderWindow *window)
 		}
 		}
 
-		cook1->setPosition(Render::Get()->Get_coef().x * 671, Render::Get()->Get_coef().y * 357);
-		cook2->setPosition(Render::Get()->Get_coef().x * 871, Render::Get()->Get_coef().y * 357);
-		cook3->setPosition(Render::Get()->Get_coef().x * 1071, Render::Get()->Get_coef().y * 357);
+		cook1->setPosition(671, 357);
+		cook2->setPosition(871, 357);
+		cook3->setPosition(1071, 357);
 
 		cook1->display(window);
 		cook2->display(window);
