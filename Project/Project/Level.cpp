@@ -71,19 +71,19 @@ void Level::Display(sf::RenderWindow *window, unsigned int _time)
 	switch (this->m_status)
 	{
 	case LEVEL_STATUS_PAUSE: {
-
+		Menu::Get()->display(window);
 
 		break;
 	}
 	case LEVEL_STATUS_END:
 	{
-
+		Menu::Get()->display(window);
 
 		break;
 	}
 	case LEVEL_STATUS_FAILED:
 	{
-
+		Menu::Get()->display(window);
 
 		break;
 	}
