@@ -120,7 +120,14 @@ void Render::Init()
 	m_textures->Add_texture("Resurses/Images/levels/level1.png");	// 64
 	m_textures->Add_texture("Resurses/Images/levels/level2.png");	// 65
 	m_textures->Add_texture("Resurses/Images/levels/level3.png");	// 66
-																
+	// Load level result
+	// #Interface level result
+	m_textures->Add_texture("Resurses/Images/interface/level_result/0_cookies.png");	// 67
+	m_textures->Add_texture("Resurses/Images/interface/level_result/1_cookies.png");	// 68
+	m_textures->Add_texture("Resurses/Images/interface/level_result/2_cookies.png");	// 69
+	m_textures->Add_texture("Resurses/Images/interface/level_result/3_cookies.png");	// 70
+
+
 
 
 
