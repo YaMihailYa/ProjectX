@@ -10,6 +10,7 @@ public:
 
 	void fillVectorButtons(menu_type_t type);
 	void onClick();
+	void onKeyClick();
 
 	void display(sf::RenderWindow *window);
 

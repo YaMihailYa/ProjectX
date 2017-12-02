@@ -132,7 +132,7 @@ void Menu::onClick()
 			}
 			case BTN_OPTIONS:
 			{
-				temp = true;
+				//temp = true;
 				options();
 				break;
 			}
