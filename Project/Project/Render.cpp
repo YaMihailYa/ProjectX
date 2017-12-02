@@ -1,4 +1,5 @@
 #include "Render.h"
+#include "Level.h"
 #include "Menu.h"
 
 Render* Render::m_this = nullptr;
@@ -183,11 +184,18 @@ void Render::Init()
 
 void Render::Rendering()
 {
+	//Menu *m = new Menu(menu_type_t::START);
 	sf::Clock time_delay;
 	unsigned int time_delay_mcs; // Time passed from last iteration in MICROSECONDS
-	Menu m(START);
+	//Menu m(START);
 	//m.fillVectorButtons(menu_type_t::START);
-
+	/*std::vector<Room*> s1;
+	std::vector<Door*> s2;
+	s1.push_back(new Room(REGULAR, 0, sf::IntRect(504, 24, 734, 285), true));
+	s1.push_back(new Room(REGULAR, 1, sf::IntRect(504, 331, 734, 285), true));*/
+	
+	//m_c_level = new Level(0, new Static_Object(64), s1, s2, sf::Vector2f(1416, 203));
+	
 	while (m_window->isOpen())
 	{
 		time_delay_mcs = time_delay.getElapsedTime().asMicroseconds();
@@ -203,10 +211,12 @@ void Render::Rendering()
 		m_window->clear();
 
 		// Here display level
-		m.display(m_window);
+		/*m.display(m_window);
 		m.onKeyClick();
-		m.onClick();
-		
+		m.onClick();*/
+		//s.Display(m_window, time_delay_mcs);
+		//Player::Get()->Move();
+		//m_c_level->Display(m_window, time_delay_mcs);
 		m_window->display();
 	}
 }

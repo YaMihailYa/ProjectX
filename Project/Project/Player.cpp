@@ -11,17 +11,15 @@ Player::Player(unsigned int speed)
 	if (m_this != nullptr)
 		exit(EXIT_FAILURE);
 	m_this = this;
-
-	sf::IntRect s;
-	// m_rect = 
 	
 	this->m_speed = speed * Render::Get()->Get_coef().x;
 
 	this->m_left_anim = new Animated_Object(25, 0);
 	this->m_right_anim = new Animated_Object(25, 1);
-	this->m_stay_anim = new Animated_Object(25, 2);
+	this->m_stay_anim = new Animated_Object(10, 2);
 
-	this->m_rect = (sf::IntRect) this->m_stay_anim->Get_sprite().getGlobalBounds();
+	//this->m_rect = (sf::IntRect) this->m_stay_anim->Get_sprite().getGlobalBounds();
+	m_rect = (sf::IntRect)Animation_loader::Get()->getSprite(2, 0).getGlobalBounds();
 }
 
 
@@ -33,6 +31,9 @@ Player::~Player()
 
 void Player::display(sf::RenderWindow *window, unsigned int time)
 {
+	//m_status = ANIMATION_STAY;
+	//move_to_x_coord(m_target_pos.x, time);
+
 	this->m_clicked = false;
 
 	if (!this->m_move_directions.empty())
@@ -184,7 +185,7 @@ void Player::move_to_x_coord(float _xCoord, unsigned int _time)
 			this->m_c_pos.x = _xCoord;
 		}
 	}
-	else
+	else if (m_c_pos.x > _xCoord)
 	{
 		// Moving left
 		this->m_status = ANIMATION_LEFT;

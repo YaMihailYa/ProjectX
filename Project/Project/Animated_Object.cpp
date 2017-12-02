@@ -21,12 +21,19 @@ void Animated_Object::animate(unsigned int time)
 	Animation_loader* loader = Animation_loader::Get();
 	int count_frames = loader->getNumberOfSprites(m_frames_array_index);
 	int time_frame = m_animation_time / count_frames;
-
+/*
 	m_all_time += time;
 
 	int frame_we_need_id = m_all_time / time_frame;
 
-	m_sprite = loader->getSprite(m_frames_array_index, frame_we_need_id);
+	m_sprite = loader->getSprite(m_frames_array_index, frame_we_need_id);*/
+	
+	m_all_time += time;
+	m_all_time %= count_frames*time_frame;
+	m_sprite = Animation_loader::Get()->getSprite(m_frames_array_index, (unsigned int)(((float)m_all_time) / ((float)m_animation_time)*count_frames));
+	
+	//m_sprite = Animation_loader::Get()->getSprite(m_frames_array_index, 0);
+
 }
 
 void Animated_Object::display(sf::RenderWindow *window)
