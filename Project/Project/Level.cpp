@@ -2,13 +2,49 @@
 
 
 
-Level::Level(unsigned int id)
-	:m_id(id)
+Level::Level(unsigned int id, Static_Object *_backGround, std::vector<Room*> _rooms,
+	std::vector<Door*> _doors, sf::Vector2f player)
+	:m_id(id), m_backGround(_backGround), m_rooms(_rooms), m_doors(_doors), m_status(LEVEL_STATUS_GAME)
 {
-
+	this->m_player = new Player(100);
 }
 
 
 Level::~Level()
 {
+	delete this->m_player;
+}
+
+
+void Level::Display(sf::RenderWindow *window, unsigned int _time)
+{
+	switch (this->m_status)
+	{
+	case LEVEL_STATUS_GAME:
+	{
+		// Displaying background
+		this->m_backGround->display(window);
+
+		// Displaying the rooms
+		int roomsSize = this->m_rooms.size();
+		for (int i = 0; i < roomsSize; i++)
+		{
+			this->m_rooms[i]->display(window, _time);
+		}
+
+		// Displaying the backgrounds of doors
+		int doorsSize = this->m_doors.size();
+		for (int i = 0; i < doorsSize; i++)
+		{
+			this->m_doors[i]->display_background(window);
+		}
+
+		// Displaying the player
+		this->m_player->display(window, _time);
+
+
+	}
+	default:
+		break;
+	}
 }

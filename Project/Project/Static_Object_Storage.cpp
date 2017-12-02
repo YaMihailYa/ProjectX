@@ -1,5 +1,6 @@
 #include "Static_Object_Storage.h"
 #include "Inventory.h"
+#include "Player.h"
 
 Static_Object_Storage::Static_Object_Storage(int id_main, int id_hovered, std::vector<Item_t> _items)
 	: Static_Object_Hovered(id_main, id_hovered)
@@ -34,7 +35,8 @@ void Static_Object_Storage::clearItems()
 
 void Static_Object_Storage::checkClickOnThis()
 {
-	if (/* ... */  false)
+	if (Player::Get()->Get_clicked() && 
+		this->m_sprite.getGlobalBounds().contains((sf::Vector2f) Player::Get()->Get_c_pos()))
 	{
 		Inventory *inventory = Inventory::Get();
 

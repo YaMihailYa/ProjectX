@@ -1,16 +1,17 @@
 #include "Room_Tree.h"
 #include "Render.h"
+#include "Player.h"
 
 Room_Tree::Room_Tree(Room_t type, unsigned int id, sf::IntRect rect, bool enterable)
 	: Room(type, id, rect, enterable)
 {
-	this->m_tree = new Static_Object_Hovered(0, 0);
+	this->m_tree = new Static_Object_Hovered(72, 73);
 }
 
 
 Room_Tree::~Room_Tree()
 {
-
+	delete this->m_tree;
 }
 
 
@@ -32,8 +33,11 @@ void Room_Tree::display(sf::RenderWindow *window, unsigned int time)
 
 void Room_Tree::checkClicked()
 {
-	if (/* ... */ false)
+	if (Player::Get()->Get_clicked())
 	{
-		Render::Get()->Set_level_status(LEVEL_STATUS_FAILED);
+		if (this->m_tree->Get_sprite().getGlobalBounds().contains((sf::Vector2f) Player::Get()->Get_c_pos()))
+		{
+			Render::Get()->Set_level_status(LEVEL_STATUS_FAILED);
+		}
 	}
 }

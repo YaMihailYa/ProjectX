@@ -10,9 +10,9 @@ Room_Dog::Room_Dog(Room_t type, unsigned int id, sf::IntRect rect, bool enterabl
 	this->m_currentState = PASSIVE;
 	this->m_passedTime = 0;
 
-	this->m_dogPassive = new Animated_Object(25, 0);
-	this->m_dogActive = new Animated_Object_Hovered(25, 0, 0);
-	this->m_dogFinished = new Animated_Object(25, 0);
+	this->m_dogPassive = new Animated_Object(25, 7);
+	this->m_dogActive = new Animated_Object_Hovered(25, 5, 5);
+	this->m_dogFinished = new Animated_Object(25, 6);
 }
 
 
@@ -50,13 +50,17 @@ void Room_Dog::display(sf::RenderWindow *window, unsigned int time)
 			this->m_currentState = PASSIVE;
 		}
 		// If throwing the bone
-		else if (this->m_currentState == ACTIVE && Inventory::Get()->checkElement(_bone) &&
-				/* ... */ false)
+		else if (Player::Get()->Get_clicked())
 		{
-			this->m_currentState = FINISHED;
+			// Checking that click was on the dog
+			if (this->m_currentState == ACTIVE && Inventory::Get()->checkElement(_bone) &&
+				this->m_dogActive->Get_sprite().getGlobalBounds().contains((sf::Vector2f) Player::Get()->Get_c_pos()))
+			{
+				this->m_currentState = FINISHED;
 
-			// Removing the bone from inventory
-			Inventory::Get()->del_item(_bone);
+				// Removing the bone from inventory
+				Inventory::Get()->del_item(_bone);
+			}			
 		}
 	}
 

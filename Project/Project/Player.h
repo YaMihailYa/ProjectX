@@ -29,11 +29,13 @@ public:
 
 	static Player* Get() { return m_this; }
 
-	void Set_c_pos(sf::Vector2u c_pos) { m_c_pos = c_pos; }
+	void Set_pos(sf::Vector2f pos) { m_pos = pos; }
+	void Set_c_pos(sf::Vector2f c_pos) { m_c_pos = c_pos; }
 	void Set_c_room(unsigned int id) { m_c_room_id = id; }
 
 	bool Get_clicked() const { return this->m_clicked; }
-	sf::Vector2u Get_c_pos() const { return m_c_pos; }
+	sf::Vector2f Get_pos() const { return m_pos; }
+	sf::Vector2f Get_c_pos() const { return m_c_pos; }
 	unsigned int Get_c_room() const { return m_c_room_id; }
 	
 	sf::IntRect Get_boundary() const { return m_rect; }
@@ -48,14 +50,14 @@ protected:
 	Animated_Object *m_right_anim;
 	Animated_Object *m_stay_anim;
 
+	sf::Vector2f m_pos;
+	sf::Vector2f m_c_pos;
+	sf::Vector2f m_target_pos;
 
-	sf::Vector2u m_c_pos;
-	sf::Vector2u m_target_pos;
-	sf::Vector2u m_next_pos;
 	std::vector<Direction_t> m_move_directions;
 
 	sf::IntRect m_rect;
-	unsigned int m_speed; // pixels per MICROSECONDS
+	unsigned int m_speed; // pixels per SECONDS
 
 	// When player comes to the point of mouse click
 	bool m_clicked;

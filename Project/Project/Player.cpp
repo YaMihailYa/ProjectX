@@ -5,7 +5,8 @@
 Player* Player::m_this = nullptr;
 
 Player::Player(unsigned int speed)
-	: m_c_pos(sf::Vector2u(100, 100)), m_status(ANIMATION_STAY)
+	: m_c_pos(sf::Vector2u(1416, 83)), m_target_pos(sf::Vector2u(1416, 83)), m_status(ANIMATION_STAY),
+		m_c_room_id(0), m_clicked(false)
 {
 	if (m_this != nullptr)
 		exit(EXIT_FAILURE);
@@ -13,9 +14,14 @@ Player::Player(unsigned int speed)
 
 	sf::IntRect s;
 	// m_rect = 
-	this->m_clicked = false;
-
+	
 	this->m_speed = speed * Render::Get()->Get_coef().x;
+
+	this->m_left_anim = new Animated_Object(25, 0);
+	this->m_right_anim = new Animated_Object(25, 1);
+	this->m_stay_anim = new Animated_Object(25, 2);
+
+	this->m_rect = (sf::IntRect) this->m_stay_anim->Get_sprite().getGlobalBounds();
 }
 
 
@@ -130,9 +136,9 @@ void Player::Move(/*Direction_t dir, unsigned int time*/)
 {
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
 	{
-		sf::Vector2u tagretPosCopy = m_target_pos;
+		sf::Vector2f tagretPosCopy = m_target_pos;
 
-		m_target_pos = sf::Vector2u(sf::Mouse::getPosition());
+		m_target_pos = sf::Vector2f(sf::Mouse::getPosition());
 		m_move_directions.clear();
 
 		// Finding the id of target room
@@ -170,7 +176,7 @@ void Player::move_to_x_coord(float _xCoord, unsigned int _time)
 		// Moving right
 		this->m_status = ANIMATION_RIGHT;
 
-		this->m_c_pos.x += _time * this->m_speed;
+		this->m_c_pos.x += (float)_time * (float)this->m_speed / 1000000;
 
 		// Checking if went through the border
 		if (this->m_c_pos.x > _xCoord)
@@ -183,7 +189,7 @@ void Player::move_to_x_coord(float _xCoord, unsigned int _time)
 		// Moving left
 		this->m_status = ANIMATION_LEFT;
 
-		this->m_c_pos.x -= _time * this->m_speed;
+		this->m_c_pos.x -= (float)_time * (float)this->m_speed / 1000000;
 
 		// Checking if went through the border
 		if (this->m_c_pos.x < _xCoord)
