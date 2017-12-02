@@ -1,4 +1,7 @@
 #include "Door_rooms.h"
+#include "Player.h"
+#include "Inventory.h"
+#include "Render.h"
 
 Door_rooms::Door_rooms(unsigned int id, bool is_closed, Colour_t key, unsigned int left_room_id,
 	unsigned int right_room_id)
@@ -14,6 +17,7 @@ Door_rooms::~Door_rooms()
 
 void Door_rooms::display_background(sf::RenderWindow *window)
 {
+	control();
 	Door::display_background(window);
 }
 
@@ -56,12 +60,70 @@ void Door_rooms::Set_pos(sf::Vector2u pos)
 
 void Door_rooms::go_throw_the_door()
 {
+	Player *player;
+	player = Player::Get();
+	sf::Vector2f player_pos = player->Get_c_pos();
+	unsigned int c_room_id = player->Get_c_room();
+	Level *level = Render::Get()->Get_c_level();
 
+	// If player now in left room
+	if (c_room_id == m_cur_room_id)
+	{
+		Room *adj = level->Get_room_by_id(m_adj_room_id);
+		player_pos.x = adj->Get_rect().left;
+		player->Set_c_room(m_adj_room_id);
+	}
+	else
+	{
+		Room *cur = level->Get_room_by_id(m_cur_room_id);
+		sf::IntRect tmp = cur->Get_rect();
+		player_pos.x = tmp.left + tmp.width;
+		player->Set_c_room(m_cur_room_id);
+	}
+
+	player->Set_c_pos(player_pos);
 }
 
 void Door_rooms::control()
 {
+	if (Player::Get()->Get_clicked() && m_door->Get_sprite().getGlobalBounds().contains(sf::Vector2f(Player::Get()->Get_c_pos())))
+	{
 
+		if (m_is_closed)
+		{
+			if (Inventory::Get()->checkElement(Item_t(KEY, m_key)))
+			{
+				Inventory::Get()->del_item(Item_t(KEY, m_key));
+				Set_is_closed(false);
+				if (m_door_handle != nullptr)
+					delete m_door_handle;
+				m_door_handle = new Static_Object(75);
+				
+				sf::Vector2f coef = Render::Get()->Get_coef();
+
+				// Change sizes of m_rect for adjacent rooms
+				Level *level = Render::Get()->Get_c_level();
+
+				// Change for left room
+				Room *room = level->Get_room_by_id(m_cur_room_id);
+				sf::IntRect rect = room->Get_rect();
+				rect.width += 64*coef.x;
+				room->Set_rect(rect);
+
+				// Change for rigth room
+				room = level->Get_room_by_id(m_adj_room_id);
+				rect = room->Get_rect();
+				rect.width += 64 * coef.x;
+				rect.left -= 64 * coef.x;
+				room->Set_rect(rect);
+
+			}
+		}
+		else
+		{
+			go_throw_the_door();
+		}
+	}
 }
 
 //void Door_rooms::def_closed()

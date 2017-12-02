@@ -552,8 +552,6 @@ void Menu::home()
 
 void Menu::lev_1()
 {
-	printf("BTN_LEV_1\n");
-	
 	// Preparing to creating the level
 	// Creating the background
 	Static_Object *background = new Static_Object(64);
@@ -563,7 +561,7 @@ void Menu::lev_1()
 	std::vector<Room*> rooms;
 
 	// Room 0
-	Room *room0 = new Room(REGULAR, 0, sf::IntRect(1326, 24, 473, 285));
+	Room *room0 = new Room(REGULAR, 0, sf::IntRect(1326, 24, 407, 285));
 
 	std::vector<Static_Object_Hovered*> staticObjects;
 	std::vector<Animated_Object*> animatedObjects;
@@ -667,7 +665,140 @@ void Menu::lev_2()
 	std::vector<Room*> rooms;
 
 	// Room 0
-	Room *room0 = new Room(REGULAR, 0, sf::IntRect(1326, 24, 473, 285));
+	Room *room0 = new Room(REGULAR, 0, sf::IntRect(1326, 24, 407, 285));
+
+	std::vector<Static_Object_Hovered*> staticObjects;
+	std::vector<Animated_Object*> animatedObjects;
+
+	room0->setStaticObjects(staticObjects);
+	room0->setAnimatedObjects(animatedObjects);
+
+
+	// Room 1
+	Room *room1 = new Room(TREE, 1, sf::IntRect(568, 24, 606, 285));
+
+	staticObjects.clear();
+	animatedObjects.clear();
+
+	std::vector<Item_t> items;
+	items.push_back(Item_t(COOKIE, YELLOW));
+	items.push_back(Item_t(KEY, GREEN));
+	items.push_back(Item_t(KEY, RED));
+
+	Static_Object_Storage *currStaticObject = new Static_Object_Storage(48, 49, items);		// Sofa
+	currStaticObject->setPosition(850, 52);
+	staticObjects.push_back(currStaticObject);
+
+	room1->setStaticObjects(staticObjects);
+	room1->setAnimatedObjects(animatedObjects);
+
+
+	// Room 2
+	Room_Grandma *room2 = new Room_Grandma(REGULAR, 2, sf::IntRect(568, 332, 606, 285), 6000000);
+
+	staticObjects.clear();
+	animatedObjects.clear();
+
+	items.clear();
+	items.push_back(Item_t(COOKIE, YELLOW));
+
+	currStaticObject = new Static_Object_Storage(50, 51, items);		// Tumbochka
+	currStaticObject->setPosition(1017, 475);
+	staticObjects.push_back(currStaticObject);
+
+	room2->setStaticObjects(staticObjects);
+	room2->setAnimatedObjects(animatedObjects);
+
+	room2->setGrandmaPosition(792, 412);
+
+
+	// Room 3
+	Room_Tree *room3 = new Room_Tree(TREE, 1, sf::IntRect(1326, 332, 407, 285));
+
+	staticObjects.clear();
+	animatedObjects.clear();
+
+	items.clear();
+	items.push_back(Item_t(COOKIE, YELLOW));
+
+	currStaticObject = new Static_Object_Storage(48, 49, items);		// Sofa
+	currStaticObject->setPosition(1390, 362);
+	staticObjects.push_back(currStaticObject);
+
+	room1->setStaticObjects(staticObjects);
+	room1->setAnimatedObjects(animatedObjects);
+
+	// Christmas tree
+	room3->setTreePosition(1553, 338);
+
+
+	// Setting the links
+	room0->Set_left_room(room1);
+	room1->Set_down_room(room2);
+	room1->Set_right_room(room0);
+	room2->Set_top_room(room1);
+	room2->Set_right_room(room3);
+	room3->Set_left_room(room2);
+
+	// Creating the array of doors
+	std::vector<Door*> doors;
+
+	// Door 0
+	Door_rooms *door0 = new Door_rooms(0, false, YELLOW, 1, 0);
+	door0->Set_pos(sf::Vector2u(1118, 24));
+
+	// Door 1 and 2
+	Door_front *door1 = new Door_front(1, true, GREEN, DOWN, 1, 2);
+	Door_front *door2 = new Door_front(2, true, GREEN, TOP, 2, 1);
+
+	door1->Set_pos(sf::Vector2u(618, 34));
+	door2->Set_pos(sf::Vector2u(618, 341));
+
+	// Door 3
+	Door_rooms *door3 = new Door_rooms(3, true, RED, 2, 3);
+	door3->Set_pos(sf::Vector2u(1118, 332));
+
+	// Setting the links
+	door1->Set_adj_door_id(2);
+	door2->Set_adj_door_id(1);
+
+	room0->Set_left_door(door0);
+	room1->Set_right_door(door0);
+	room1->Set_down_door(door1);
+	room2->Set_top_door(door2);
+	room2->Set_right_door(door3);
+	room3->Set_left_door(door3);
+
+	// Adding rooms to the array
+	rooms.push_back(room0);
+	rooms.push_back(room1);
+	rooms.push_back(room2);
+	rooms.push_back(room3);
+
+	// Adding doors to the array
+	doors.push_back(door0);
+	doors.push_back(door1);
+	doors.push_back(door2);
+	doors.push_back(door3);
+
+	Level *level = new Level(2, background, rooms, doors);
+
+	Render::Get()->setStatus(RENDER_STATUS_GAME);
+	Render::Get()->setLevel(level);
+}
+
+void Menu::lev_3()
+{
+	// Preparing to creating the level
+	// Creating the background
+	Static_Object *background = new Static_Object(66);
+
+	// Creating the rooms
+	// Creating the array of rooms
+	std::vector<Room*> rooms;
+
+	// Room 0
+	Room *room0 = new Room(REGULAR, 0, sf::IntRect(1238, 24, 473, 285));
 
 	std::vector<Static_Object_Hovered*> staticObjects;
 	std::vector<Animated_Object*> animatedObjects;
@@ -723,8 +854,8 @@ void Menu::lev_2()
 	items.clear();
 	items.push_back(Item_t(COOKIE, YELLOW));
 
-	currStaticObject = new Static_Object_Storage(48, 49, items);		// Tumbochka
-	currStaticObject->setPosition(1017, 475);
+	currStaticObject = new Static_Object_Storage(48, 49, items);		// Sofa
+	currStaticObject->setPosition(1390, 362);
 	staticObjects.push_back(currStaticObject);
 
 	room1->setStaticObjects(staticObjects);
@@ -739,6 +870,8 @@ void Menu::lev_2()
 	room1->Set_down_room(room2);
 	room1->Set_right_room(room0);
 	room2->Set_top_room(room1);
+	room2->Set_right_room(room3);
+	room3->Set_left_room(room2);
 
 	// Creating the array of doors
 	std::vector<Door*> doors;
@@ -754,6 +887,10 @@ void Menu::lev_2()
 	door1->Set_pos(sf::Vector2u(618, 34));
 	door2->Set_pos(sf::Vector2u(618, 341));
 
+	// Door 3
+	Door_rooms *door3 = new Door_rooms(3, true, RED, 2, 3);
+	door3->Set_pos(sf::Vector2u(1118, 332));
+
 	// Setting the links
 	door1->Set_adj_door_id(2);
 	door2->Set_adj_door_id(1);
@@ -762,26 +899,25 @@ void Menu::lev_2()
 	room1->Set_right_door(door0);
 	room1->Set_down_door(door1);
 	room2->Set_top_door(door2);
+	room2->Set_right_door(door3);
+	room3->Set_left_door(door3);
 
 	// Adding rooms to the array
 	rooms.push_back(room0);
 	rooms.push_back(room1);
 	rooms.push_back(room2);
+	rooms.push_back(room3);
 
 	// Adding doors to the array
 	doors.push_back(door0);
 	doors.push_back(door1);
 	doors.push_back(door2);
+	doors.push_back(door3);
 
-	Level *level = new Level(1, background, rooms, doors);
+	Level *level = new Level(2, background, rooms, doors);
 
 	Render::Get()->setStatus(RENDER_STATUS_GAME);
 	Render::Get()->setLevel(level);
-}
-
-void Menu::lev_3()
-{
-	printf("BTN_LEV_3\n");
 }
 
 void Menu::loot_box()

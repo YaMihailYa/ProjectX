@@ -27,7 +27,7 @@ void Door_front::Set_is_closed(bool is_closed)
 	{
 		if (m_door != nullptr)
 			delete m_door;
-		m_door = new Static_Object_Hovered(22, 23);
+		m_door = new Static_Object_Hovered(23, 22);
 
 		if (m_background != nullptr)
 		{
@@ -71,7 +71,7 @@ void Door_front::Set_is_closed(bool is_closed)
 			delete m_door;
 			m_door = nullptr;
 		}
-		m_door = new Static_Object_Hovered(22, 23);
+		m_door = new Static_Object_Hovered(23, 22);
 		
 
 		if (m_background != nullptr)
@@ -148,7 +148,7 @@ void Door_front::control()
 
 void Door_front::go_throw_the_door()
 {
-	sf::Vector2f player_pos = Player::Get()->Get_pos();
+	sf::Vector2f player_pos = Player::Get()->Get_c_pos();
 	if (m_tp_dir == DOWN)
 	{
 		player_pos.y -= 309;
@@ -159,6 +159,6 @@ void Door_front::go_throw_the_door()
 	}
 
 	Player* player = Player::Get();
-	Player::Get()->Set_pos(player_pos);
+	player->Set_c_pos(player_pos);
 	player->Set_c_room(m_adj_room_id);
 }

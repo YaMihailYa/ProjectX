@@ -4,7 +4,7 @@
 
 Door::Door(unsigned int id, Door_t type, bool is_closed, Colour_t key, unsigned int cur_room_id,
 	unsigned int adj_room_id)
-	:m_type(type), m_is_closed(is_closed), m_key(key), m_background(nullptr), m_door(nullptr), m_pos(0, 0)
+	:m_id(id), m_type(type), m_is_closed(is_closed), m_key(key), m_background(nullptr), m_door(nullptr), m_pos(0, 0)
 {
 }
 

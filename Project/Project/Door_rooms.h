@@ -8,8 +8,8 @@ public:
 	* @param id - id of door
 	* @param is_closed - if door is closed
 	* @param key - colour of key to open door
-	* @param cur_room_id - room where door is set
-	* @param adj_room_id - adjacent room for this door
+	* @param cur_room_id - room where door is set (left)
+	* @param adj_room_id - adjacent room for this door (right)
 	*/
 	Door_rooms(unsigned int id, bool is_closed, Colour_t key, unsigned int left_room_id,
 		unsigned int right_room_id);
