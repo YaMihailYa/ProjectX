@@ -134,6 +134,20 @@ void Render::Init()
 	m_textures->Add_texture("Resurses/Images/gameplay/door/front/handles/WHITE.png");		 // 74
 	m_textures->Add_texture("Resurses/Images/gameplay/door/rooms/closed/handles/WHITE.png"); // 75
 	m_textures->Add_texture("Resurses/Images/gameplay/door/rooms/opened/handles/WHITE.png"); // 76
+	// Load blue skins (Animations)
+	m_textures->Add_texture("Resurses/Images/animations/grandfather/skins/blue/gf_breath_blue.png"); // 77
+	m_textures->Add_texture("Resurses/Images/animations/grandfather/skins/blue/gf_left_blue.png");   // 78
+	m_textures->Add_texture("Resurses/Images/animations/grandfather/skins/blue/gf_right_blue.png");  // 79
+	// Load green skins (Animations)
+	m_textures->Add_texture("Resurses/Images/animations/grandfather/skins/green/gf_breath_green.png"); // 80
+	m_textures->Add_texture("Resurses/Images/animations/grandfather/skins/green/gf_left_green.png");   // 81
+	m_textures->Add_texture("Resurses/Images/animations/grandfather/skins/green/gf_right_green.png");  // 82
+	// Load green pink (Animations)
+	m_textures->Add_texture("Resurses/Images/animations/grandfather/skins/pink/gf_breath_pink.png"); // 83
+	m_textures->Add_texture("Resurses/Images/animations/grandfather/skins/pink/gf_left_pink.png");   // 84
+	m_textures->Add_texture("Resurses/Images/animations/grandfather/skins/pink/gf_right_pink.png");  // 85
+	// Load lootbox 
+	m_textures->Add_texture("Resurses/Images/gameplay/lootbox.png");  // 86
 
 
 	
@@ -153,6 +167,18 @@ void Render::Init()
 	m_animations->add(7, 4);
 	// #cat
 	m_animations->add(8, 38);
+	// #grandfather skins blue
+	m_animations->add(77, 10);
+	m_animations->add(78, 19);
+	m_animations->add(79, 19);
+	// #grandfather skins green
+	m_animations->add(80, 10);
+	m_animations->add(81, 19);
+	m_animations->add(82, 19);
+	// #grandfather skins pink
+	m_animations->add(83, 10);
+	m_animations->add(84, 19);
+	m_animations->add(85, 19);
 }
 
 void Render::Rendering()
