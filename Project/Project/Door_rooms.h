@@ -11,14 +11,15 @@ public:
 	* @param cur_room_id - room where door is set
 	* @param adj_room_id - adjacent room for this door
 	*/
-	Door_rooms(unsigned int id, bool is_closed, Colour_t key, unsigned int cur_room_id,
-		unsigned int adj_room_id);
+	Door_rooms(unsigned int id, bool is_closed, Colour_t key, unsigned int left_room_id,
+		unsigned int right_room_id);
 	~Door_rooms();
 
 	void Set_is_closed(bool is_closed);
 	// pos without using coef
-	//void Set_pos(sf::Vector2u pos);
+	void Set_pos(sf::Vector2u pos);
 
+	void display_background(sf::RenderWindow *window);
 	void display_foreground(sf::RenderWindow *window);
 
 	//void control();

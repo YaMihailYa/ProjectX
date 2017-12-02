@@ -150,6 +150,10 @@ void Render::Init()
 	m_textures->Add_texture("Resurses/Images/animations/grandfather/skins/pink/gf_left_pink.png");   // 84
 	m_textures->Add_texture("Resurses/Images/animations/grandfather/skins/pink/gf_right_pink.png");  // 85
 	// Load lootbox 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 	m_textures->Add_texture("Resurses/Images/gameplay/lootbox.png");  // 86
 	// Load options
 	m_textures->Add_texture("Resurses/Images/interface/options/ball.png");				    // 87
