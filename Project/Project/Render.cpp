@@ -190,7 +190,7 @@ void Render::Rendering()
 	//Menu *m = new Menu(menu_type_t::START);
 	sf::Clock time_delay;
 	unsigned int time_delay_mcs; // Time passed from last iteration in MICROSECONDS
-	//Menu m(START);
+	Menu m(START);
 	//m.fillVectorButtons(menu_type_t::START);
 	/*std::vector<Room*> s1;
 	std::vector<Door*> s2;
@@ -214,9 +214,9 @@ void Render::Rendering()
 		m_window->clear();
 
 		// Here display level
-		/*m.display(m_window);
+		m.display(m_window);
 		m.onKeyClick();
-		m.onClick();*/
+		m.onClick();
 		//s.Display(m_window, time_delay_mcs);
 		//Player::Get()->Move();
 		//m_c_level->Display(m_window, time_delay_mcs);
