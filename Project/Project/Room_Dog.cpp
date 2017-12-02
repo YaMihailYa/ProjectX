@@ -1,5 +1,6 @@
 #include "Room_Dog.h"
 #include "Player.h"
+#include "Inventory.h"
 
 Room_Dog::Room_Dog(Room_t type, unsigned int id, sf::IntRect rect, bool enterable, unsigned int timeOfBarking)
 	: Room(type, id, rect, enterable)
@@ -9,7 +10,7 @@ Room_Dog::Room_Dog(Room_t type, unsigned int id, sf::IntRect rect, bool enterabl
 	this->m_passedTime = 0;
 
 	this->m_dogPassive = new Animated_Object(25, 0);
-	this->m_dogActive = new Animated_Object(25, 0);
+	this->m_dogActive = new Animated_Object_Hovered(25, 0, 0);
 	this->m_dogFinished = new Animated_Object(25, 0);
 }
 
@@ -28,6 +29,9 @@ void Room_Dog::display(sf::RenderWindow *window, unsigned int time)
 	// Checking if player is in room
 	if (this->m_currentState != FINISHED)
 	{
+		Item_t _bone;
+		_bone._type = BONE;
+
 		if (this->m_currentState == PASSIVE && Player::Get()->Get_c_room() == this->m_id)
 		{
 			this->m_currentState = ACTIVE;
@@ -37,7 +41,14 @@ void Room_Dog::display(sf::RenderWindow *window, unsigned int time)
 			this->m_currentState = PASSIVE;
 		}
 		// If throwing the bone
-		//else if ()
+		else if (this->m_currentState == ACTIVE && this->m_dogActive->getIsHovered() &&
+			Inventory::Get()->checkElement(_bone) && sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
+		{
+			this->m_currentState = FINISHED;
+
+			// Removing the bone from inventory
+			Inventory::Get()->del_item(_bone);
+		}
 	}
 
 	switch (this->m_currentState)
