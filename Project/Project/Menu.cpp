@@ -122,15 +122,29 @@ void Menu::fillVectorButtons(menu_type_t type)
 		int suitNum = rand() % 3;
 		switch (suitNum)
 		{
-		case 0: { suitNum = 77; break; }
-		case 1: { suitNum = 80; break; }
-		case 2: { suitNum = 83; break; }
+		case 0: { suitNum = 87; break; }
+		case 1: { suitNum = 88; break; }
+		case 2: { suitNum = 89; break; }
 		}
 
 		menu = new Static_Object(suitNum);
 
-		Button btn1 = Button(561, 134, 797, 813, SANTA_SUIT_SELECTION, BTN_SANTA_SUIT);
+		Button btn1 = Button(723, 729, 450, 138, SANTA_SUIT_SELECTION, BTN_SANTA_SUIT);
 		buttons.push_back(btn1);
+
+		break;
+	}
+	case LOOT_BOX_END:
+	{
+		menu = new Static_Object(21);
+
+		Button btn1 = Button(626, 772, 140, 92, LEVEL_FAILED, BTN_AGAIN);
+		Button btn2 = Button(890, 767, 140, 92, LEVEL_FAILED, BTN_LEVEL_SELECTION);
+		Button btn3 = Button(1153, 767, 140, 92, LEVEL_FAILED, BTN_HOME);
+
+		buttons.push_back(btn1);
+		buttons.push_back(btn2);
+		buttons.push_back(btn3);
 
 		break;
 	}
@@ -267,6 +281,11 @@ void Menu::onKeyClick()
 	default:
 		break;
 	}
+}
+
+menu_type_t Menu::getMenuType()
+{
+	return menuType;
 }
 
 void Menu::display(sf::RenderWindow *window)
@@ -430,7 +449,7 @@ void Menu::loot_box()
 
 void Menu::santa_suit()
 {
-	fillVectorButtons(LEVEL_SELECTION);
+	fillVectorButtons(LOOT_BOX_END);
 }
 
 

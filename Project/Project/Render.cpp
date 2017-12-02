@@ -147,7 +147,10 @@ void Render::Init()
 	m_textures->Add_texture("Resurses/Images/animations/grandfather/skins/pink/gf_left_pink.png");   // 84
 	m_textures->Add_texture("Resurses/Images/animations/grandfather/skins/pink/gf_right_pink.png");  // 85
 	// Load lootbox 
-	m_textures->Add_texture("Resurses/Images/gameplay/lootbox.png");  // 86
+	m_textures->Add_texture("Resurses/Images/lootbox/lootbox.png");				 // 86
+	m_textures->Add_texture("Resurses/Images/lootbox/lootbox_blue_santa.png");   // 87
+	m_textures->Add_texture("Resurses/Images/lootbox/lootbox_green_santa.png");  // 88
+	m_textures->Add_texture("Resurses/Images/lootbox/lootbox_pink_santa.png");   // 89
 
 
 	
