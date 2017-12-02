@@ -127,9 +127,9 @@ void Render::Init()
 	m_textures->Add_texture("Resurses/Images/interface/level_result/2_cookies.png");	// 69
 	m_textures->Add_texture("Resurses/Images/interface/level_result/3_cookies.png");	// 70
 	// Load christmas tree and panel_hover
-	m_textures->Add_texture("Resurses/Images/interface/gameplay/panel_hover.png");	// 71
-	m_textures->Add_texture("Resurses/Images/interface/gameplay/tree.png");			// 72
-	m_textures->Add_texture("Resurses/Images/interface/gameplay/tree_hover.png");	// 73
+	m_textures->Add_texture("Resurses/Images/gameplay/panel_hover.png");	// 71
+	m_textures->Add_texture("Resurses/Images/gameplay/tree.png");			// 72
+	m_textures->Add_texture("Resurses/Images/gameplay/tree_hover.png");	    // 73
 
 
 
