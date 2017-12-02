@@ -101,6 +101,33 @@ void Menu::fillVectorButtons(menu_type_t type)
 
 		break;
 	}
+	case LOOT_BOX:
+	{
+		menu = new Static_Object(86);
+
+		Button btn1 = Button(561, 134, 797, 813, LOOT_BOX, BTN_LOOT_BOX);
+		buttons.push_back(btn1);
+
+		break;
+	}
+	case SANTA_SUIT_SELECTION:
+	{
+		srand(time(NULL));
+		int suitNum = rand() % 3;
+		switch (suitNum)
+		{
+		case 0: { suitNum = 77; break; }
+		case 1: { suitNum = 80; break; }
+		case 2: { suitNum = 83; break; }
+		}
+
+		menu = new Static_Object(suitNum);
+
+		Button btn1 = Button(561, 134, 797, 813, SANTA_SUIT_SELECTION, BTN_SANTA_SUIT);
+		buttons.push_back(btn1);
+
+		break;
+	}
 	}
 }
 
@@ -193,6 +220,18 @@ void Menu::onClick()
 			{
 				temp = true;
 				lev_3();
+				break;
+			}
+			case BTN_LOOT_BOX:
+			{
+				temp = true;
+				loot_box();
+				break;
+			}
+			case BTN_SANTA_SUIT:
+			{
+				temp = true;
+				santa_suit();
 				break;
 			}
 			}
@@ -365,6 +404,7 @@ void Menu::home()
 void Menu::lev_1()
 {
 	printf("BTN_LEV_1\n");
+	fillVectorButtons(LOOT_BOX);
 }
 
 void Menu::lev_2()
@@ -375,6 +415,16 @@ void Menu::lev_2()
 void Menu::lev_3()
 {
 	printf("BTN_LEV_3\n");
+}
+
+void Menu::loot_box()
+{
+	fillVectorButtons(SANTA_SUIT_SELECTION);
+}
+
+void Menu::santa_suit()
+{
+	fillVectorButtons(LEVEL_SELECTION);
 }
 
 

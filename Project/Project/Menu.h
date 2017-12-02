@@ -2,6 +2,7 @@
 #include "Static_Object.h"
 #include "Button.h"
 #include "Render.h"
+#include <ctime>
 #include <fstream>
 
 class Menu
@@ -27,6 +28,8 @@ public:
 	void lev_1();
 	void lev_2();
 	void lev_3();
+	void loot_box();
+	void santa_suit();
 
 private:
 	Static_Object* menu;
