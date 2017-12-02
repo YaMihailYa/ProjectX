@@ -21,6 +21,7 @@ public:
 	bool isClicked();
 
 private:
+	bool fl_clicked;
 	sf::IntRect rectangle;
 	menu_type_t m_menu_name;
 	btn_type_t m_btn_name;

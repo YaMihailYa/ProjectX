@@ -3,15 +3,15 @@
 Menu::Menu(menu_type_t type) 
 {
 	menu = nullptr;
-	temp = false;
 	fillVectorButtons(type);
-	
 }
 
 Menu::~Menu() { }
 
 void Menu::fillVectorButtons(menu_type_t type)
 {
+	temp = false;
+
 	if (menu != nullptr)
 	{
 		delete menu;
@@ -27,7 +27,7 @@ void Menu::fillVectorButtons(menu_type_t type)
 	{
 	case START:
 	{
-		menu = new Static_Object(0);
+		menu = new Static_Object(9);
 
 		Button btn1 = Button(760, 335, 458, 140, START, BTN_START);
 		Button btn2 = Button(760, 551, 458, 140, START, BTN_OPTIONS);
@@ -41,7 +41,7 @@ void Menu::fillVectorButtons(menu_type_t type)
 	}
 	case PAUSE:
 	{
-		menu = new Static_Object(1);
+		menu = new Static_Object(10);
 
 		Button btn1 = Button(626, 772, 140, 92, PAUSE, BTN_RESUME);
 		Button btn2 = Button(890, 767, 140, 92, PAUSE, BTN_LEVEL_SELECTION);
@@ -55,7 +55,7 @@ void Menu::fillVectorButtons(menu_type_t type)
 	}
 	case LEVEL_END:
 	{
-		menu = new Static_Object(2);
+		menu = new Static_Object(17);
 
 		Button btn1 = Button(626, 772, 140, 92, LEVEL_END, BTN_NEXT_LEVEL);
 		Button btn2 = Button(890, 767, 140, 92, LEVEL_END, BTN_LEVEL_SELECTION);
@@ -69,7 +69,7 @@ void Menu::fillVectorButtons(menu_type_t type)
 	}
 	case LEVEL_FAILED:
 	{
-		menu = new Static_Object(3);
+		menu = new Static_Object(11);
 
 		Button btn1 = Button(626, 772, 140, 92, LEVEL_FAILED, BTN_AGAIN);
 		Button btn2 = Button(890, 767, 140, 92, LEVEL_FAILED, BTN_LEVEL_SELECTION);
@@ -83,7 +83,7 @@ void Menu::fillVectorButtons(menu_type_t type)
 	}
 	case LEVEL_SELECTION:
 	{
-		menu = new Static_Object(4);
+		menu = new Static_Object(13);
 
 		Button btn1 = Button(670, 271, 184, 128, LEVEL_SELECTION, BTN_LEV_1);
 		Button btn2 = Button(871, 271, 184, 128, LEVEL_SELECTION, BTN_LEV_2);
@@ -129,7 +129,7 @@ void Menu::onClick()
 				temp = true;
 				quit();
 				exit(0);
-				//break;
+				break;
 			}
 			case BTN_RESUME:
 			{
@@ -191,12 +191,14 @@ void Menu::onClick()
 
 void Menu::display(sf::RenderWindow *window)
 {
+	//if (menu == nullptr) { return; }
 	menu->display(window);
 }
 
 void Menu::start()
 {
 	printf("BTN_START\n");
+	fillVectorButtons(LEVEL_SELECTION);
 }
 
 void Menu::options()
@@ -207,6 +209,7 @@ void Menu::options()
 void Menu::quit()
 {
 	printf("BTN_QUIT\n");
+	//Render stop, exit game!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
 void Menu::resume()

@@ -34,6 +34,6 @@ void Room_Tree::checkClicked()
 {
 	if (/* ... */ false)
 	{
-		Render::Get()->Set_level_status(LEVEL_FAILED);
+		Render::Get()->Set_level_status(LEVEL_STATUS_FAILED);
 	}
 }

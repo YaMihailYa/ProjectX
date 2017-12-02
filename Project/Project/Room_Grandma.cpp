@@ -54,7 +54,7 @@ void Room_Grandma::display(sf::RenderWindow *window, unsigned int time)
 	// If player is in room during the active phase - game over
 	if (Player::Get()->Get_c_room() == this->m_id && this->m_isActive)
 	{
-		Render::Get()->Set_level_status(LEVEL_FAILED);
+		Render::Get()->Set_level_status(LEVEL_STATUS_FAILED);
 	}
 
 	// Displaying other objects
