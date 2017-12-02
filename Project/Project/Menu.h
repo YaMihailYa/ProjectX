@@ -1,6 +1,8 @@
 #pragma once
 #include "Static_Object.h"
 #include "Button.h"
+#include "Render.h"
+#include <fstream>
 
 class Menu
 {
