@@ -29,4 +29,7 @@ private:
 	Static_Object* menu;
 	std::vector<Button> buttons;
 	bool temp;
+
+	int last_x0_clicked;
+	int last_y0_clicked;
 };

@@ -8,6 +8,9 @@ Button::Button(int x0, int y0, int width, int height, menu_type_t m_menu_name, b
 	this->m_menu_name = m_menu_name;
 	this->m_btn_name = m_btn_name;
 	fl_clicked = false;
+
+	x0_click = -2;
+	y0_click = -2;
 }
 
 Button::~Button() { }
@@ -15,6 +18,10 @@ Button::~Button() { }
 int Button::getX0() { return rectangle.left; }
 
 int Button::getY0() { return rectangle.top; }
+
+int Button::getX0Click() { return x0_click; }
+
+int Button::getY0Click() { return 0; }
 
 int Button::getWidth() { return rectangle.width; }
 
@@ -26,7 +33,7 @@ btn_type_t Button::getBtnName() { return m_btn_name; }
 
 bool Button::isClicked()
 {
-	if (fl_clicked == true) { return false; }
+	//if (fl_clicked == true) { return false; }
 
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
@@ -41,7 +48,11 @@ bool Button::isClicked()
 			if (y >= getY0() && y <= getY0() + getHeight())
 			{
 				printf("mouse\n");
-				fl_clicked = true;
+
+				x0_click = x;
+				y0_click = y;
+
+				//fl_clicked = true;
 				return true;
 			}
 		}
