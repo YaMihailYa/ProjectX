@@ -52,10 +52,10 @@ void Inventory::del_item(Item_t & item)
 	return;
 }
 
-void Inventory::display(sf::RenderWindow &window)
+void Inventory::display(sf::RenderWindow *window)
 {
 	for (int i = 0; i < m_items.size(); i++)
-		m_items[i].obj->display(&window);
+		m_items[i].obj->display(window);
 }
 
 bool Inventory::checkElement(Item_t &item)

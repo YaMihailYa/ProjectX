@@ -21,7 +21,7 @@ public:
 	*/
 	Door(unsigned int id, Door_t type, bool is_closed, Colour_t key, unsigned int cur_room_id,
 		unsigned int adj_room_id);
-	~Door();
+	virtual ~Door();
 
 	virtual void Set_is_closed(bool is_closed) = 0;
 	// pos without using coef
@@ -33,6 +33,7 @@ public:
 	void display_background(sf::RenderWindow *window);
 	virtual void display_foreground(sf::RenderWindow *window);
 
+	// not needed maybe...
 	//virtual void Set_door_pos(float x, float y) = 0;
 	//void Set_background(float x, float y) { m_background->setPosition(x, y); }
 

@@ -6,12 +6,12 @@ Render* Render::m_this = nullptr;
 
 Render::Render()
 {
-	Init();
 	if (m_this != nullptr)
 		exit(EXIT_FAILURE);
 	m_this = this;
 
 	this->m_status = RENDER_STATUS_MENU;
+	Init();
 }
 
 Render::~Render()
@@ -148,6 +148,18 @@ void Render::Init()
 	m_textures->Add_texture("Resurses/Images/animations/grandfather/skins/pink/gf_left_pink.png");   // 84
 	m_textures->Add_texture("Resurses/Images/animations/grandfather/skins/pink/gf_right_pink.png");  // 85
 	// Load lootbox 
+<<<<<<< HEAD
+=======
+	m_textures->Add_texture("Resurses/Images/gameplay/lootbox.png");  // 86
+	// Load options
+	m_textures->Add_texture("Resurses/Images/interface/options/ball.png");				    // 87
+	m_textures->Add_texture("Resurses/Images/interface/options/blue_santa.png");			// 88
+	m_textures->Add_texture("Resurses/Images/interface/options/choosed_red_santa.png");     // 89
+	m_textures->Add_texture("Resurses/Images/interface/options/green_santa.png");			// 90
+	m_textures->Add_texture("Resurses/Images/interface/options/pink_santa.png");			// 91
+
+
+>>>>>>> origin/master
 	m_textures->Add_texture("Resurses/Images/lootbox/lootbox.png");				 // 86
 	m_textures->Add_texture("Resurses/Images/lootbox/lootbox_blue_santa.png");   // 87
 	m_textures->Add_texture("Resurses/Images/lootbox/lootbox_green_santa.png");  // 88
@@ -216,12 +228,19 @@ void Render::Rendering()
 		m_window->clear();
 
 		// Here display level
-		m.display(m_window);
-		m.onKeyClick();
-		m.onClick();
+		if (this->m_status == RENDER_STATUS_MENU)
+		{
+			m.display(m_window);
+			m.onKeyClick();
+			m.onClick();
+		}
+		else
+		{
+			m_c_level->Display(m_window, time_delay_mcs);
+		}
 		//s.Display(m_window, time_delay_mcs);
 		//Player::Get()->Move();
-		//m_c_level->Display(m_window, time_delay_mcs);
+		
 		m_window->display();
 	}
 }

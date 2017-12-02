@@ -1,4 +1,5 @@
 #include "Animation_loader.h"
+#include "Render.h"
 
 Animation_loader* Animation_loader::m_this = nullptr;
 
@@ -22,6 +23,7 @@ void Animation_loader::add(unsigned int texture_id, int countOfFrames)
 
 	int objWidth = texture->getSize().x / countOfFrames;
 	int objHeight = texture->getSize().y;
+	sf::Vector2f coef = Render::Get()->Get_coef();
 
 	std::vector<sf::Sprite> animation;
 
@@ -29,6 +31,7 @@ void Animation_loader::add(unsigned int texture_id, int countOfFrames)
 		sf::Sprite sprite;
 		sprite.setTexture(*texture);
 		sprite.setTextureRect(sf::IntRect(i * objWidth, 0, objWidth, objHeight));
+		sprite.setScale(coef);
 		animation.push_back(sprite);
 	}
 

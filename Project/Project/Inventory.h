@@ -36,7 +36,7 @@ public:
 	void add_item(Item_t&);
 	bool change_item(Item_t&);
 	void del_item(Item_t &item);
-	void display(sf::RenderWindow &window);
+	void display(sf::RenderWindow *window);
 
 	bool checkElement(Item_t &item);
 	

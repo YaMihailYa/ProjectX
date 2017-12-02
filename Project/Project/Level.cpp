@@ -1,5 +1,6 @@
 #include "Level.h"
 #include "Menu.h"
+#include "Inventory.h"
 
 
 Level::Level(unsigned int id, Static_Object *_backGround, std::vector<Room*> _rooms,
@@ -59,6 +60,7 @@ void Level::Display(sf::RenderWindow *window, unsigned int _time)
 	}
 
 	// Displaying the player
+	this->m_player->Move();
 	this->m_player->display(window, _time);
 
 	// Displaying the foregrounds of doors
@@ -66,6 +68,9 @@ void Level::Display(sf::RenderWindow *window, unsigned int _time)
 	{
 		this->m_doors[i]->display_foreground(window);
 	}
+
+	// Displaying the inventory
+	Inventory::Get()->display(window);
 
 	// If not active game
 	switch (this->m_status)
