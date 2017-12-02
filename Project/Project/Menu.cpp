@@ -226,8 +226,6 @@ void Menu::onKeyClick()
 
 void Menu::display(sf::RenderWindow *window)
 {
-	i++;
-
 	//if (menu == nullptr) { return; }
 	menu->display(window);
 	if (menuType == LEVEL_SELECTION)
