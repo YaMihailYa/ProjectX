@@ -1,5 +1,6 @@
 #include "Room_Grandma.h"
 #include "Player.h"
+#include "Render.h"
 
 Room_Grandma::Room_Grandma(Room_t type, unsigned int id, sf::IntRect rect, bool enterable, unsigned int timeOfPhase)
 	: Room(type, id, rect, enterable)
@@ -17,6 +18,13 @@ Room_Grandma::~Room_Grandma()
 {
 	delete this->m_grandmaActive;
 	delete this->m_grandmaPassive;
+}
+
+
+void Room_Grandma::setGrandmaPosition(float _x, float _y)
+{
+	this->m_grandmaActive->setPosition(_x, _y);
+	this->m_grandmaPassive->setPosition(_x, _y);
 }
 
 
@@ -46,7 +54,7 @@ void Room_Grandma::display(sf::RenderWindow *window, unsigned int time)
 	// If player is in room during the active phase - game over
 	if (Player::Get()->Get_c_room() == this->m_id && this->m_isActive)
 	{
-		// ...
+		Render::Get()->Set_level_status(LEVEL_STATUS_FAILED);
 	}
 
 	// Displaying other objects
