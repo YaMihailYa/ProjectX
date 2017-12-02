@@ -26,11 +26,11 @@ void Door::display_background(sf::RenderWindow *window)
 	if (m_background != nullptr)
 		m_background->display(window);
 
+	if (m_door != nullptr)
+		m_door->display(window);
+
 	if (m_door_handle != nullptr)
 		m_door_handle->display(window);
-
-	if (m_is_closed)
-		m_door->display(window);
 }
 
 void Door::display_foreground(sf::RenderWindow *window)

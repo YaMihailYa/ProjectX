@@ -7,7 +7,7 @@ Door_rooms::Door_rooms(unsigned int id, bool is_closed, Colour_t key, unsigned i
 	unsigned int right_room_id)
 	:Door(id, DOOR_ROOMS, is_closed, key, left_room_id, right_room_id), m_foreground(nullptr)
 {
-	
+	Set_is_closed(false);
 }
 
 
