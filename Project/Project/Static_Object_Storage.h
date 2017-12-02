@@ -24,4 +24,7 @@ public:
 
 protected:
 	std::vector<Item_t> m_items;
+
+	// Check if clicked on this
+	void checkClickOnThis();
 };

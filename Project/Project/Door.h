@@ -4,7 +4,7 @@
 
 enum Door_t
 {
-	DOOR,
+	DOOR_FRONT,
 	DOOR_ROOMS
 };
 
@@ -26,6 +26,10 @@ public:
 	
 	void display_background(sf::RenderWindow *window);
 
+	void Set_door_pos(float x, float y) { m_door->setPosition(x, y); }
+	void Set_background(float x, float y) { m_background->setPosition(x, y); }
+
+
 protected:
 	Door_t m_type;
 
@@ -34,5 +38,6 @@ protected:
 	bool m_is_closed;
 	Static_Object_Hovered* m_door;
 	Static_Object *m_background;
+	Static_Object *m_door_handle;
 };
 

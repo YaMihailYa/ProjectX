@@ -8,6 +8,8 @@ public:
 	Room_Grandma(Room_t type, unsigned int id, sf::IntRect rect, bool enterable, unsigned int timeOfPhase);
 	~Room_Grandma();
 
+	void setGrandmaPosition(float _x, float _y);
+
 	void display(sf::RenderWindow *window, unsigned int time);
 
 protected:

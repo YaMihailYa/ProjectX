@@ -37,16 +37,11 @@ bool Static_Object_Hovered::getIsHovered()
 
 void Static_Object_Hovered::checkHovered()
 {
-	Player *player = Player::Get();
-
-	// Getting the rectangle of player
-	sf::FloatRect playerBoundary = (sf::FloatRect) player->Get_boundary();
-
 	// Getting the rectangle of this object
 	sf::FloatRect thisSpriteBoundary = this->m_sprite.getGlobalBounds();
-	
-	// Checking if player lays on this object
-	if (thisSpriteBoundary.intersects(playerBoundary))
+
+	// Checking if the mouse is on this object
+	if (thisSpriteBoundary.contains((sf::Vector2f) sf::Mouse::getPosition()))
 	{
 		this->m_isHovered = true;
 	}
@@ -60,6 +55,8 @@ void Static_Object_Hovered::checkHovered()
 void Static_Object_Hovered::display(sf::RenderWindow *window)
 {
 	this->checkHovered();
+
+	//this->checkClickOnThis();
 
 	if (this->m_isHovered)
 	{

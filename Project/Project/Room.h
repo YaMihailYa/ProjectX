@@ -30,6 +30,8 @@ public:
 	void setStaticObjects(std::vector<Static_Object_Hovered*> _staticObjects);
 	void setAnimatedObjects(std::vector<Animated_Object*> _animatedObjects);
 
+	float getCoordByDirection(Direction_t direction);
+
 	void Set_enterable(bool enterable) { m_enterable = enterable; }
 	void Set_right_room(Room *right_room) { m_right_room = right_room; }
 	void Set_left_room(Room *left_room) { m_left_room = left_room; }

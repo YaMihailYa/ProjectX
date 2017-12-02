@@ -1,6 +1,7 @@
 #include "Room_Dog.h"
 #include "Player.h"
 #include "Inventory.h"
+#include "Render.h"
 
 Room_Dog::Room_Dog(Room_t type, unsigned int id, sf::IntRect rect, bool enterable, unsigned int timeOfBarking)
 	: Room(type, id, rect, enterable)
@@ -23,6 +24,14 @@ Room_Dog::~Room_Dog()
 }
 
 
+void Room_Dog::setDogPosition(float _x, float _y)
+{
+	this->m_dogActive->setPosition(_x, _y);
+	this->m_dogPassive->setPosition(_x, _y);
+	this->m_dogFinished->setPosition(_x, _y);
+}
+
+
 void Room_Dog::display(sf::RenderWindow *window, unsigned int time)
 {
 	// Changing the state, if necessary
@@ -41,8 +50,8 @@ void Room_Dog::display(sf::RenderWindow *window, unsigned int time)
 			this->m_currentState = PASSIVE;
 		}
 		// If throwing the bone
-		else if (this->m_currentState == ACTIVE && this->m_dogActive->getIsHovered() &&
-			Inventory::Get()->checkElement(_bone) && sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
+		else if (this->m_currentState == ACTIVE && Inventory::Get()->checkElement(_bone) &&
+				/* ... */ false)
 		{
 			this->m_currentState = FINISHED;
 
@@ -65,7 +74,7 @@ void Room_Dog::display(sf::RenderWindow *window, unsigned int time)
 		// If it is time to finish the game
 		if (this->m_passedTime >= this->m_timeOfBarking)
 		{
-			// ...
+			Render::Get()->Set_level_status(LEVEL_STATUS_FAILED);
 		}
 		
 		this->m_dogActive->animate(time);
@@ -76,8 +85,8 @@ void Room_Dog::display(sf::RenderWindow *window, unsigned int time)
 		this->m_dogFinished->animate(time);
 		this->m_dogFinished->display(window);
 	}
+	}
 
 	// Displaying other objects
 	Room::display(window, time);
-	}
 }

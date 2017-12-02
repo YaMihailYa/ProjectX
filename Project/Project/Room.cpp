@@ -95,6 +95,26 @@ void Room::setAnimatedObjects(std::vector<Animated_Object*> _animatedObjects)
 }
 
 
+float Room::getCoordByDirection(Direction_t direction)
+{
+	switch (direction)
+	{
+	case LEFT:
+	{
+		return this->m_rect.left;
+	}
+	case RIGHT:
+	{
+		return this->m_rect.left + this->m_rect.width;
+	}
+	case TOP:
+	{
+		//return this->m_top_door->;
+	}
+	}
+}
+
+
 void Room::display(sf::RenderWindow *window, unsigned int time) {
 	// Displaying static objects
 	for (int i = 0; i < this->m_staticObjects.size(); i++)
