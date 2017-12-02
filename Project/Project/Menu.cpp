@@ -12,6 +12,13 @@ Menu::Menu(menu_type_t type)
 
 	m_this = this;
 	menu = nullptr;
+
+	selected_option_id = 0;
+
+	available_santas[0] = true;
+	available_santas[1] = true;
+	available_santas[2] = true;
+
 	fillVectorButtons(type);
 	last_x0_clicked = -1;
 	last_y0_clicked = -1;
@@ -49,6 +56,22 @@ void Menu::fillVectorButtons(menu_type_t type)
 		buttons.push_back(btn1);
 		buttons.push_back(btn2);
 		buttons.push_back(btn3);
+
+		break;
+	}
+	case OPTIONS:
+	{
+		menu = new Static_Object(94);
+
+		Button btn1 = Button(84, 406, 413, 550, OPTIONS, BTN_SANTA_OPTION_RED);
+		Button btn2 = Button(547, 406, 413, 550, OPTIONS, BTN_SANTA_OPTION_GREEN);
+		Button btn3 = Button(1010, 406, 413, 550, OPTIONS, BTN_SANTA_OPTION_PINK);
+		Button btn4 = Button(1473, 406, 413, 550, OPTIONS, BTN_SANTA_OPTION_BLUE);
+
+		buttons.push_back(btn1);
+		buttons.push_back(btn2);
+		buttons.push_back(btn3);
+		buttons.push_back(btn4);
 
 		break;
 	}
@@ -184,7 +207,7 @@ void Menu::onClick()
 			}
 			case BTN_OPTIONS:
 			{
-				//temp = true;
+				temp = true;
 				options();
 				break;
 			}
@@ -255,6 +278,30 @@ void Menu::onClick()
 				santa_suit();
 				break;
 			}
+			case BTN_SANTA_OPTION_RED:
+			{
+				//temp = true;
+				santa_option_selected(0);
+				break;
+			}
+			case BTN_SANTA_OPTION_GREEN:
+			{
+				//temp = true;
+				santa_option_selected(1);
+				break;
+			}
+			case BTN_SANTA_OPTION_PINK:
+			{
+				//temp = true;
+				santa_option_selected(2);
+				break;
+			}
+			case BTN_SANTA_OPTION_BLUE:
+			{
+				//temp = true;
+				santa_option_selected(3);
+				break;
+			}
 			}
 
 			break;
@@ -275,6 +322,11 @@ void Menu::onKeyClick()
 	case LEVEL_FAILED:
 		break;
 	case LEVEL_SELECTION: {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+			fillVectorButtons(START);
+		break;
+	}
+	case OPTIONS: {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 			fillVectorButtons(START);
 		break;
@@ -381,6 +433,52 @@ void Menu::display(sf::RenderWindow *window)
 		cook2->display(window);
 		cook3->display(window);
 	}
+	else if (menuType == OPTIONS) {
+		Static_Object* sel_ball = new Static_Object(90);
+		switch (selected_option_id)
+		{
+		case 0: {
+			sel_ball->setPosition(264, 264);
+			break;
+		}
+		case 1: {
+			sel_ball->setPosition(724, 264);
+			break;
+		}
+		case 2: {
+			sel_ball->setPosition(1184, 264);
+			break;
+		}
+		case 3: {
+			sel_ball->setPosition(1644, 264);
+			break;
+		}
+		}
+		sel_ball->display(window);
+
+		for (int i = 0; i < 3; i++) {
+			if (available_santas[i] == true) {
+				Static_Object* santa = new Static_Object(91 + i);
+				switch (i)
+				{
+				case 0: {
+					santa->setPosition(547, 406);
+					break;
+				}
+				case 1: {
+					santa->setPosition(1010, 406);
+					break;
+				}
+				case 2: {
+					santa->setPosition(1473, 406);
+					break;
+				}
+				}
+				santa->display(window);
+			}
+		}
+
+	}
 }
 
 void Menu::start()
@@ -393,6 +491,7 @@ void Menu::start()
 void Menu::options()
 {
 	printf("BTN_OPTIONS\n");
+	fillVectorButtons(OPTIONS);
 }
 
 void Menu::quit()
@@ -513,6 +612,12 @@ void Menu::loot_box()
 void Menu::santa_suit()
 {
 	fillVectorButtons(LOOT_BOX_END);
+}
+
+void Menu::santa_option_selected(int selectedSantaId)
+{
+	if (selectedSantaId == 0) { selected_option_id = 0; return; }
+	if (available_santas[selectedSantaId - 1] == true) { selected_option_id = selectedSantaId; }
 }
 
 

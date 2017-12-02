@@ -31,6 +31,11 @@ public:
 	void lev_3();
 	void loot_box();
 	void santa_suit();
+	void santa_option_selected(int selectedSantaId);
+
+	int selected_option_id;
+	bool available_santas[3];
+
 
 	static Menu* Get() { return m_this; }
 private:
