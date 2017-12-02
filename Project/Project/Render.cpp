@@ -6,12 +6,12 @@ Render* Render::m_this = nullptr;
 
 Render::Render()
 {
-	Init();
 	if (m_this != nullptr)
 		exit(EXIT_FAILURE);
 	m_this = this;
 
 	this->m_status = RENDER_STATUS_MENU;
+	Init();
 }
 
 

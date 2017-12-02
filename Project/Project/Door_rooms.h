@@ -22,7 +22,9 @@ public:
 	void display_background(sf::RenderWindow *window);
 	void display_foreground(sf::RenderWindow *window);
 
-	//void control();
+	void go_throw_the_door();
+
+	void control();
 
 protected:
 	Static_Object *m_foreground;

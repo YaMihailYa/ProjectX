@@ -54,6 +54,16 @@ void Door_rooms::Set_pos(sf::Vector2u pos)
 	//m_door_handle->setPosition(pos.x + 82, pos.y + 128);
 }
 
+void Door_rooms::go_throw_the_door()
+{
+
+}
+
+void Door_rooms::control()
+{
+
+}
+
 //void Door_rooms::def_closed()
 //{
 //	if (m_is_closed)
