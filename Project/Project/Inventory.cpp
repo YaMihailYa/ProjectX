@@ -1,8 +1,14 @@
 #include "Inventory.h"
 
+Inventory *Inventory::m_this = nullptr;
+
 Inventory::Inventory(sf::IntRect rect)
 	:m_rect(rect)
 {
+	if (m_this != nullptr)
+		exit(EXIT_FAILURE);
+
+	m_this = this;
 	m_rect = rect;
 	begin_draw_pos.x = rect.height / 3;
 	begin_draw_pos.y = rect.width / 5;
