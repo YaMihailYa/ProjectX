@@ -26,6 +26,7 @@ public:
 	sf::Vector2u move_player(sf::Vector2u old_coords, sf::Vector2u new_coords, Direction_t dir);
 
 	bool Get_enterable() const { return m_enterable; }
+	unsigned int getID() const { return this->m_id; }
 
 	void setStaticObjects(std::vector<Static_Object_Hovered*> _staticObjects);
 	void setAnimatedObjects(std::vector<Animated_Object*> _animatedObjects);
@@ -37,6 +38,8 @@ public:
 	void Set_left_room(Room *left_room) { m_left_room = left_room; }
 	void Set_top_room(Room *top_room) { m_top_room = top_room; }
 	void Set_down_room(Room *down_room) { m_down_room = down_room; }
+
+	Room* getRoomByDirection(Direction_t direction);
 	
 	void Set_right_door(Door *right_door) { m_right_door = right_door; }
 	void Set_left_door(Door *left_door) { m_left_door = left_door; }

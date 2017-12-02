@@ -121,6 +121,26 @@ float Room::getCoordByDirection(Direction_t direction)
 }
 
 
+Room* Room::getRoomByDirection(Direction_t direction)
+{
+	switch (direction)
+	{
+	case LEFT:
+		return this->m_left_room;
+	case RIGHT:
+		return this->m_right_room;
+	case TOP:
+		return this->m_top_room;
+	case DOWN:
+		return this->m_down_room;
+	default:
+		break;
+	}
+
+	return nullptr;
+}
+
+
 Door* Room::getDoorByDirection(Direction_t direction)
 {
 	switch (direction)

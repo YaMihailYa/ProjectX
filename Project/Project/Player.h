@@ -31,6 +31,8 @@ public:
 
 	void Set_c_pos(sf::Vector2u c_pos) { m_c_pos = c_pos; }
 	void Set_c_room(unsigned int id) { m_c_room_id = id; }
+
+	sf::Vector2u Get_c_pos() const { return m_c_pos; }
 	unsigned int Get_c_room() const { return m_c_room_id; }
 	
 	sf::IntRect Get_boundary() const { return m_rect; }
@@ -59,5 +61,9 @@ protected:
 
 	// Move to the x coordinate of the room
 	void move_to_x_coord(float _xCoord, unsigned int _time);
+
+	// Finding the route of player (using DFS)
+	// And filling the array of move directions (bool if found)
+	bool find_the_route(unsigned int startRoomId, unsigned int endRoomId, std::vector<bool> &visitedRooms);
 };
 

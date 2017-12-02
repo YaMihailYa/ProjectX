@@ -58,6 +58,7 @@ void Player::display(sf::RenderWindow *window, unsigned int time)
 		// If we are in the target room
 		if (this->m_c_pos == this->m_target_pos)
 		{
+
 			this->m_status = ANIMATION_STAY;
 		}
 		else
@@ -134,6 +135,88 @@ void Player::Move(/*Direction_t dir, unsigned int time*/)
 
 void Player::move_to_x_coord(float _xCoord, unsigned int _time)
 {
-	exit(EXIT_FAILURE);
+	if (this->m_c_pos.x < _xCoord)
+	{
+		// Moving right
+		this->m_status = ANIMATION_RIGHT;
+
+		this->m_c_pos.x += _time * this->m_speed;
+
+		// Checking if went through the border
+		if (this->m_c_pos.x > _xCoord)
+		{
+			this->m_c_pos.x = _xCoord;
+		}
+	}
+	else
+	{
+		// Moving left
+		this->m_status = ANIMATION_LEFT;
+
+		this->m_c_pos.x -= _time * this->m_speed;
+
+		// Checking if went through the border
+		if (this->m_c_pos.x < _xCoord)
+		{
+			this->m_c_pos.x = _xCoord;
+		}
+	}
+}
+
+
+bool Player::find_the_route(unsigned int startRoomId, unsigned int endRoomId, std::vector<bool> &visitedRooms)
+{
+	if (visitedRooms[startRoomId])
+	{
+		return false;
+	}
+
+	visitedRooms[startRoomId] = true;
+
+	if (startRoomId == endRoomId)
+	{
+		return true;
+	}
+
+	Room *currRoom = Render::Get()->Get_c_level()->Get_room_by_id(startRoomId);
+
+	// Looking throu all the near rooms
+	// (in order LEFT - DOWN - RIGHT - TOP)
+
+	// Going to the left room
+
+	this->m_move_directions.push_back(LEFT);
+	if (find_the_route(currRoom->getRoomByDirection(LEFT)->getID(), endRoomId, visitedRooms))
+	{
+		return true;
+	}
+	this->m_move_directions.pop_back();
+
+	// Going to the down room
+	this->m_move_directions.push_back(DOWN);
+	if (find_the_route(currRoom->getRoomByDirection(DOWN)->getID(), endRoomId, visitedRooms))
+	{
+		return true;
+	}
+	this->m_move_directions.pop_back();
+
+	// Going to the right room
+	this->m_move_directions.push_back(RIGHT);
+	if (find_the_route(currRoom->getRoomByDirection(RIGHT)->getID(), endRoomId, visitedRooms))
+	{
+		return true;
+	}
+	this->m_move_directions.pop_back();
+
+	// Going to the top room
+	this->m_move_directions.push_back(TOP);
+	if (find_the_route(currRoom->getRoomByDirection(TOP)->getID(), endRoomId, visitedRooms))
+	{
+		return true;
+	}
+	this->m_move_directions.pop_back();
+
+	visitedRooms[startRoomId] = false;
+	return false;
 }
 
