@@ -48,6 +48,8 @@ public:
 
 	Door* getDoorByDirection(Direction_t direction);
 
+	sf::IntRect getRectOfRoom() { return this->m_rect; }
+
 	void display(sf::RenderWindow *window, unsigned int time);
 
 

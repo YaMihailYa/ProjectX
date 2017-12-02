@@ -5,7 +5,7 @@
 Player* Player::m_this = nullptr;
 
 Player::Player(unsigned int speed)
-	:m_speed(speed), m_c_pos(sf::Vector2u(100, 100)), m_status(ANIMATION_STAY)
+	: m_c_pos(sf::Vector2u(100, 100)), m_status(ANIMATION_STAY)
 {
 	if (m_this != nullptr)
 		exit(EXIT_FAILURE);
@@ -14,6 +14,8 @@ Player::Player(unsigned int speed)
 	sf::IntRect s;
 	// m_rect = 
 	this->m_clicked = false;
+
+	this->m_speed = speed * Render::Get()->Get_coef().x;
 }
 
 
@@ -126,10 +128,35 @@ void Player::Move(/*Direction_t dir, unsigned int time*/)
 {
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
 	{
+		sf::Vector2u tagretPosCopy = m_target_pos;
+
 		m_target_pos = sf::Vector2u(sf::Mouse::getPosition());
 		m_move_directions.clear();
 
+		// Finding the id of target room
+		int targetRoomId = -1;
 
+		std::vector<Room*> rooms = Render::Get()->Get_c_level()->Get_rooms();
+		for (int i = 0; i < rooms.size(); i++)
+		{
+			if (rooms[i]->getRectOfRoom().contains((sf::Vector2i) m_target_pos))
+			{
+				targetRoomId = rooms[i]->getID();
+				break;
+			}
+		}
+
+		// If the room was found - find the route
+		if (targetRoomId != -1)
+		{
+			// Array of visited rooms
+			std::vector<bool> visitedRooms(Render::Get()->Get_c_level()->Get_quantity_of_rooms(), false);
+			find_the_route(this->m_c_room_id, targetRoomId, visitedRooms);
+		}
+		else
+		{
+			m_target_pos = tagretPosCopy;
+		}
 	}
 }
 
@@ -165,14 +192,14 @@ void Player::move_to_x_coord(float _xCoord, unsigned int _time)
 }
 
 
-bool Player::find_the_route(unsigned int startRoomId, unsigned int endRoomId, std::vector<bool> &visitedRooms)
+bool Player::find_the_route(unsigned int startRoomId, unsigned int endRoomId, std::vector<bool> &_visitedRooms)
 {
-	if (visitedRooms[startRoomId])
+	if (_visitedRooms[startRoomId])
 	{
 		return false;
 	}
 
-	visitedRooms[startRoomId] = true;
+	_visitedRooms[startRoomId] = true;
 
 	if (startRoomId == endRoomId)
 	{
@@ -185,39 +212,58 @@ bool Player::find_the_route(unsigned int startRoomId, unsigned int endRoomId, st
 	// (in order LEFT - DOWN - RIGHT - TOP)
 
 	// Going to the left room
-
-	this->m_move_directions.push_back(LEFT);
-	if (find_the_route(currRoom->getRoomByDirection(LEFT)->getID(), endRoomId, visitedRooms))
+	if (currRoom->getRoomByDirection(LEFT) != nullptr)
 	{
-		return true;
-	}
-	this->m_move_directions.pop_back();
+		this->m_move_directions.push_back(LEFT);
+
+		if (find_the_route(currRoom->getRoomByDirection(LEFT)->getID(), endRoomId, _visitedRooms))
+		{
+			return true;
+		}
+
+		this->m_move_directions.pop_back();
+	}	
 
 	// Going to the down room
-	this->m_move_directions.push_back(DOWN);
-	if (find_the_route(currRoom->getRoomByDirection(DOWN)->getID(), endRoomId, visitedRooms))
+	if (currRoom->getRoomByDirection(DOWN) != nullptr)
 	{
-		return true;
-	}
-	this->m_move_directions.pop_back();
+		this->m_move_directions.push_back(DOWN);
 
+		if (find_the_route(currRoom->getRoomByDirection(DOWN)->getID(), endRoomId, _visitedRooms))
+		{
+			return true;
+		}
+
+		this->m_move_directions.pop_back();
+	}
+	
 	// Going to the right room
-	this->m_move_directions.push_back(RIGHT);
-	if (find_the_route(currRoom->getRoomByDirection(RIGHT)->getID(), endRoomId, visitedRooms))
+	if (currRoom->getRoomByDirection(RIGHT) != nullptr)
 	{
-		return true;
-	}
-	this->m_move_directions.pop_back();
+		this->m_move_directions.push_back(RIGHT);
 
+		if (find_the_route(currRoom->getRoomByDirection(RIGHT)->getID(), endRoomId, _visitedRooms))
+		{
+			return true;
+		}
+
+		this->m_move_directions.pop_back();
+	}
+	
 	// Going to the top room
-	this->m_move_directions.push_back(TOP);
-	if (find_the_route(currRoom->getRoomByDirection(TOP)->getID(), endRoomId, visitedRooms))
+	if (currRoom->getRoomByDirection(TOP) != nullptr)
 	{
-		return true;
-	}
-	this->m_move_directions.pop_back();
+		this->m_move_directions.push_back(TOP);
 
-	visitedRooms[startRoomId] = false;
+		if (find_the_route(currRoom->getRoomByDirection(TOP)->getID(), endRoomId, _visitedRooms))
+		{
+			return true;
+		}
+
+		this->m_move_directions.pop_back();
+	}
+
+	_visitedRooms[startRoomId] = false;
 	return false;
 }
 
