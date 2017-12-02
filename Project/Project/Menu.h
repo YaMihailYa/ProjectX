@@ -14,6 +14,7 @@ public:
 	void fillVectorButtons(menu_type_t type);
 	void onClick();
 	void onKeyClick();
+	menu_type_t getMenuType();
 
 	void display(sf::RenderWindow *window);
 
