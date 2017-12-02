@@ -3,7 +3,7 @@
 
 /**
 *
-*	Objects that are hovered when player is nearly
+*	Objects that are hovered when the mouse is on it
 *
 */
 
@@ -26,7 +26,7 @@ protected:
 
 	bool m_isHovered;						// True if outline is needed (Player is nearly)
 
-	// Checking if door is need to be hovered
+	// Checking if door is need to be hovered (when mouse is on it)
 	void checkHovered();
 
 };

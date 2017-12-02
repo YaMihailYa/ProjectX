@@ -47,20 +47,21 @@ void Render::Init()
 	
 	// Load interface
 	// #Interface backgrounds
-	m_textures->Add_texture("Resurses/Images/interface/background.png"); // 9
-	m_textures->Add_texture("Resurses/Images/interface/paused.png");	 // 10
-	m_textures->Add_texture("Resurses/Images/interface/level_failed.png");	  // 11
-	m_textures->Add_texture("Resurses/Images/interface/level_selection.png"); // 12
+	m_textures->Add_texture("Resurses/Images/interface/background.png");			// 9
+	m_textures->Add_texture("Resurses/Images/interface/paused.png");				// 10
+	m_textures->Add_texture("Resurses/Images/interface/level_failed.png");			// 11
+	m_textures->Add_texture("Resurses/Images/interface/level_selection.png");		// 12
+	m_textures->Add_texture("Resurses/Images/interface/Level_selection_temp.png");  // 13
 	// #Interface level menu
-	m_textures->Add_texture("Resurses/Images/interface/menu_level/Menu_level_00.png"); // 13
-	m_textures->Add_texture("Resurses/Images/interface/menu_level/Menu_level_01.png"); // 14
-	m_textures->Add_texture("Resurses/Images/interface/menu_level/Menu_level_02.png"); // 15
-	m_textures->Add_texture("Resurses/Images/interface/menu_level/Menu_level_03.png"); // 16
+	m_textures->Add_texture("Resurses/Images/interface/menu_level/Menu_level_00.png"); // 14
+	m_textures->Add_texture("Resurses/Images/interface/menu_level/Menu_level_01.png"); // 15
+	m_textures->Add_texture("Resurses/Images/interface/menu_level/Menu_level_02.png"); // 16
+	m_textures->Add_texture("Resurses/Images/interface/menu_level/Menu_level_03.png"); // 17
 	// #Interface level completed
-	m_textures->Add_texture("Resurses/Images/interface/level_completed/Level_completed_0.png"); // 17
-	m_textures->Add_texture("Resurses/Images/interface/level_completed/Level_completed_1.png"); // 18
-	m_textures->Add_texture("Resurses/Images/interface/level_completed/Level_completed_2.png"); // 19
-	m_textures->Add_texture("Resurses/Images/interface/level_completed/Level_completed_3.png"); // 20
+	m_textures->Add_texture("Resurses/Images/interface/level_completed/Level_completed_0.png"); // 18
+	m_textures->Add_texture("Resurses/Images/interface/level_completed/Level_completed_1.png"); // 19
+	m_textures->Add_texture("Resurses/Images/interface/level_completed/Level_completed_2.png"); // 20
+	m_textures->Add_texture("Resurses/Images/interface/level_completed/Level_completed_3.png"); // 21
 
 
 	// Initialization animations
