@@ -24,6 +24,13 @@ Player::~Player()
 
 void Player::display(sf::RenderWindow *window, unsigned int time)
 {
+	if (!this->m_move_directions.empty())
+	{
+		Direction_t currDirection = this->m_move_directions[0];
+
+
+	}
+
 	sf::Vector2u new_coords;
 	new_coords = m_c_pos;
 	Room* c_room = Render::Get()->Get_c_level()->Get_room_by_id(m_c_room_id);

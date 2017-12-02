@@ -3,7 +3,9 @@
 enum Direction_t
 {
 	LEFT,
-	RIGHT
+	RIGHT,
+	TOP,
+	DOWN
 };
 
 // Types of items (bones, cookies, ect)

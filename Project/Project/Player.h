@@ -46,5 +46,8 @@ protected:
 
 	// ID of current room
 	unsigned int m_c_room_id;
+
+	// Move to the x coordinate of the room
+	void move_to_x_coord(float _xCoord, unsigned int _time);
 };
 

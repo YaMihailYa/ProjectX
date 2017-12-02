@@ -85,8 +85,8 @@ void Room_Dog::display(sf::RenderWindow *window, unsigned int time)
 		this->m_dogFinished->animate(time);
 		this->m_dogFinished->display(window);
 	}
+	}
 
 	// Displaying other objects
 	Room::display(window, time);
-	}
 }
