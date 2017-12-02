@@ -67,14 +67,23 @@ void Door_front::Set_is_closed(bool is_closed)
 	else
 	{
 		if (m_door != nullptr)
+		{
 			delete m_door;
+			m_door = nullptr;
+		}
 		m_door = new Static_Object_Hovered(22, 23);
+		
 
 		if (m_background != nullptr)
 		{
 			delete m_background;
 		}
 		m_background = new Static_Object(24);
+
+		if (m_door_handle != nullptr)
+		{
+			delete m_door_handle;
+		}
 
 		switch (m_key)
 		{
@@ -100,6 +109,8 @@ void Door_front::Set_is_closed(bool is_closed)
 			break;
 		}
 	}
+
+	Set_pos(m_pos);
 }
 
 // pos without using coef
@@ -125,8 +136,7 @@ void Door_front::control()
 				if (m_door_handle != nullptr)
 					delete m_door_handle;
 				m_door_handle = new Static_Object(74);
-				Render::Get()->Get_c_level();
-					//->Get_door_by_id(m_adj_door_id)->Set_is_closed(false);
+				Render::Get()->Get_c_level()->Get_door_by_id(m_adj_door_id)->Set_is_closed(false);
 			}
 		}
 		else

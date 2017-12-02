@@ -35,7 +35,8 @@ void Door::display_background(sf::RenderWindow *window)
 
 void Door::display_foreground(sf::RenderWindow *window)
 {
-
+	// Must be empty
+	// All is OK
 }
 
 //void Door::Set_is_closed(bool is_closed)
