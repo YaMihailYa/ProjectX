@@ -12,6 +12,8 @@ Menu::~Menu() { }
 
 void Menu::fillVectorButtons(menu_type_t type)
 {
+	menuType = type;
+
 	temp = false;
 
 	if (menu != nullptr)
@@ -196,6 +198,29 @@ void Menu::onClick()
 			break;
 		}
 	}
+}
+
+void Menu::onKeyClick()
+{
+	switch (menuType)
+	{
+	case START:
+		break;
+	case PAUSE:
+		break;
+	case LEVEL_END:
+		break;
+	case LEVEL_FAILED:
+		break;
+	case LEVEL_SELECTION: {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+			fillVectorButtons(START);
+		break;
+	}
+	default:
+		break;
+	}
+
 }
 
 void Menu::display(sf::RenderWindow *window)
