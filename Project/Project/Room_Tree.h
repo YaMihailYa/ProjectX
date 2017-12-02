@@ -2,10 +2,10 @@
 #include "Room.h"
 
 class Room_Tree
-	: Room
+	: public Room
 {
 public:
-	Room_Tree(Room_t type, unsigned int id, sf::IntRect rect, bool enterable);
+	Room_Tree(Room_t type, unsigned int id, sf::IntRect rect);
 	~Room_Tree();
 
 	void setTreePosition(float _x, float _y);
