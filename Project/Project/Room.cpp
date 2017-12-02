@@ -1,6 +1,7 @@
 #include "Room.h"
 #include "Player.h"
 #include "Render.h"
+#include "Level.h"
 
 
 Room::Room(Room_t type, unsigned int id, sf::IntRect rect, bool enterable)

@@ -1,5 +1,5 @@
 #include "Level.h"
-
+#include "Menu.h"
 
 
 Level::Level(unsigned int id, Static_Object *_backGround, std::vector<Room*> _rooms,
@@ -13,6 +13,29 @@ Level::Level(unsigned int id, Static_Object *_backGround, std::vector<Room*> _ro
 Level::~Level()
 {
 	delete this->m_player;
+}
+
+
+void Level::Set_status(Level_status_t status)
+{
+	switch (status)
+	{
+	case LEVEL_STATUS_PAUSE:
+	{
+		Menu::Get()->fillVectorButtons(PAUSE);
+		break;
+	}
+	case LEVEL_STATUS_END:
+	{
+		Menu::Get()->fillVectorButtons(LEVEL_END);
+		break;
+	}
+	case LEVEL_STATUS_FAILED:
+	{
+		Menu::Get()->fillVectorButtons(LEVEL_FAILED);
+		break;
+	}
+	}
 }
 
 
@@ -48,19 +71,19 @@ void Level::Display(sf::RenderWindow *window, unsigned int _time)
 	switch (this->m_status)
 	{
 	case LEVEL_STATUS_PAUSE: {
-
+		Menu::Get()->display(window);
 
 		break;
 	}
 	case LEVEL_STATUS_END:
 	{
-
+		Menu::Get()->display(window);
 
 		break;
 	}
 	case LEVEL_STATUS_FAILED:
 	{
-
+		Menu::Get()->display(window);
 
 		break;
 	}

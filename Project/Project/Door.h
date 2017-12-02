@@ -33,7 +33,7 @@ public:
 	void display_background(sf::RenderWindow *window);
 	virtual void display_foreground(sf::RenderWindow *window);
 
-	virtual void Set_door_pos(float x, float y) = 0;
+	//virtual void Set_door_pos(float x, float y) = 0;
 	//void Set_background(float x, float y) { m_background->setPosition(x, y); }
 
 	// With using coef

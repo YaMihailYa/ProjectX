@@ -4,6 +4,9 @@ Animation_loader* Animation_loader::m_this = nullptr;
 
 Animation_loader::Animation_loader()
 {
+	if (m_this != nullptr)
+		exit(EXIT_FAILURE);
+	m_this = this;
 	m_last_id = 0;
 }
 
