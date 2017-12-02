@@ -1,4 +1,5 @@
 #include "Menu.h"
+#include "Room_Tree.h"
 
 #define _CRT_SECURE_NO_WARNINGS
 
@@ -429,7 +430,67 @@ void Menu::home()
 void Menu::lev_1()
 {
 	printf("BTN_LEV_1\n");
-	fillVectorButtons(LOOT_BOX);
+	
+	// Preparing to creating the level
+	// Creating the background
+	Static_Object *background = new Static_Object(64);
+
+	// Creating the rooms
+	// Creating the array of rooms
+	std::vector<Room*> rooms;
+
+	rooms.push_back(new Room(REGULAR, 0, sf::IntRect(1326, 24, 473, 285)));
+	rooms.push_back((Room*) new Room_Tree(TREE, 1, sf::IntRect(568, 24, 606, 285)));
+	rooms.push_back(new Room(REGULAR, 2, sf::IntRect(568, 332, 606, 285)));
+
+	// Room 0
+	Room *currRoom = new Room(REGULAR, 0, sf::IntRect(1326, 24, 473, 285));
+
+	std::vector<Static_Object_Hovered*> staticObjects;
+	std::vector<Animated_Object*> animatedObjects;
+
+	Static_Object_Hovered *currStaticObject = new Static_Object_Hovered(50, 51);		// Tumbochka
+	currStaticObject->setPosition(1453, 166);
+	staticObjects.push_back(currStaticObject);
+
+	currRoom->setStaticObjects(staticObjects);
+	currRoom->setAnimatedObjects(animatedObjects);
+
+	rooms.push_back(currRoom);
+
+	// Room 1
+	Room_Tree *currTreeRoom = new Room_Tree(TREE, 1, sf::IntRect(568, 24, 606, 285));
+
+	std::vector<Static_Object_Hovered*> staticObjects;
+	std::vector<Animated_Object*> animatedObjects;
+
+	currTreeRoom->setStaticObjects(staticObjects);
+	currTreeRoom->setAnimatedObjects(animatedObjects);
+
+	// Christmas tree
+	currTreeRoom->setTreePosition(796, 28);
+
+	rooms.push_back(currRoom);
+
+	// Room 3
+	currRoom = new Room(REGULAR, 2, sf::IntRect(568, 332, 606, 285));
+
+	std::vector<Static_Object_Hovered*> staticObjects;
+	std::vector<Animated_Object*> animatedObjects;
+
+	Static_Object_Hovered *currStaticObject = new Static_Object_Hovered(48, 49);		// Sofa
+	currStaticObject->setPosition(766, 361);
+	staticObjects.push_back(currStaticObject);
+
+	currRoom->setStaticObjects(staticObjects);
+	currRoom->setAnimatedObjects(animatedObjects);
+
+	rooms.push_back(currRoom);
+
+	// Creating the array of doors
+	std::vector<Room*> doors;
+
+	//Level *level = new Level(1, rooms, doors);
 }
 
 void Menu::lev_2()

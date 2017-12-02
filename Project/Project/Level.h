@@ -19,7 +19,7 @@ class Level
 {
 public:
 	Level(unsigned int id, Static_Object *_backGround, std::vector<Room*> _rooms,
-			std::vector<Door*> _doors, sf::Vector2f player);
+			std::vector<Door*> _doors);
 	~Level();
 
 	// Display all objects of current level

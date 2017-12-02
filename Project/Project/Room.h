@@ -7,13 +7,14 @@ enum Room_t
 {
 	REGULAR,
 	GRANDMA,
-	DOG
+	DOG,
+	TREE
 };
 
 class Room
 {
 public:
-	Room(Room_t type, unsigned int id, sf::IntRect rect, bool enterable);
+	Room(Room_t type, unsigned int id, sf::IntRect rect);
 	~Room();
 
 	/**
@@ -23,9 +24,8 @@ public:
 	* @param dir directions in which player was moved
 	* @return new coorcdinates of player
 	*/
-	sf::Vector2u move_player(sf::Vector2u old_coords, sf::Vector2u new_coords, Direction_t dir);
+	//sf::Vector2u move_player(sf::Vector2u old_coords, sf::Vector2u new_coords, Direction_t dir);
 
-	bool Get_enterable() const { return m_enterable; }
 	unsigned int getID() const { return this->m_id; }
 
 	void setStaticObjects(std::vector<Static_Object_Hovered*> _staticObjects);
@@ -33,7 +33,6 @@ public:
 
 	float getCoordByDirection(Direction_t direction);
 
-	void Set_enterable(bool enterable) { m_enterable = enterable; }
 	void Set_right_room(Room *right_room) { m_right_room = right_room; }
 	void Set_left_room(Room *left_room) { m_left_room = left_room; }
 	void Set_top_room(Room *top_room) { m_top_room = top_room; }
@@ -61,7 +60,6 @@ protected:
 
 	// Rectangle of room
 	sf::IntRect m_rect;
-	bool m_enterable;
 
 	// Arrays of static objects of the room (hovered only)
 	std::vector<Static_Object_Hovered*> m_staticObjects;

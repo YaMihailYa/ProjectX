@@ -13,7 +13,7 @@ class Room_Dog
 	: Room
 {
 public:
-	Room_Dog(Room_t type, unsigned int id, sf::IntRect rect, bool enterable, unsigned int timeOfBarking);
+	Room_Dog(Room_t type, unsigned int id, sf::IntRect rect, unsigned int timeOfBarking);
 	~Room_Dog();
 
 	void setDogPosition(float _x, float _y);

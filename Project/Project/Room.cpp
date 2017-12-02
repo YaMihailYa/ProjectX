@@ -4,8 +4,8 @@
 #include "Level.h"
 
 
-Room::Room(Room_t type, unsigned int id, sf::IntRect rect, bool enterable)
-	:m_type(type), m_id(id), m_rect(rect), m_enterable(enterable)
+Room::Room(Room_t type, unsigned int id, sf::IntRect rect)
+	:m_type(type), m_id(id), m_rect(rect)
 {
 	m_left_room = nullptr;
 	m_right_room = nullptr;
@@ -32,7 +32,7 @@ Room::~Room()
 	}
 }
 
-sf::Vector2u Room::move_player(sf::Vector2u old_coords, sf::Vector2u new_coords, Direction_t dir)
+/*sf::Vector2u Room::move_player(sf::Vector2u old_coords, sf::Vector2u new_coords, Direction_t dir)
 {
 	if (dir == LEFT)
 	{
@@ -82,7 +82,7 @@ sf::Vector2u Room::move_player(sf::Vector2u old_coords, sf::Vector2u new_coords,
 	}
 	else
 		exit(EXIT_FAILURE);
-}
+}*/
 
 
 void Room::setStaticObjects(std::vector<Static_Object_Hovered*> _staticObjects)

@@ -2,8 +2,8 @@
 #include "Player.h"
 #include "Render.h"
 
-Room_Grandma::Room_Grandma(Room_t type, unsigned int id, sf::IntRect rect, bool enterable, unsigned int timeOfPhase)
-	: Room(type, id, rect, enterable)
+Room_Grandma::Room_Grandma(Room_t type, unsigned int id, sf::IntRect rect, unsigned int timeOfPhase)
+	: Room(type, id, rect)
 {
 	this->m_timeOfPhase = timeOfPhase;
 	this->m_isActive = true;

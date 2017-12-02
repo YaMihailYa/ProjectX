@@ -3,8 +3,8 @@
 #include "Inventory.h"
 #include "Render.h"
 
-Room_Dog::Room_Dog(Room_t type, unsigned int id, sf::IntRect rect, bool enterable, unsigned int timeOfBarking)
-	: Room(type, id, rect, enterable)
+Room_Dog::Room_Dog(Room_t type, unsigned int id, sf::IntRect rect, unsigned int timeOfBarking)
+	: Room(type, id, rect)
 {
 	this->m_timeOfBarking = timeOfBarking;
 	this->m_currentState = PASSIVE;
