@@ -164,6 +164,7 @@ void Render::Rendering()
 
 		// Here display level
 		m.display(m_window);
+		m.onKeyClick();
 		m.onClick();
 		
 		m_window->display();

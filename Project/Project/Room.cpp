@@ -109,9 +109,35 @@ float Room::getCoordByDirection(Direction_t direction)
 	}
 	case TOP:
 	{
-		//return this->m_top_door->;
+		return this->m_top_door->get_center_coord();
+	}
+	case DOWN:
+	{
+		return this->m_down_door->get_center_coord();
 	}
 	}
+
+	return 0;
+}
+
+
+Door* Room::getDoorByDirection(Direction_t direction)
+{
+	switch (direction)
+	{
+	case LEFT:
+		return this->m_left_door;
+	case RIGHT:
+		return this->m_right_door;
+	case TOP:
+		return this->m_top_door;
+	case DOWN:
+		return this->m_down_door;
+	default:
+		break;
+	}
+
+	return nullptr;
 }
 
 

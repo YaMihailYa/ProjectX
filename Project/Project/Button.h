@@ -12,6 +12,10 @@ public:
 
 	int getX0();
 	int getY0();
+
+	int getX0Click();
+	int getY0Click();
+
 	int getWidth();
 	int getHeight();
 
@@ -22,6 +26,10 @@ public:
 
 private:
 	bool fl_clicked;
+
+	int x0_click;
+	int y0_click;
+
 	sf::IntRect rectangle;
 	menu_type_t m_menu_name;
 	btn_type_t m_btn_name;

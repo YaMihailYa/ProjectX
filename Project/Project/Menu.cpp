@@ -4,12 +4,16 @@ Menu::Menu(menu_type_t type)
 {
 	menu = nullptr;
 	fillVectorButtons(type);
+	last_x0_clicked = -1;
+	last_y0_clicked = -1;
 }
 
 Menu::~Menu() { }
 
 void Menu::fillVectorButtons(menu_type_t type)
 {
+	menuType = type;
+
 	temp = false;
 
 	if (menu != nullptr)
@@ -107,6 +111,16 @@ void Menu::onClick()
 			//BTN_START, BTN_OPTIONS, BTN_QUIT, BTN_NEXT_LEVEL, BTN_LEVEL_SELECTION, BTN_HOME, BTN_LEV_1, BTN_LEV_2, BTN_LEV_3
 
 			if (!buttons[i].isClicked()) { continue; }
+			else {
+				if (buttons[i].getX0Click() == last_x0_clicked && buttons[i].getY0Click() == last_y0_clicked)
+				{
+					break;
+				}
+				else {
+					last_x0_clicked = buttons[i].getX0Click();
+					last_y0_clicked = buttons[i].getY0Click();
+				}
+			}
 
 			btn_type_t btn = buttons[i].getBtnName();
 
@@ -120,7 +134,7 @@ void Menu::onClick()
 			}
 			case BTN_OPTIONS:
 			{
-				temp = true;
+				//temp = true;
 				options();
 				break;
 			}
@@ -181,12 +195,32 @@ void Menu::onClick()
 			}
 			}
 
-			if (temp == true)
-			{
-				break;
-			}
+			break;
 		}
 	}
+}
+
+void Menu::onKeyClick()
+{
+	switch (menuType)
+	{
+	case START:
+		break;
+	case PAUSE:
+		break;
+	case LEVEL_END:
+		break;
+	case LEVEL_FAILED:
+		break;
+	case LEVEL_SELECTION: {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+			fillVectorButtons(START);
+		break;
+	}
+	default:
+		break;
+	}
+
 }
 
 void Menu::display(sf::RenderWindow *window)
@@ -198,6 +232,7 @@ void Menu::display(sf::RenderWindow *window)
 void Menu::start()
 {
 	printf("BTN_START\n");
+	//*this = Menu(LEVEL_SELECTION);
 	fillVectorButtons(LEVEL_SELECTION);
 }
 

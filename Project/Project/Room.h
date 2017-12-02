@@ -43,6 +43,8 @@ public:
 	void Set_top_door(Door *top_door) { m_top_door = top_door; }
 	void Set_down_door(Door *down_door) { m_down_door = down_door; }
 
+	Door* getDoorByDirection(Direction_t direction);
+
 	void display(sf::RenderWindow *window, unsigned int time);
 
 

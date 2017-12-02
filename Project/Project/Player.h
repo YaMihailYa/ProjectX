@@ -2,6 +2,13 @@
 #include "globals.h"
 #include "Animated_Object.h"
 
+enum Player_Status_t
+{
+	ANIMATION_STAY,
+	ANIMATION_LEFT,
+	ANIMATION_RIGHT
+};
+
 class Player
 {
 public:
@@ -29,6 +36,9 @@ public:
 	sf::IntRect Get_boundary() const { return m_rect; }
 protected:
 	static Player* m_this;
+
+	// Current status of player
+	Player_Status_t m_status;
 
 	//sf::Sprite m_sprite;
 	Animated_Object *m_left_anim;

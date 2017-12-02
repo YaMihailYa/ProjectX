@@ -29,6 +29,12 @@ public:
 	void Set_door_pos(float x, float y) { m_door->setPosition(x, y); }
 	void Set_background(float x, float y) { m_background->setPosition(x, y); }
 
+	float get_center_coord();
+
+	virtual void go_throw_the_door() = 0;
+
+	bool getIsClosed() { return m_is_closed; }
+
 
 protected:
 	Door_t m_type;

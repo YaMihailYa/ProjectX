@@ -56,3 +56,9 @@ void Door::display_background(sf::RenderWindow *window)
 //		m_background = new Static_Object(Door_opened_background_id);
 //	}
 //}
+
+
+float Door::get_center_coord()
+{
+	return 0;
+}
