@@ -130,10 +130,13 @@ void Render::Init()
 	m_textures->Add_texture("Resurses/Images/gameplay/panel_hover.png");	// 71
 	m_textures->Add_texture("Resurses/Images/gameplay/tree.png");			// 72
 	m_textures->Add_texture("Resurses/Images/gameplay/tree_hover.png");	    // 73
+	// Load white handles
+	m_textures->Add_texture("Resurses/Images/gameplay/door/front/handles/WHITE.png");		 // 74
+	m_textures->Add_texture("Resurses/Images/gameplay/door/rooms/closed/handles/WHITE.png"); // 75
+	m_textures->Add_texture("Resurses/Images/gameplay/door/rooms/opened/handles/WHITE.png"); // 76
 
 
-
-
+	
 
 
 	// Initialization animations

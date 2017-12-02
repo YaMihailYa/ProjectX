@@ -40,6 +40,8 @@ public:
 
 	bool checkElement(Item_t &item);
 	
+	int number_of_cookies();
+
 	static Inventory* Get() { return m_this; }
 
 protected:

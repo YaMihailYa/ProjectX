@@ -1,5 +1,7 @@
 #include "Menu.h"
 
+#define _CRT_SECURE_NO_WARNINGS
+
 Menu::Menu(menu_type_t type) 
 {
 	menu = nullptr;
@@ -220,13 +222,100 @@ void Menu::onKeyClick()
 	default:
 		break;
 	}
-
 }
 
 void Menu::display(sf::RenderWindow *window)
 {
 	//if (menu == nullptr) { return; }
 	menu->display(window);
+	if (menuType == LEVEL_SELECTION)
+	{
+		int count_cookies1;
+		int count_cookies2;
+		int count_cookies3;
+		
+		std::ifstream myfile("achievements.txt");
+		if (myfile.is_open())
+		{
+			myfile >> count_cookies1;
+			myfile >> count_cookies2;
+			myfile >> count_cookies3;
+			
+			myfile.close();
+		}
+
+		Static_Object* cook1 = nullptr;
+		Static_Object* cook2 = nullptr;
+		Static_Object* cook3 = nullptr;
+
+		switch (count_cookies1)
+		{
+		case 0: {
+			cook1 = new Static_Object(67);
+			break;
+		}
+		case 1: {
+			cook1 = new Static_Object(68);
+			break;
+		}
+		case 2: {
+			cook1 = new Static_Object(69);
+			break;
+		}
+		case 3: {
+			cook1 = new Static_Object(70);
+			break;
+		}
+		}
+
+		switch (count_cookies2)
+		{
+		case 0: {
+			cook2 = new Static_Object(67);
+			break;
+		}
+		case 1: {
+			cook2 = new Static_Object(68);
+			break;
+		}
+		case 2: {
+			cook2 = new Static_Object(69);
+			break;
+		}
+		case 3: {
+			cook2 = new Static_Object(70);
+			break;
+		}
+		}
+
+		switch (count_cookies3)
+		{
+		case 0: {
+			cook3 = new Static_Object(67);
+			break;
+		}
+		case 1: {
+			cook3 = new Static_Object(68);
+			break;
+		}
+		case 2: {
+			cook3 = new Static_Object(69);
+			break;
+		}
+		case 3: {
+			cook3 = new Static_Object(70);
+			break;
+		}
+		}
+
+		cook1->setPosition(671, 357);
+		cook2->setPosition(871, 357);
+		cook3->setPosition(1071, 357);
+
+		cook1->display(window);
+		cook2->display(window);
+		cook3->display(window);
+	}
 }
 
 void Menu::start()

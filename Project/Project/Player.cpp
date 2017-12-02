@@ -13,6 +13,7 @@ Player::Player(unsigned int speed)
 
 	sf::IntRect s;
 	// m_rect = 
+	this->m_clicked = false;
 }
 
 

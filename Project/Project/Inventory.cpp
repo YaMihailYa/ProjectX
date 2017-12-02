@@ -82,3 +82,18 @@ bool Inventory::checkElement(Item_t &item)
 
 	return false;
 }
+
+int Inventory::number_of_cookies()
+{
+	int func_number = 0;
+
+	for (int i = 0; m_items.size(); i++)
+	{
+		if (m_items[i].type._type == COOKIE)
+		{
+			func_number++;
+		}
+	}
+
+	return func_number;
+}
