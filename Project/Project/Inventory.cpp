@@ -40,11 +40,11 @@ bool Inventory::change_item(Item_t & item)
 	return false;
 }
 
-void Inventory::del_item(Item_t * item)
+void Inventory::del_item(Item_t & item)
 {
 	if (m_items.empty()) return;
 	for (int i = 0; i < m_items.size(); i++)
-		if (m_items[i].type._type == item->_type)
+		if (m_items[i].type._type == item._type)
 		{
 			delete m_items[i].obj;
 			m_items.erase(m_items.begin() + (i - 1));
@@ -64,10 +64,19 @@ bool Inventory::checkElement(Item_t &item)
 
 	for (int i = 0; i < arrSize; i++)
 	{
-		if (this->m_items[i].type._type == item._type &&
-			this->m_items[i].type._colour == item._colour)
+		if (this->m_items[i].type._type == item._type)
 		{
-			return true;
+			if (this->m_items[i].type._type == KEY)
+			{
+				if (this->m_items[i].type._colour == item._colour)
+				{
+					return true;
+				}
+			}
+			else
+			{
+				return true;
+			}
 		}
 	}
 
