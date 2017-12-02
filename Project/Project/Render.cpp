@@ -166,31 +166,31 @@ void Render::Init()
 
 	// Initialization animations
 	// #grandfather
-	m_animations->add(0, 19);
-	m_animations->add(1, 19);
-	m_animations->add(2, 10);
+	m_animations->add(0, 19);	// 0
+	m_animations->add(1, 19);	// 1
+	m_animations->add(2, 10);	// 2
 	// #grandmother
-	m_animations->add(3, 29);
-	m_animations->add(4, 11);
+	m_animations->add(3, 29);	// 3
+	m_animations->add(4, 11);	// 4
 	// #dog
-	m_animations->add(5, 4);
-	m_animations->add(6, 5);
-	m_animations->add(7, 4);
+	m_animations->add(5, 4);	// 5
+	m_animations->add(6, 5);	// 6
+	m_animations->add(7, 4);	// 7
 	// #cat
-	m_animations->add(8, 38);
+	m_animations->add(8, 38);	// 8
 	// #grandfather skins blue
-	m_animations->add(77, 10);
-	m_animations->add(78, 19);
-	m_animations->add(79, 19);
+	m_animations->add(77, 10);	// 9
+	m_animations->add(78, 19);	// 10
+	m_animations->add(79, 19);	// 11
 	// #grandfather skins green
-	m_animations->add(80, 10);
-	m_animations->add(81, 19);
-	m_animations->add(82, 19);
+	m_animations->add(80, 10);	// 12 breath
+	m_animations->add(81, 19);	// 13 left
+	m_animations->add(82, 19);	// 14 right
 	// #grandfather skins pink
-	m_animations->add(83, 10);
-	m_animations->add(84, 19);
-	m_animations->add(85, 19);
-	m_animations->add(95, 2);
+	m_animations->add(83, 10);	// 15
+	m_animations->add(84, 19);	// 16
+	m_animations->add(85, 19);	// 17
+	m_animations->add(95, 2);	// 18
 
 }
 
