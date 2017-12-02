@@ -2,8 +2,8 @@
 #include "Render.h"
 #include "Player.h"
 
-Room_Tree::Room_Tree(Room_t type, unsigned int id, sf::IntRect rect, bool enterable)
-	: Room(type, id, rect, enterable)
+Room_Tree::Room_Tree(Room_t type, unsigned int id, sf::IntRect rect)
+	: Room(type, id, rect)
 {
 	this->m_tree = new Static_Object_Hovered(72, 73);
 }
