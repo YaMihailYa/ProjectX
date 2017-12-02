@@ -159,6 +159,9 @@ void Render::Init()
 	m_textures->Add_texture("Resurses/Images/interface/options/pink_santa.png");			// 92
 	m_textures->Add_texture("Resurses/Images/interface/options/blue_santa.png");			// 93
 	m_textures->Add_texture("Resurses/Images/interface/options/choosed_red_santa.png");     // 94
+	// Load signaling
+	m_textures->Add_texture("Resurses/Images/gameplay/signaling.png");						// 95
+
 	
 
 	// Initialization animations
@@ -187,6 +190,8 @@ void Render::Init()
 	m_animations->add(83, 10);
 	m_animations->add(84, 19);
 	m_animations->add(85, 19);
+	m_animations->add(95, 2);
+
 }
 
 void Render::Rendering()
