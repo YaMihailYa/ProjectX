@@ -7,6 +7,12 @@
 Room::Room(Room_t type, unsigned int id, sf::IntRect rect)
 	:m_type(type), m_id(id), m_rect(rect)
 {
+	sf::Vector2f coef = Render::Get()->Get_coef();
+	m_rect.width *= coef.x;
+	m_rect.left *= coef.x;
+	m_rect.height *= coef.y;
+	m_rect.top *= coef.y;
+
 	m_left_room = nullptr;
 	m_right_room = nullptr;
 	m_top_room = nullptr;
