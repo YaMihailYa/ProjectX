@@ -27,6 +27,8 @@ Player::~Player()
 
 void Player::display(sf::RenderWindow *window, unsigned int time)
 {
+	this->m_clicked = false;
+
 	if (!this->m_move_directions.empty())
 	{
 		Direction_t currDirection = this->m_move_directions[0];
@@ -61,7 +63,7 @@ void Player::display(sf::RenderWindow *window, unsigned int time)
 		// If we are in the target room
 		if (this->m_c_pos == this->m_target_pos)
 		{
-
+			this->m_clicked = true;
 			this->m_status = ANIMATION_STAY;
 		}
 		else
