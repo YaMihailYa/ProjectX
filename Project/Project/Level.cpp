@@ -8,6 +8,9 @@ Level::Level(unsigned int id, Static_Object *_backGround, std::vector<Room*> _ro
 	:m_id(id), m_backGround(_backGround), m_rooms(_rooms), m_doors(_doors), m_status(LEVEL_STATUS_GAME)
 {
 	this->m_player = new Player(100);
+
+	// Creating the inventory
+	Inventory *inventory = new Inventory(sf::IntRect(294, 1017, 1445, 63));
 }
 
 
