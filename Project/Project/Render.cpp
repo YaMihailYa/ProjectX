@@ -150,10 +150,6 @@ void Render::Init()
 	m_textures->Add_texture("Resurses/Images/animations/grandfather/skins/pink/gf_left_pink.png");   // 84
 	m_textures->Add_texture("Resurses/Images/animations/grandfather/skins/pink/gf_right_pink.png");  // 85
 	// Load lootbox 
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
 	m_textures->Add_texture("Resurses/Images/gameplay/lootbox.png");  // 86
 	// Load options
 	m_textures->Add_texture("Resurses/Images/interface/options/ball.png");				    // 87
@@ -229,12 +225,19 @@ void Render::Rendering()
 		m_window->clear();
 
 		// Here display level
-		m.display(m_window);
-		m.onKeyClick();
-		m.onClick();
+		if (this->m_status == RENDER_STATUS_MENU)
+		{
+			m.display(m_window);
+			m.onKeyClick();
+			m.onClick();
+		}
+		else
+		{
+			m_c_level->Display(m_window, time_delay_mcs);
+		}
 		//s.Display(m_window, time_delay_mcs);
 		//Player::Get()->Move();
-		m_c_level->Display(m_window, time_delay_mcs);
+		
 		m_window->display();
 	}
 }

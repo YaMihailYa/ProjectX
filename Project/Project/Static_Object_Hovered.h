@@ -17,6 +17,8 @@ public:
 	void setIsHovered(bool _isHovered);
 	bool getIsHovered();
 
+	void setPosition(float _x, float _y);
+
 	// Display sprite
 	void display(sf::RenderWindow *window);
 
