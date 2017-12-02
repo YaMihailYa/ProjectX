@@ -1,5 +1,7 @@
 #pragma once
 #include "Level.h"
+#include "Texture_loader.h"
+#include "Animation_loader.h"
 
 class Render
 {
@@ -20,6 +22,10 @@ private:
 	static Render* m_this;
 	Level* m_c_level;
 
+	Texture_loader *m_textures;
+	Animation_loader *m_animations;
+
+	
 	sf::RenderWindow *m_window;
 	float m_coef_x;
 	float m_coef_y;

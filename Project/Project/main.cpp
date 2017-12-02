@@ -13,8 +13,8 @@ int main()
 	render->Rendering();
 	delete render;
 */
-	Texture_loader loader;
-	loader.Add_texture("img/background.png");
+	/*Texture_loader loader;
+	loader.Add_texture("img/background.png");*/
 
 	Render *render = new Render;
 	render->Rendering();
