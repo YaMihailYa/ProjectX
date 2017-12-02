@@ -15,6 +15,25 @@ Menu::Menu(menu_type_t type)
 	if (m_this != nullptr)
 		exit(EXIT_FAILURE);
 
+	bool isAvailable1;
+	bool isAvailable2;
+	bool isAvailable3;
+
+	std::ifstream myfile("availables_santa_suits.txt");
+	if (myfile.is_open())
+	{
+		myfile >> isAvailable1;
+		myfile >> isAvailable2;
+		myfile >> isAvailable3;
+
+		available_santas[0] = isAvailable1;
+		available_santas[1] = isAvailable2;
+		available_santas[2] = isAvailable3;
+
+		myfile.close();
+	}
+
+
 	m_this = this;
 	menu = nullptr;
 
