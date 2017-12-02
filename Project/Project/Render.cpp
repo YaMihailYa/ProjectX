@@ -62,6 +62,60 @@ void Render::Init()
 	m_textures->Add_texture("Resurses/Images/interface/level_completed/Level_completed_1.png"); // 19
 	m_textures->Add_texture("Resurses/Images/interface/level_completed/Level_completed_2.png"); // 20
 	m_textures->Add_texture("Resurses/Images/interface/level_completed/Level_completed_3.png"); // 21
+	
+	// Load gameplay images
+	// #door->front
+	m_textures->Add_texture("Resurses/Images/gameplay/door/front/door_frond_background_hover.png");     // 22
+	m_textures->Add_texture("Resurses/Images/gameplay/door/front/door_front_background_not_hover.png"); // 23
+	m_textures->Add_texture("Resurses/Images/gameplay/door/front/door_front_background.png");			// 24
+	// #front->handles 
+	m_textures->Add_texture("Resurses/Images/gameplay/door/front/handles/BLUE.png");   // 25
+	m_textures->Add_texture("Resurses/Images/gameplay/door/front/handles/GREEN.png");  // 26
+	m_textures->Add_texture("Resurses/Images/gameplay/door/front/handles/ORANGE.png"); // 27
+	m_textures->Add_texture("Resurses/Images/gameplay/door/front/handles/PINK.png");   // 28
+	m_textures->Add_texture("Resurses/Images/gameplay/door/front/handles/RED.png");    // 29
+	m_textures->Add_texture("Resurses/Images/gameplay/door/front/handles/YELLOW.png"); // 30
+	// #rooms->closed
+	m_textures->Add_texture("Resurses/Images/gameplay/door/rooms/closed/door_opened_background.png");			// 31 
+	m_textures->Add_texture("Resurses/Images/gameplay/door/rooms/closed/door_opened_background_hover.png");		// 32
+	m_textures->Add_texture("Resurses/Images/gameplay/door/rooms/closed/door_opened_background_not_hover.png"); // 33
+	// #rooms->closed->handles
+	m_textures->Add_texture("Resurses/Images/gameplay/door/rooms/closed/handles/BLUE.png");   // 34
+	m_textures->Add_texture("Resurses/Images/gameplay/door/rooms/closed/handles/GREEN.png");  // 35
+	m_textures->Add_texture("Resurses/Images/gameplay/door/rooms/closed/handles/ORANGE.png"); // 36
+	m_textures->Add_texture("Resurses/Images/gameplay/door/rooms/closed/handles/RED.png");    // 37
+	m_textures->Add_texture("Resurses/Images/gameplay/door/rooms/closed/handles/VIOLET.png"); // 38
+	m_textures->Add_texture("Resurses/Images/gameplay/door/rooms/closed/handles/YELLOW.png"); // 39
+	// #rooms->opened
+	m_textures->Add_texture("Resurses/Images/gameplay/door/rooms/opened/background.png"); // 40
+	m_textures->Add_texture("Resurses/Images/gameplay/door/rooms/opened/foreground.png"); // 41
+	// #rooms->opened->handles
+	m_textures->Add_texture("Resurses/Images/gameplay/door/rooms/opened/handles/BLUE.png");   // 42
+	m_textures->Add_texture("Resurses/Images/gameplay/door/rooms/opened/handles/GREEN.png");  // 43
+	m_textures->Add_texture("Resurses/Images/gameplay/door/rooms/opened/handles/ORANGE.png"); // 44
+	m_textures->Add_texture("Resurses/Images/gameplay/door/rooms/opened/handles/PINK.png");   // 45
+	m_textures->Add_texture("Resurses/Images/gameplay/door/rooms/opened/handles/RED.png");    // 46
+	m_textures->Add_texture("Resurses/Images/gameplay/door/rooms/opened/handles/YELLOW.png"); // 47
+	// #kepts
+	m_textures->Add_texture("Resurses/Images/gameplay/kepts/cupboard.png");         // 48
+	m_textures->Add_texture("Resurses/Images/gameplay/kepts/cupboard_hover.png");   // 49
+	m_textures->Add_texture("Resurses/Images/gameplay/kepts/nightstand.png");       // 50
+	m_textures->Add_texture("Resurses/Images/gameplay/kepts/nightstand_hover.png"); // 51
+	m_textures->Add_texture("Resurses/Images/gameplay/kepts/safe.png");				// 52
+	m_textures->Add_texture("Resurses/Images/gameplay/kepts/safe_hover.png");		// 53
+	// #small_items
+	m_textures->Add_texture("Resurses/Images/gameplay/small_items/bone.png");		// 54
+	m_textures->Add_texture("Resurses/Images/gameplay/small_items/cookie.png");		// 55
+	m_textures->Add_texture("Resurses/Images/gameplay/small_items/wrench.png");		// 56
+	// #small_items->keys
+	m_textures->Add_texture("Resurses/Images/gameplay/small_items/keys/key_BLUE.png");		// 57
+	m_textures->Add_texture("Resurses/Images/gameplay/small_items/keys/key_GREEN.png");		// 58
+	m_textures->Add_texture("Resurses/Images/gameplay/small_items/keys/key_ORANGE.png");	// 59
+	m_textures->Add_texture("Resurses/Images/gameplay/small_items/keys/key_PINK.png");		// 60
+	m_textures->Add_texture("Resurses/Images/gameplay/small_items/keys/key_RED.png");		// 61
+	m_textures->Add_texture("Resurses/Images/gameplay/small_items/keys/key_YELLOW.png");	// 62
+	// gameplay_folder
+	m_textures->Add_texture("Resurses/Images/gameplay/panel.png");	// 63
 
 
 	// Initialization animations
