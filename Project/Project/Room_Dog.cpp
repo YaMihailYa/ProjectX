@@ -9,7 +9,7 @@ Room_Dog::Room_Dog(Room_t type, unsigned int id, sf::IntRect rect, bool enterabl
 	this->m_passedTime = 0;
 
 	this->m_dogPassive = new Animated_Object(25, 0);
-	this->m_dogActive = new Animated_Object(25, 0);
+	this->m_dogActive = new Animated_Object_Hovered(25, 0, 0);
 	this->m_dogFinished = new Animated_Object(25, 0);
 }
 
@@ -37,8 +37,14 @@ void Room_Dog::display(sf::RenderWindow *window, unsigned int time)
 			this->m_currentState = PASSIVE;
 		}
 		// If throwing the bone
-		/*else if (this->m_currentState == ACTIVE && this->m_dogActive->getIsHovered()
-				&& )*/
+		/*else if (this->m_currentState == ACTIVE && this->m_dogActive->getIsHovered() &&
+			&& sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
+		{
+			this->m_currentState = FINISHED;
+
+			// Removing the bone from inventory
+
+		}*/
 	}
 
 	switch (this->m_currentState)
