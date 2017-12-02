@@ -32,6 +32,7 @@ public:
 	void Set_c_pos(sf::Vector2u c_pos) { m_c_pos = c_pos; }
 	void Set_c_room(unsigned int id) { m_c_room_id = id; }
 
+	bool Get_clicked() const { return this->m_clicked; }
 	sf::Vector2u Get_c_pos() const { return m_c_pos; }
 	unsigned int Get_c_room() const { return m_c_room_id; }
 	
@@ -55,6 +56,9 @@ protected:
 
 	sf::IntRect m_rect;
 	unsigned int m_speed; // pixels per MICROSECONDS
+
+	// When player comes to the point of mouse click
+	bool m_clicked;
 
 	// ID of current room
 	unsigned int m_c_room_id;
