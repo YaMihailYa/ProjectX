@@ -7,6 +7,7 @@ Button::Button(int x0, int y0, int width, int height, menu_type_t m_menu_name, b
 	rectangle = sf::IntRect(x0*coef.x, y0*coef.y, width*coef.x, height*coef.y);
 	this->m_menu_name = m_menu_name;
 	this->m_btn_name = m_btn_name;
+	fl_clicked = false;
 }
 
 Button::~Button() { }
@@ -25,9 +26,10 @@ btn_type_t Button::getBtnName() { return m_btn_name; }
 
 bool Button::isClicked()
 {
+	if (fl_clicked == true) { return false; }
+
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
-		//printf("mouse\n");
 		// get global mouse position
 		sf::Vector2i position = sf::Mouse::getPosition();
 
@@ -38,6 +40,8 @@ bool Button::isClicked()
 		{
 			if (y >= getY0() && y <= getY0() + getHeight())
 			{
+				printf("mouse\n");
+				fl_clicked = true;
 				return true;
 			}
 		}
