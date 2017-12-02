@@ -51,3 +51,19 @@ void Inventory::display(sf::RenderWindow &window)
 	for (int i = 0; i < m_items.size(); i++)
 		m_items[i].obj->display(&window);
 }
+
+bool Inventory::checkElement(Item_t &item)
+{
+	int arrSize = this->m_items.size();
+
+	for (int i = 0; i < arrSize; i++)
+	{
+		if (this->m_items[i].type._type == item._type &&
+			this->m_items[i].type._colour == item._colour)
+		{
+			return true;
+		}
+	}
+
+	return false;
+}

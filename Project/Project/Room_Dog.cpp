@@ -37,7 +37,8 @@ void Room_Dog::display(sf::RenderWindow *window, unsigned int time)
 			this->m_currentState = PASSIVE;
 		}
 		// If throwing the bone
-		//else if ()
+		/*else if (this->m_currentState == ACTIVE && this->m_dogActive->getIsHovered()
+				&& )*/
 	}
 
 	switch (this->m_currentState)

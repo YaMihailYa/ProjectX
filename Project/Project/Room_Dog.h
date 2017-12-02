@@ -1,5 +1,6 @@
 #pragma once
 #include "Room.h"
+#include "Animated_Object_Hovered.h"
 
 enum Dog_State_t
 {
@@ -19,7 +20,7 @@ public:
 
 protected:
 	Animated_Object *m_dogPassive;
-	Animated_Object *m_dogActive;
+	Animated_Object_Hovered *m_dogActive;
 	Animated_Object *m_dogFinished;
 
 	// Current state of dog
