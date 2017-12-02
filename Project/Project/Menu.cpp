@@ -39,10 +39,6 @@ Menu::Menu(menu_type_t type)
 
 	selected_option_id = 0;
 
-	available_santas[0] = true;
-	available_santas[1] = true;
-	available_santas[2] = true;
-
 	fillVectorButtons(type);
 	last_x0_clicked = -1;
 	last_y0_clicked = -1;
