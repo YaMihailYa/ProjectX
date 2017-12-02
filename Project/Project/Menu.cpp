@@ -431,7 +431,7 @@ void Menu::lev_1()
 {
 	printf("BTN_LEV_1\n");
 	
-	// Preparing to creating the level
+	/*// Preparing to creating the level
 	// Creating the background
 	Static_Object *background = new Static_Object(64);
 
@@ -488,9 +488,11 @@ void Menu::lev_1()
 	rooms.push_back(currRoom);
 
 	// Creating the array of doors
-	std::vector<Room*> doors;
+	std::vector<Door*> doors;
 
-	//Level *level = new Level(1, rooms, doors);
+	// ...
+
+	Level *level = new Level(1, background, rooms, doors);*/
 }
 
 void Menu::lev_2()
