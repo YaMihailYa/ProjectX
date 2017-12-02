@@ -2,8 +2,14 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 
+Menu* Menu::m_this = nullptr;
+
 Menu::Menu(menu_type_t type) 
 {
+	if (m_this != nullptr)
+		exit(EXIT_FAILURE);
+
+	m_this = this;
 	menu = nullptr;
 	fillVectorButtons(type);
 	last_x0_clicked = -1;

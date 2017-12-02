@@ -31,7 +31,9 @@ public:
 	void loot_box();
 	void santa_suit();
 
+	static Menu* Get() { return m_this; }
 private:
+	static Menu* m_this;
 	Static_Object* menu;
 	std::vector<Button> buttons;
 	bool temp;
