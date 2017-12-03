@@ -7,7 +7,7 @@ Player* Player::m_this = nullptr;
 
 Player::Player(unsigned int speed)
 	: m_c_pos(sf::Vector2u(1516, 181)), m_target_pos(sf::Vector2u(1516, 181)), m_status(ANIMATION_STAY),
-		m_c_room_id(0), m_clicked(false)
+		m_c_room_id(0), m_clicked(false), m_was_clicked(false)
 {
 	if (m_this != nullptr)
 		exit(EXIT_FAILURE);
@@ -70,7 +70,6 @@ void Player::display(sf::RenderWindow *window, unsigned int time)
 {
 	//m_status = ANIMATION_STAY;
 	//move_to_x_coord(m_target_pos.x, time);
-
 	this->m_clicked = false;
 
 	if (Render::Get()->Get_c_level()->Get_status() == LEVEL_STATUS_GAME)
@@ -104,8 +103,20 @@ void Player::display(sf::RenderWindow *window, unsigned int time)
 				this->move_to_x_coord(targetCoord, time);
 			}
 		}
-		else
+	}
+	else
+	{
+		// If we are in the target room
+		if (this->m_c_pos == this->m_target_pos)
 		{
+			if (m_was_clicked == true)
+			{
+				this->m_clicked = true;
+				this->m_was_clicked = false;
+			}
+
+			this->m_status = ANIMATION_STAY;
+
 			// If we are in the target room
 			if (this->m_c_pos == this->m_target_pos)
 			{
@@ -116,6 +127,7 @@ void Player::display(sf::RenderWindow *window, unsigned int time)
 			{
 				this->move_to_x_coord(this->m_target_pos.x, time);
 			}
+
 		}
 	}
 
@@ -197,6 +209,7 @@ void Player::Move(/*Direction_t dir, unsigned int time*/)
 		// Finding the id of target room
 		int targetRoomId = -1;
 
+		m_was_clicked = true;
 		std::vector<Room*> rooms = Render::Get()->Get_c_level()->Get_rooms();
 		for (int i = 0; i < rooms.size(); i++)
 		{
@@ -211,7 +224,9 @@ void Player::Move(/*Direction_t dir, unsigned int time*/)
 		if (targetRoomId != -1)
 		{
 			// Array of visited rooms
+
 			std::vector<bool> visitedRooms(Render::Get()->Get_c_level()->Get_quantity_of_rooms(), false);
+			visitedRooms[m_c_room_id] = true;
 			find_the_route(this->m_c_room_id, targetRoomId, visitedRooms);
 		}
 		else
@@ -220,23 +235,26 @@ void Player::Move(/*Direction_t dir, unsigned int time*/)
 		}
 
 		printf("\n\nDirections: ");
-		/*for (int i = 0; i < m_move_directions.size(); ++i)
+		for (int i = 0; i < m_move_directions.size(); ++i)
 		{
 			switch (m_move_directions[i])
 			{
 			case LEFT:
-				printf("%")
+				printf("LEFT ");
 				break;
 			case RIGHT:
+				printf("RIGHT ");
 				break;
 			case TOP:
+				printf("TOP ");
 				break;
 			case DOWN:
+				printf("DOWN ");
 				break;
 			default:
 				break;
 			}
-		}*/
+		}
 	}
 
 }
@@ -275,8 +293,39 @@ void Player::move_to_x_coord(float _xCoord, unsigned int _time)
 }
 
 
-bool Player::find_the_route(unsigned int startRoomId, unsigned int endRoomId, std::vector<bool> &_visitedRooms)
+//bool Player::find_the_route(unsigned int startRoomId, unsigned int endRoomId, std::vector<bool> &_visitedRooms)
+bool Player::find_the_route(unsigned int c_room_id, unsigned int end_room_id, std::vector<bool> &_visitedRooms)
 {
+	if (end_room_id == c_room_id)
+		return true;
+
+	Room *c_room = Render::Get()->Get_c_level()->Get_room_by_id(c_room_id);
+	for (int i = 0; i < 4; i++)
+	{
+		Room *c_adj_room = c_room->getRoomByDirection(static_cast<Direction_t>(i));
+		if (c_adj_room == nullptr)
+			continue;
+
+		unsigned int c_adj = c_adj_room->getID();
+		if (!_visitedRooms[c_adj])
+		{
+			m_move_directions.push_back(static_cast<Direction_t>(i));
+			_visitedRooms[c_adj] = true;
+			if (find_the_route(c_adj, end_room_id, _visitedRooms))
+				return true;
+			else
+			{
+				_visitedRooms[c_adj] = false;
+				m_move_directions.pop_back();
+			}
+
+		}
+
+	}
+
+	return false;
+
+	/*
 	if (_visitedRooms[startRoomId])
 	{
 		return false;
@@ -347,6 +396,6 @@ bool Player::find_the_route(unsigned int startRoomId, unsigned int endRoomId, st
 	}
 
 	_visitedRooms[startRoomId] = false;
-	return false;
+	return false;*/
 }
 

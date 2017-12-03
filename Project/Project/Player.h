@@ -55,6 +55,7 @@ protected:
 	sf::Vector2f m_target_pos;
 
 	std::vector<Direction_t> m_move_directions;
+	bool m_was_clicked;
 
 	sf::IntRect m_rect;
 	unsigned int m_speed; // pixels per SECONDS

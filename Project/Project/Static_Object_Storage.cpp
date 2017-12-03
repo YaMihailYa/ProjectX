@@ -33,6 +33,11 @@ void Static_Object_Storage::clearItems()
 	this->m_items.clear();
 }
 
+void Static_Object_Storage::display(sf::RenderWindow *window)
+{
+	checkClickOnThis();
+	Static_Object_Hovered::display(window);
+}
 
 void Static_Object_Storage::checkClickOnThis()
 {

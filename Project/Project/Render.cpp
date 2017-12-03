@@ -238,7 +238,6 @@ void Render::Rendering()
 		{
 			m.onKeyClick();
 			m_c_level->Display(m_window, time_delay_mcs);
-			Inventory::Get()->display(m_window);
 		}
 
 		
