@@ -22,6 +22,7 @@ Level::~Level()
 
 void Level::Set_status(Level_status_t status)
 {
+	m_status = status;
 	switch (status)
 	{
 	case LEVEL_STATUS_PAUSE:
