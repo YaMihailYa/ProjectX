@@ -75,6 +75,7 @@ void Room_Tree::checkClicked()
 			if (rate == 3) { Menu::Get()->fillVectorButtons(LOOT_BOX); }
 			else { Menu::Get()->fillVectorButtons(LEVEL_END, rate); }
 			
+			Render::Get()->setStatus(Render_status_t::RENDER_STATUS_MENU);
 		}
 	}
 }
