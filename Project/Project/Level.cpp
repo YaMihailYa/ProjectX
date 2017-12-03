@@ -19,7 +19,9 @@ Level::Level(unsigned int id, Static_Object *_backGround, std::vector<Room*> _ro
 
 Level::~Level()
 {
-	delete this->m_player;
+	delete m_player;
+	delete m_backGround;
+	delete Inventory::Get();
 }
 
 
@@ -30,17 +32,25 @@ void Level::Set_status(Level_status_t status)
 	{
 	case LEVEL_STATUS_PAUSE:
 	{
+		Render::Get()->setStatus(RENDER_STATUS_MENU);
 		Menu::Get()->fillVectorButtons(PAUSE);
 		break;
 	}
 	case LEVEL_STATUS_END:
 	{
+		Render::Get()->setStatus(RENDER_STATUS_MENU);
 		Menu::Get()->fillVectorButtons(LEVEL_END);
 		break;
 	}
 	case LEVEL_STATUS_FAILED:
 	{
+		Render::Get()->setStatus(RENDER_STATUS_MENU);
 		Menu::Get()->fillVectorButtons(LEVEL_FAILED);
+		break;
+	}
+	case LEVEL_STATUS_GAME:
+	{
+		Render::Get()->setStatus(RENDER_STATUS_GAME);
 		break;
 	}
 	}
@@ -49,6 +59,7 @@ void Level::Set_status(Level_status_t status)
 
 void Level::Display(sf::RenderWindow *window, unsigned int _time)
 {
+
 	// Displaying background
 	this->m_backGround->display(window);
 
@@ -104,7 +115,7 @@ void Level::Display(sf::RenderWindow *window, unsigned int _time)
 	Inventory::Get()->display(window);
 
 	// If not active game
-	switch (this->m_status)
+	/*switch (this->m_status)
 	{
 	case LEVEL_STATUS_PAUSE: {
 		Menu::Get()->display(window);
@@ -125,5 +136,5 @@ void Level::Display(sf::RenderWindow *window, unsigned int _time)
 	}
 	default:
 		break;
-	}
+	}*/
 }

@@ -31,6 +31,7 @@ Inventory::~Inventory()
 			delete m_items[i].obj;
 			m_items.erase(m_items.begin() + (i - 1));
 		}
+	m_this = nullptr;
 }
 
 void Inventory::add_item(Item_t &item)

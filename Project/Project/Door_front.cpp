@@ -11,7 +11,9 @@ Door_front::Door_front(unsigned int id, bool is_closed, Colour_t key, Direction_
 	/*m_background = new Static_Object(24);
 	m_door = new Static_Object_Hovered(22, 23);
 	m_door_handle = new Static_Object()*/
-	Set_is_closed(is_closed);
+	//Set_is_closed(is_closed);
+	if (is_closed)
+		Set_is_closed(true);
 }
 
 
