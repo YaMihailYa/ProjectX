@@ -100,7 +100,7 @@ void Inventory::del_item(Item_t & item)
 			m_items.erase(m_items.begin() + (i));
 		}
 	for (int i = 0; i < m_items.size(); i++)
-		m_items[i].obj->setPosition(begin_draw_pos.x + ITEM_PADDING * m_items.size(), begin_draw_pos.y);
+		m_items[i].obj->setPosition(begin_draw_pos.x + ITEM_PADDING * i, begin_draw_pos.y);
 	return;
 }
 
