@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Level" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAABgAAAAEgAAAEAQgAEAAAAARBABAIAAAAAIA=</HashCode>
+      <FileName>Level.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Animated_Object" Collapsed="true">
+    <Position X="5.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAEAgAAACCASAAEUAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Animated_Object.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Object" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAQAAEAAgAAAAAAAiAEEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Object.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Static_Object" Collapsed="true">
+    <Position X="5.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Static_Object.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Animated_Object_Hovered" Collapsed="true">
+    <Position X="8.5" Y="6" Width="1.5" />
+    <InheritanceLine Type="Animated_Object" FixedFromPoint="true">
+      <Path>
+        <Point X="7.25" Y="6.691" />
+        <Point X="7.25" Y="7.066" />
+        <Point X="8.125" Y="7.066" />
+        <Point X="8.125" Y="6.346" />
+        <Point X="8.5" Y="6.346" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAEAAAAAAAggAAQAAAAACEAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Animated_Object_Hovered.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Animation_loader" Collapsed="true">
+    <Position X="12.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAgAAAAgADAABQAAAAAAAAAAAAABAAAAAACAAA=</HashCode>
+      <FileName>Animation_loader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Button" Collapsed="true">
+    <Position X="11" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QEAAAAACAAAAAAgAAAQAICAAQAABQAAAwBAAAAEAYAQ=</HashCode>
+      <FileName>Button.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Door" Collapsed="true">
+    <Position X="8.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAMCAAEQAAJEAEAAAASQAwAAAAAAQEAAABAAAUAAA=</HashCode>
+      <FileName>Door.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Door_front" Collapsed="true">
+    <Position X="8.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEBAABAAEAACgAAAAAAAEAAAAAAAAAAAEAAg=</HashCode>
+      <FileName>Door_front.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Door_rooms" Collapsed="true">
+    <Position X="8.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAUAAABEAEAAAACIAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Door_rooms.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Inventory" Collapsed="true">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQBQAAAAADAACAAAAACAAEAAAAAAIUAAgAAAAA=</HashCode>
+      <FileName>Inventory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LootBox" Collapsed="true">
+    <Position X="12.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAIAAAAAAAAAAAAEAIAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>LootBox.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Menu" Collapsed="true">
+    <Position X="11" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CEACCAAAgQBAABDgIAgBAAgIAAEIAgSUBAgBAAAADAA=</HashCode>
+      <FileName>Menu.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player" Collapsed="true">
+    <Position X="11" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYkAiAAAoAAAATACAAAAAAAAAkIAiDgAAQgAQAgABA=</HashCode>
+      <FileName>Player.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Render" Collapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAGAAAgAAABLAAQBCAAAAAAAAAEAAABAiBAABAAg=</HashCode>
+      <FileName>Render.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QGAAIAAAAAJAAECAGBBAIAAQAQEQkMSBAAQSCASAAgA=</HashCode>
+      <FileName>Room.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room_Dog" Collapsed="true">
+    <Position X="1.75" Y="0.75" Width="1.5" />
+    <InheritanceLine Type="Room" FixedToPoint="true">
+      <Path>
+        <Point X="3" Y="2.5" />
+        <Point X="3" Y="1.816" />
+        <Point X="3.25" Y="1.816" />
+        <Point X="3.25" Y="1.441" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>IEAAAAAAAABBAAAAAAAEAIAAAAGAAAAAAAACAIAAAAA=</HashCode>
+      <FileName>Room_Dog.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room_Grandma" Collapsed="true">
+    <Position X="1" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAACAgAAAAAAAAEAAAEAABAAEAAgAAAAAEAAAAAAA=</HashCode>
+      <FileName>Room_Grandma.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room_Tree" Collapsed="true">
+    <Position X="3.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAABAAAAAAAgAAEAABAAAAgAAAAAAAA=</HashCode>
+      <FileName>Room_Tree.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Static_Object_Hovered" Collapsed="true">
+    <Position X="5.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAgAAQIACAAGACAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Static_Object_Hovered.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Static_Object_Storage" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAQAAAAAIAAAAAAAAAQAEAAEAAAAIgAAAAAAA=</HashCode>
+      <FileName>Static_Object_Storage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Texture_loader" Collapsed="true">
+    <Position X="14.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAoAAADAAAQAAAAAAAAAAAAAAAAAAAAAAQg=</HashCode>
+      <FileName>Texture_loader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Animation_t" Collapsed="true">
+    <Position X="14.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAgA=</HashCode>
+      <FileName>Animation_loader.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Item_t" Collapsed="true">
+    <Position X="11" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAACAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>globals.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Inventory_item_t" Collapsed="true">
+    <Position X="11" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAIAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Inventory.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="Level_status_t" Collapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAgAAAABAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Level.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Object_t" Collapsed="true">
+    <Position X="12.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAQAAAAAAABAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Object.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="menu_type_t" Collapsed="true">
+    <Position X="14.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAMAAAAKAAAAAAAABAAAAACBAAAAAAAAAAADggAAAQ=</HashCode>
+      <FileName>Button.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="btn_type_t" Collapsed="true">
+    <Position X="11" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgCAgAAAAAAABEAAAAAAkAAEAAAAACABAAAIAAAgKAA=</HashCode>
+      <FileName>Button.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Door_t" Collapsed="true">
+    <Position X="14.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAACAAAAAAAA=</HashCode>
+      <FileName>Door.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Direction_t" Collapsed="true">
+    <Position X="14.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAgAAAAAAAAAAAAACAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>globals.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Items_category" Collapsed="true">
+    <Position X="12.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAQAAAAAAAAAAAAAAAAAAAAAAQAAAAABA=</HashCode>
+      <FileName>globals.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Colour_t" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAEAgAAIAAAAAAAAAAAgAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>globals.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Player_Status_t" Collapsed="true">
+    <Position X="12.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAACIAAAAAAAA=</HashCode>
+      <FileName>Player.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Render_status_t" Collapsed="true">
+    <Position X="9" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Render.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Room_t" Collapsed="true">
+    <Position X="12.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAIAAAAAABAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Room.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Dog_State_t" Collapsed="true">
+    <Position X="14.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Room_Dog.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
