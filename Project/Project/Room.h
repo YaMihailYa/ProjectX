@@ -27,6 +27,7 @@ public:
 	//sf::Vector2u move_player(sf::Vector2u old_coords, sf::Vector2u new_coords, Direction_t dir);
 
 	unsigned int getID() const { return this->m_id; }
+	Room_t getType() const { return this->m_type; }
 
 	void setStaticObjects(std::vector<Static_Object_Hovered*> _staticObjects);
 	void setAnimatedObjects(std::vector<Animated_Object*> _animatedObjects);

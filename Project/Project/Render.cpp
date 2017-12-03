@@ -235,6 +235,7 @@ void Render::Rendering()
 		}
 		else
 		{
+			m.onKeyClick();
 			m_c_level->Display(m_window, time_delay_mcs);
 		}
 
