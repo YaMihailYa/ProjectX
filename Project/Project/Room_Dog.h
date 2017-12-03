@@ -10,7 +10,7 @@ enum Dog_State_t
 };
 
 class Room_Dog
-	: Room
+	: public Room
 {
 public:
 	Room_Dog(Room_t type, unsigned int id, sf::IntRect rect, unsigned int timeOfBarking);
