@@ -171,9 +171,9 @@ void Menu::fillVectorButtons(menu_type_t type, int rate)
 		int suitNum = rand() % 3;
 		switch (suitNum)
 		{
-		case 0: { suitNum = 87; break; }
-		case 1: { suitNum = 88; break; }
-		case 2: { suitNum = 89; break; }
+		case 0: { suitNum = 88; available_santas[0] = true; break; }
+		case 1: { suitNum = 89; available_santas[1] = true; break; }
+		case 2: { suitNum = 87; available_santas[2] = true; break; }
 		}
 
 		menu = new Static_Object(suitNum);
