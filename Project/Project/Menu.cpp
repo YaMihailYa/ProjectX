@@ -609,11 +609,13 @@ void Menu::next_level()
 void Menu::level_selection()
 {
 	printf("BTN_LEVEL_SELECTION\n");
+	fillVectorButtons(LEVEL_SELECTION);
 }
 
 void Menu::home()
 {
 	printf("BTN_HOME\n");
+	fillVectorButtons(START);
 }
 
 void Menu::lev_1()

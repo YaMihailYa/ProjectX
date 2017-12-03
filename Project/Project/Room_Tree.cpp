@@ -65,9 +65,9 @@ void Room_Tree::checkClicked()
 			std::ofstream myfile2("achievements.txt", std::ios::out);
 			if (myfile2.is_open())
 			{
-				myfile2 << count_cookies[0];
-				myfile2 << count_cookies[1];
-				myfile2 << count_cookies[2];
+				myfile2 << count_cookies[0] << " ";
+				myfile2 << count_cookies[1] << " ";
+				myfile2 << count_cookies[2] << " ";
 
 				myfile2.close();
 			}
