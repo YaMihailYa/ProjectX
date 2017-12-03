@@ -1,6 +1,9 @@
 #include "Level.h"
 #include "Menu.h"
 #include "Inventory.h"
+#include "Room_Dog.h"
+#include "Room_Grandma.h"
+#include "Room_Tree.h"
 
 
 Level::Level(unsigned int id, Static_Object *_backGround, std::vector<Room*> _rooms,
@@ -53,6 +56,30 @@ void Level::Display(sf::RenderWindow *window, unsigned int _time)
 	int roomsSize = this->m_rooms.size();
 	for (int i = 0; i < roomsSize; i++)
 	{
+		switch (m_rooms[i]->getType())
+		{
+		case REGULAR:
+		{
+			this->m_rooms[i]->display(window, _time);
+			break;
+		}
+		case DOG:
+		{
+			((Room_Dog*)this->m_rooms[i])->display(window, _time);
+			break;
+		}
+		case GRANDMA:
+		{
+			((Room_Grandma*)this->m_rooms[i])->display(window, _time);
+			break;
+		}
+		case TREE:
+		{
+			((Room_Tree*)this->m_rooms[i])->display(window, _time);
+			break;
+		}
+		}
+
 		this->m_rooms[i]->display(window, _time);
 	}
 
