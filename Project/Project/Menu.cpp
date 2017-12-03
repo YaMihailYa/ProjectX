@@ -817,7 +817,7 @@ void Menu::lev_2()
 
 
 	// Room 2
-	Room_Grandma *room2 = new Room_Grandma(GRANDMA, 2, sf::IntRect(568, 332, 606, 285), 6000000);
+	Room_Grandma *room2 = new Room_Grandma(GRANDMA, 2, sf::IntRect(568, 332, 606, 285), 9000000);
 
 	staticObjects.clear();
 	animatedObjects.clear();
@@ -1003,7 +1003,7 @@ void Menu::lev_3()
 
 
 	// Room 4
-	Room_Grandma *room4 = new Room_Grandma(GRANDMA, 4, sf::IntRect(1238, 332, 496, 285), 6000000);
+	Room_Grandma *room4 = new Room_Grandma(GRANDMA, 4, sf::IntRect(1238, 332, 496, 285), 9000000);
 
 	staticObjects.clear();
 	animatedObjects.clear();
