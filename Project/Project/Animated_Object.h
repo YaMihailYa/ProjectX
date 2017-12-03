@@ -13,6 +13,7 @@ public:
 	* @param time - time passed from last call of this function in MICROSECONDS
 	*/
 	void animate(unsigned int time);
+	void setPosition(float _x, float _y);
 
 protected:
 	unsigned int m_all_time; // Time from begin of animation in MICROSECONDS
@@ -20,5 +21,7 @@ protected:
 	unsigned int m_frames_array_index;
 	unsigned int m_curr_frame_index;
 	unsigned int m_animation_time;
+
+	sf::Vector2f m_pos;
 };
 
