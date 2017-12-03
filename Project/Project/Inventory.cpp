@@ -76,20 +76,10 @@ void Inventory::add_item(Item_t &item)
 	default:
 		break;
 	}
-
+	
 	Static_Object *obj = new Static_Object(obj_id);
-
-	if (m_items.size())
-	{
-		sf::FloatRect rect =  m_items[m_items.size() - 1].obj->Get_sprite().getGlobalBounds();
-		obj->setPosition(rect.left + rect.width + ITEM_PADDING, begin_draw_pos.y);
-		m_items.push_back(Inventory_item_t(item, obj));
-	}
-	else
-	{
-		obj->setPosition(m_rect.left + ITEM_PADDING, begin_draw_pos.y);
-		m_items.push_back(Inventory_item_t(item, obj));
-	}
+	obj->setPosition(begin_draw_pos.x + ITEM_PADDING * m_items.size(), begin_draw_pos.y);
+	m_items.push_back(Inventory_item_t(item, obj));
 }
 
 bool Inventory::change_item(Item_t & item)
@@ -109,19 +99,8 @@ void Inventory::del_item(Item_t & item)
 			delete m_items[i].obj;
 			m_items.erase(m_items.begin() + (i));
 		}
-
 	for (int i = 0; i < m_items.size(); i++)
-	{
-		if (i != 0)
-		{
-			sf::FloatRect rect =  m_items[i - 1].obj->Get_sprite().getGlobalBounds();
-			m_items[i].obj->setPosition(rect.width + rect.left + ITEM_PADDING, begin_draw_pos.y);
-		}
-		else
-		{
-			m_items[i].obj->setPosition(m_rect.left + ITEM_PADDING, begin_draw_pos.y);
-		}
-	}
+		m_items[i].obj->setPosition(begin_draw_pos.x + ITEM_PADDING * i, begin_draw_pos.y);
 	return;
 }
 
