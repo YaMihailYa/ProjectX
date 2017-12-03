@@ -52,12 +52,6 @@ void Door_rooms::Set_pos(sf::Vector2u pos)
 		if (m_door_handle != nullptr)
 			m_door_handle->setPosition(pos.x + 273, pos.y + 132);
 	}
-
-	//// TO DO
-	//m_pos = pos;
-	//m_background->setPosition(pos.x, pos.y);
-	//m_door->setPosition(pos.x + 11, pos.y + 12);
-	//m_door_handle->setPosition(pos.x + 82, pos.y + 128);
 }
 
 void Door_rooms::go_throw_the_door()
@@ -68,18 +62,19 @@ void Door_rooms::go_throw_the_door()
 	unsigned int c_room_id = player->Get_c_room();
 	Level *level = Render::Get()->Get_c_level();
 
+	sf::Vector2f coef = Render::Get()->Get_coef();
 	// If player now in left room
 	if (c_room_id == m_cur_room_id)
 	{
 		Room *adj = level->Get_room_by_id(m_adj_room_id);
-		player_pos.x = adj->Get_rect().left;
+		player_pos.x = adj->Get_rect().left/coef.x;
 		player->Set_c_room(m_adj_room_id);
 	}
 	else
 	{
 		Room *cur = level->Get_room_by_id(m_cur_room_id);
 		sf::IntRect tmp = cur->Get_rect();
-		player_pos.x = tmp.left + tmp.width;
+		player_pos.x = (tmp.left + tmp.width)/coef.x;
 		player->Set_c_room(m_cur_room_id);
 	}
 

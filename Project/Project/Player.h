@@ -51,8 +51,8 @@ protected:
 	Animated_Object *m_stay_anim;
 
 	//sf::Vector2f m_pos;
-	sf::Vector2f m_c_pos;
-	sf::Vector2f m_target_pos;
+	sf::Vector2f m_c_pos;		// With coef
+	sf::Vector2f m_target_pos;	// With coef
 
 	std::vector<Direction_t> m_move_directions;
 	bool m_was_clicked;
