@@ -117,10 +117,14 @@ float Room::getCoordByDirection(Direction_t direction)
 	}
 	case TOP:
 	{
+		if (m_top_door == nullptr)
+			return Player::Get()->Get_c_pos().x;
 		return this->m_top_door->get_center_coord();
 	}
 	case DOWN:
 	{
+		if (m_down_door == nullptr)
+			return Player::Get()->Get_c_pos().x;
 		return this->m_down_door->get_center_coord();
 	}
 	}
