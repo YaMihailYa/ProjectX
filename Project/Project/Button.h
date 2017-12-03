@@ -24,6 +24,7 @@ public:
 	btn_type_t getBtnName();
 
 	bool isClicked();
+	bool isHovered();
 
 private:
 	bool fl_clicked;
