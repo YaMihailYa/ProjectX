@@ -169,6 +169,7 @@ void Menu::fillVectorButtons(menu_type_t type, int rate)
 	{
 		srand(time(NULL));
 		int suitNum = rand() % 3;
+		
 		switch (suitNum)
 		{
 		case 0: { suitNum = 88; available_santas[0] = true; break; }
@@ -176,6 +177,16 @@ void Menu::fillVectorButtons(menu_type_t type, int rate)
 		case 2: { suitNum = 87; available_santas[2] = true; break; }
 		}
 
+		std::ofstream myfile2("availables_santa_suits.txt", std::ios::out);
+		if (myfile2.is_open())
+		{
+			myfile2 << available_santas[0] << " ";
+			myfile2 << available_santas[1] << " ";
+			myfile2 << available_santas[2] << " ";
+
+			myfile2.close();
+		}
+		
 		menu = new Static_Object(suitNum);
 
 		Button btn1 = Button(723, 729, 450, 138, SANTA_SUIT_SELECTION, BTN_SANTA_SUIT);
@@ -574,6 +585,17 @@ void Menu::start()
 void Menu::options()
 {
 	printf("BTN_OPTIONS\n");
+
+	std::ifstream myfile("availables_santa_suits.txt");
+	if (myfile.is_open())
+	{
+		myfile >> available_santas[0];
+		myfile >> available_santas[1];
+		myfile >> available_santas[2];
+
+		myfile.close();
+	}
+
 	fillVectorButtons(OPTIONS);
 }
 
