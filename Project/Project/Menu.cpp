@@ -598,6 +598,9 @@ void Menu::next_level()
 	printf("BTN_NEXT_LEVEL\n");
 	int level_id = Render::Get()->Get_c_level()->Get_level_id();
 
+	delete Render::Get()->Get_c_level();
+	Render::Get()->setLevel(nullptr);
+
 	switch (level_id)
 	{
 	case 1: { lev_1(); break; }
@@ -609,12 +612,16 @@ void Menu::next_level()
 void Menu::level_selection()
 {
 	printf("BTN_LEVEL_SELECTION\n");
+	delete Render::Get()->Get_c_level();
+	Render::Get()->setLevel(nullptr);
 	fillVectorButtons(LEVEL_SELECTION);
 }
 
 void Menu::home()
 {
 	printf("BTN_HOME\n");
+	delete Render::Get()->Get_c_level();
+	Render::Get()->setLevel(nullptr);
 	fillVectorButtons(START);
 }
 
