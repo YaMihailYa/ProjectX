@@ -103,7 +103,7 @@ void Level::Display(sf::RenderWindow *window, unsigned int _time)
 		}
 		}
 
-		this->m_rooms[i]->display(window, _time);
+		//this->m_rooms[i]->display(window, _time);
 	}
 
 	// Displaying the player

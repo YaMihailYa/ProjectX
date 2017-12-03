@@ -71,6 +71,7 @@ void Room_Dog::display(sf::RenderWindow *window, unsigned int time)
 	{
 		this->m_dogPassive->animate(time);
 		this->m_dogPassive->display(window);
+		break;
 	}
 	case ACTIVE:
 	{
@@ -89,11 +90,13 @@ void Room_Dog::display(sf::RenderWindow *window, unsigned int time)
 		
 		this->m_dogActive->animate(time);
 		this->m_dogActive->display(window);
+		break;
 	}
 	case FINISHED:
 	{
 		this->m_dogFinished->animate(time);
 		this->m_dogFinished->display(window);
+		break;
 	}
 	}
 
