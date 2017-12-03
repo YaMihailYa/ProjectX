@@ -30,7 +30,7 @@ public:
 	// Control click
 	virtual void control() = 0;
 	
-	void display_background(sf::RenderWindow *window);
+	virtual void display_background(sf::RenderWindow *window);
 	virtual void display_foreground(sf::RenderWindow *window);
 
 	// not needed maybe...

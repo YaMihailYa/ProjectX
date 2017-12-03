@@ -27,6 +27,8 @@ public:
 
 	void setLevel(Level *_level) { this->m_c_level = _level; }
 	void setStatus(Render_status_t _status) { this->m_status = _status; }
+	void set_is_clicked_check(bool check) { is_clicked_check = check; }
+
 	static bool is_clicked;
 private:
 	Render_status_t m_status;

@@ -6,7 +6,7 @@
 Player* Player::m_this = nullptr;
 
 Player::Player(unsigned int speed)
-	: m_c_pos(sf::Vector2u(1516, 181)), m_target_pos(sf::Vector2u(1516, 181)), m_status(ANIMATION_STAY),
+	: m_c_pos(sf::Vector2u(1716, 181)), m_target_pos(sf::Vector2u(1716, 181)), m_status(ANIMATION_STAY),
 		m_c_room_id(0), m_clicked(false), m_was_clicked(false)
 {
 	if (m_this != nullptr)
@@ -98,7 +98,7 @@ void Player::display(sf::RenderWindow *window, unsigned int time)
 				if (currDoor->getIsClosed())
 				{
 					this->m_move_directions.clear();
-
+					m_target_pos = m_c_pos;
 					this->m_status = ANIMATION_STAY;
 				}
 				else

@@ -83,24 +83,21 @@ void Door_rooms::go_throw_the_door()
 
 void Door_rooms::control()
 {
-	if (Player::Get()->Get_clicked() && m_door!=nullptr && m_door->Get_sprite().getGlobalBounds().contains(sf::Vector2f(Player::Get()->Get_targer_pos())))
+	if (Player::Get()->Get_clicked() && (m_door!=nullptr && m_door->Get_sprite().getGlobalBounds().contains(sf::Vector2f(Player::Get()->Get_targer_pos()))))
 	{
-
 		if (m_is_closed)
 		{
 			if (Inventory::Get()->checkElement(Item_t(KEY, m_key)))
 			{
 				Inventory::Get()->del_item(Item_t(KEY, m_key));
 				Set_is_closed(false);
-				
-			
 
 			}
 		}
-		else
-		{
-			go_throw_the_door();
-		}
+		//else
+		//{
+		//	go_throw_the_door();
+		//}
 	}
 }
 
