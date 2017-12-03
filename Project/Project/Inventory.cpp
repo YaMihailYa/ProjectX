@@ -1,5 +1,5 @@
 #include "Inventory.h"
-
+#include "Render.h"
 
 Inventory *Inventory::m_this = nullptr;
 
@@ -10,11 +10,17 @@ Inventory::Inventory(sf::IntRect rect)
 		exit(EXIT_FAILURE);
 
 	m_this = this;
-	m_rect = rect;
 	/*begin_draw_pos.x = rect.height / 3;
 	begin_draw_pos.y = rect.width / 5;*/
 	begin_draw_pos.x = rect.left;
 	begin_draw_pos.y = rect.top;
+
+	// Multiplying on the coefs
+	sf::Vector2f coef = Render::Get()->Get_coef();
+	m_rect.width *= coef.x;
+	m_rect.left *= coef.x;
+	m_rect.height *= coef.y;
+	m_rect.top *= coef.y;
 }
 
 Inventory::~Inventory()
