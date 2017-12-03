@@ -36,6 +36,7 @@ public:
 	bool Get_clicked() const { return this->m_clicked; }
 	//sf::Vector2f Get_pos() const { return m_pos; }
 	sf::Vector2f Get_c_pos() const { return m_c_pos; }
+	sf::Vector2f Get_targer_pos() const { return m_target_pos; }
 	unsigned int Get_c_room() const { return m_c_room_id; }
 	
 	sf::IntRect Get_boundary() const { return m_rect; }

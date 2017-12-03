@@ -27,6 +27,7 @@ public:
 
 	void setLevel(Level *_level) { this->m_c_level = _level; }
 	void setStatus(Render_status_t _status) { this->m_status = _status; }
+	static bool is_clicked;
 private:
 	Render_status_t m_status;
 
@@ -37,10 +38,11 @@ private:
 
 	Texture_loader *m_textures;
 	Animation_loader *m_animations;
-
 	
 	sf::RenderWindow *m_window;
 	float m_coef_x;
 	float m_coef_y;
+
+	bool is_clicked_check;
 };
 

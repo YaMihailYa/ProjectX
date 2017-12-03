@@ -97,7 +97,7 @@ void Inventory::del_item(Item_t & item)
 		if (m_items[i].type._type == item._type)
 		{
 			delete m_items[i].obj;
-			m_items.erase(m_items.begin() + (i - 1));
+			m_items.erase(m_items.begin() + (i));
 		}
 	return;
 }

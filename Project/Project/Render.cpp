@@ -4,13 +4,14 @@
 #include "Inventory.h"
 
 Render* Render::m_this = nullptr;
+bool Render::is_clicked = false;
 
 Render::Render()
 {
 	if (m_this != nullptr)
 		exit(EXIT_FAILURE);
 	m_this = this;
-
+	is_clicked_check = false;
 	this->m_status = RENDER_STATUS_MENU;
 	Init();
 }
@@ -217,6 +218,23 @@ void Render::Rendering()
 	{
 		time_delay_mcs = time_delay.getElapsedTime().asMicroseconds();
 		time_delay.restart();
+
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+		{
+			
+			if (!is_clicked_check)
+			{
+				is_clicked = true;
+				is_clicked_check = true;
+			}
+			else
+				is_clicked = false;
+		}
+		else
+		{
+			is_clicked_check = false;
+			is_clicked = false;
+		}
 
 		sf::Event ev;
 		while (m_window->pollEvent(ev));

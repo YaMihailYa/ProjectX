@@ -63,6 +63,11 @@ void Level::Display(sf::RenderWindow *window, unsigned int _time)
 	// Displaying background
 	this->m_backGround->display(window);
 
+	for (int i = 0; i < m_doors.size(); ++i)
+	{
+		m_doors[i]->control();
+	}
+
 	// Displaying the backgrounds of doors
 	int doorsSize = this->m_doors.size();
 	for (int i = 0; i < doorsSize; i++)

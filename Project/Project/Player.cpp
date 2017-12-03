@@ -72,6 +72,7 @@ void Player::display(sf::RenderWindow *window, unsigned int time)
 	//move_to_x_coord(m_target_pos.x, time);
 	this->m_clicked = false;
 
+	printf("%d\n", m_c_room_id);
 	if (Render::Get()->Get_c_level()->Get_status() == LEVEL_STATUS_GAME)
 	{
 		if (!this->m_move_directions.empty())
@@ -205,9 +206,9 @@ void Player::display(sf::RenderWindow *window, unsigned int time)
 	}*/
 }
 
-void Player::Move(/*Direction_t dir, unsigned int time*/)
+void Player::Move()
 {
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+	if (Render::is_clicked && sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
 	{
 		sf::Vector2f tagretPosCopy = m_target_pos;
 

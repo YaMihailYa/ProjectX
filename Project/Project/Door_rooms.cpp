@@ -83,7 +83,7 @@ void Door_rooms::go_throw_the_door()
 
 void Door_rooms::control()
 {
-	if (Player::Get()->Get_clicked() && m_door->Get_sprite().getGlobalBounds().contains(sf::Vector2f(Player::Get()->Get_c_pos())))
+	if (Player::Get()->Get_clicked() && m_door!=nullptr && m_door->Get_sprite().getGlobalBounds().contains(sf::Vector2f(Player::Get()->Get_targer_pos())))
 	{
 
 		if (m_is_closed)
@@ -179,14 +179,14 @@ void Door_rooms::Set_is_closed(bool is_closed)
 		// Change for left room
 		Room *room = level->Get_room_by_id(m_cur_room_id);
 		sf::IntRect rect = room->Get_rect();
-		rect.width += 64 * coef.x;
+		rect.width += (64+ 20)* coef.x;
 		room->Set_rect(rect);
 
 		// Change for rigth room
 		room = level->Get_room_by_id(m_adj_room_id);
 		rect = room->Get_rect();
-		rect.width += 64 * coef.x;
-		rect.left -= 64 * coef.x;
+		rect.width += (64+20) * coef.x;
+		rect.left -= (64-20) * coef.x;
 		room->Set_rect(rect);
 		if (m_door != nullptr)
 		{
@@ -211,7 +211,7 @@ void Door_rooms::Set_is_closed(bool is_closed)
 
 		if (m_door_handle != nullptr)
 			delete m_door_handle;
-		m_door_handle = new Static_Object(75);
+		m_door_handle = new Static_Object(76);
 		/*
 				if (m_door_handle != nullptr)
 		{

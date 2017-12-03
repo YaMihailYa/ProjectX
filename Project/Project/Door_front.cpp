@@ -23,6 +23,7 @@ Door_front::~Door_front()
 
 void Door_front::Set_is_closed(bool is_closed)
 {
+	unsigned int id = m_id;
 	m_is_closed = is_closed;
 	
 	if (is_closed)
@@ -126,7 +127,7 @@ void Door_front::Set_pos(sf::Vector2u pos)
 
 void Door_front::control()
 {
-	if (Player::Get()->Get_clicked() && m_door->Get_sprite().getGlobalBounds().contains(sf::Vector2f(Player::Get()->Get_c_pos())))
+	if (Player::Get()->Get_clicked() && m_door->Get_sprite().getGlobalBounds().contains(sf::Vector2f(Player::Get()->Get_targer_pos())))
 	{
 		
 		if (m_is_closed)
@@ -153,11 +154,11 @@ void Door_front::go_throw_the_door()
 	sf::Vector2f player_pos = Player::Get()->Get_c_pos();
 	if (m_tp_dir == DOWN)
 	{
-		player_pos.y -= 309;
+		player_pos.y += 309;
 	}
 	else
 	{
-		player_pos.y += 309;
+		player_pos.y -= 309;
 	}
 
 	Player* player = Player::Get();
