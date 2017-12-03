@@ -7,7 +7,9 @@ Door_rooms::Door_rooms(unsigned int id, bool is_closed, Colour_t key, unsigned i
 	unsigned int right_room_id)
 	:Door(id, DOOR_ROOMS, is_closed, key, left_room_id, right_room_id), m_foreground(nullptr)
 {
-	Set_is_closed(false);
+	//Set_is_closed(false);
+	if (is_closed)
+		Set_is_closed(true);
 }
 
 
@@ -95,27 +97,8 @@ void Door_rooms::control()
 			{
 				Inventory::Get()->del_item(Item_t(KEY, m_key));
 				Set_is_closed(false);
-				if (m_door_handle != nullptr)
-					delete m_door_handle;
-				m_door_handle = new Static_Object(75);
 				
-				sf::Vector2f coef = Render::Get()->Get_coef();
-
-				// Change sizes of m_rect for adjacent rooms
-				Level *level = Render::Get()->Get_c_level();
-
-				// Change for left room
-				Room *room = level->Get_room_by_id(m_cur_room_id);
-				sf::IntRect rect = room->Get_rect();
-				rect.width += 64*coef.x;
-				room->Set_rect(rect);
-
-				// Change for rigth room
-				room = level->Get_room_by_id(m_adj_room_id);
-				rect = room->Get_rect();
-				rect.width += 64 * coef.x;
-				rect.left -= 64 * coef.x;
-				room->Set_rect(rect);
+			
 
 			}
 		}
@@ -193,6 +176,23 @@ void Door_rooms::Set_is_closed(bool is_closed)
 	}
 	else
 	{
+		sf::Vector2f coef = Render::Get()->Get_coef();
+
+		// Change sizes of m_rect for adjacent rooms
+		Level *level = Render::Get()->Get_c_level();
+
+		// Change for left room
+		Room *room = level->Get_room_by_id(m_cur_room_id);
+		sf::IntRect rect = room->Get_rect();
+		rect.width += 64 * coef.x;
+		room->Set_rect(rect);
+
+		// Change for rigth room
+		room = level->Get_room_by_id(m_adj_room_id);
+		rect = room->Get_rect();
+		rect.width += 64 * coef.x;
+		rect.left -= 64 * coef.x;
+		room->Set_rect(rect);
 		if (m_door != nullptr)
 		{
 			delete m_door;
@@ -212,11 +212,16 @@ void Door_rooms::Set_is_closed(bool is_closed)
 		m_foreground = new Static_Object(41);
 
 
+
+
 		if (m_door_handle != nullptr)
+			delete m_door_handle;
+		m_door_handle = new Static_Object(75);
+		/*
+				if (m_door_handle != nullptr)
 		{
 			delete m_door_handle;
 		}
-
 		switch (m_key)
 		{
 		case YELLOW:
@@ -239,7 +244,7 @@ void Door_rooms::Set_is_closed(bool is_closed)
 			break;
 		default:
 			break;
-		}
+		}*/
 	}
 
 	Set_pos(m_pos);

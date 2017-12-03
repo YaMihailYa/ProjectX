@@ -613,6 +613,7 @@ void Menu::home()
 
 void Menu::lev_1()
 {
+	std::vector<Door_rooms*> doors_to_open;
 	// Preparing to creating the level
 	// Creating the background
 	Static_Object *background = new Static_Object(64);
@@ -681,14 +682,13 @@ void Menu::lev_1()
 
 	// Door 0
 	Door_rooms *door0 = new Door_rooms(0, false, YELLOW, 1, 0);
-	door0->Set_pos(sf::Vector2u(1118, 24));
+	doors_to_open.push_back(door0);
+	
 
 	// Door 1 and 2
 	Door_front *door1 = new Door_front(1, true, GREEN, DOWN, 1, 2);
 	Door_front *door2 = new Door_front(2, true, GREEN, TOP, 2, 1);
-
-	door1->Set_pos(sf::Vector2u(618, 34));
-	door2->Set_pos(sf::Vector2u(618, 341));
+	
 
 	// Setting the links
 	door1->Set_adj_door_id(2);
@@ -711,14 +711,25 @@ void Menu::lev_1()
 
 	Level *level = new Level(1, background, rooms, doors);
 
+	
+
 	Render::Get()->setStatus(RENDER_STATUS_GAME);
 	Render::Get()->setLevel(level);
+
+	for (int i = 0; i < doors_to_open.size(); ++i)
+	{
+		doors_to_open[i]->Set_is_closed(false);
+	}
+	door0->Set_pos(sf::Vector2u(1118, 24));
+	door1->Set_pos(sf::Vector2u(618, 34));
+	door2->Set_pos(sf::Vector2u(618, 341));
 
 	menuType = LEVEL_1;
 }
 
 void Menu::lev_2()
 {
+	std::vector<Door_rooms*> doors_to_open;
 	// Preparing to creating the level
 	// Creating the background
 	Static_Object *background = new Static_Object(65);
@@ -808,18 +819,18 @@ void Menu::lev_2()
 
 	// Door 0
 	Door_rooms *door0 = new Door_rooms(0, false, YELLOW, 1, 0);
-	door0->Set_pos(sf::Vector2u(1118, 24));
+	doors_to_open.push_back(door0);
+	
 
 	// Door 1 and 2
 	Door_front *door1 = new Door_front(1, true, GREEN, DOWN, 1, 2);
 	Door_front *door2 = new Door_front(2, true, GREEN, TOP, 2, 1);
 
-	door1->Set_pos(sf::Vector2u(618, 34));
-	door2->Set_pos(sf::Vector2u(618, 341));
+	
 
 	// Door 3
 	Door_rooms *door3 = new Door_rooms(3, true, RED, 2, 3);
-	door3->Set_pos(sf::Vector2u(1118, 332));
+	
 
 	// Setting the links
 	door1->Set_adj_door_id(2);
@@ -846,14 +857,27 @@ void Menu::lev_2()
 
 	Level *level = new Level(2, background, rooms, doors);
 
+	
+
 	Render::Get()->setStatus(RENDER_STATUS_GAME);
 	Render::Get()->setLevel(level);
+
+	for (int i = 0; i < doors_to_open.size(); ++i)
+	{
+		doors_to_open[i]->Set_is_closed(false);
+	}
+	door3->Set_pos(sf::Vector2u(1118, 332));
+	door1->Set_pos(sf::Vector2u(618, 34));
+	door2->Set_pos(sf::Vector2u(618, 341));
+	door0->Set_pos(sf::Vector2u(1118, 24));
 
 	menuType = LEVEL_2;
 }
 
 void Menu::lev_3()
 {
+	std::vector<Door_rooms*> doors_to_open;
+	std::vector<Door_front*> doors_front_to_open;
 	// Preparing to creating the level
 	// Creating the background
 	Static_Object *background = new Static_Object(66);
@@ -992,29 +1016,31 @@ void Menu::lev_3()
 
 	// Door 0
 	Door_rooms *door0 = new Door_rooms(0, false, YELLOW, 1, 0);
-	door0->Set_pos(sf::Vector2u(1030, 24));
+	doors_to_open.push_back(door0);
+	
+
 
 	// Door 1 and 2
 	Door_front *door1 = new Door_front(1, true, GREEN, DOWN, 1, 2);
 	Door_front *door2 = new Door_front(2, true, GREEN, TOP, 2, 1);
 
-	door1->Set_pos(sf::Vector2u(668, 34));
-	door2->Set_pos(sf::Vector2u(668, 341));
+	
 
 	// Door 3
 	Door_rooms *door3 = new Door_rooms(3, true, BLUE, 3, 2);
-	door3->Set_pos(sf::Vector2u(406, 332));
-
+	
 	// Door 4
 	Door_rooms *door4 = new Door_rooms(4, false, RED, 2, 4);
-	door4->Set_pos(sf::Vector2u(1030, 332));
+	doors_to_open.push_back(door4);
+	
 
 	// Door 5 and 6
 	Door_front *door5 = new Door_front(5, false, PINK, DOWN, 4, 5);
+	doors_front_to_open.push_back(door5);
 	Door_front *door6 = new Door_front(6, false, PINK, TOP, 5, 4);
+	doors_front_to_open.push_back(door6);
 
-	door5->Set_pos(sf::Vector2u(1588, 341));
-	door6->Set_pos(sf::Vector2u(1588, 649));
+	
 
 	// Door 7
 	Door_rooms *door7 = new Door_rooms(7, true, ORANGE, 5, 6);
@@ -1062,8 +1088,27 @@ void Menu::lev_3()
 
 	Level *level = new Level(3, background, rooms, doors);
 
+	
+
 	Render::Get()->setStatus(RENDER_STATUS_GAME);
 	Render::Get()->setLevel(level);
+
+	for (int i = 0; i < doors_to_open.size(); ++i)
+	{
+		doors_to_open[i]->Set_is_closed(false);
+	}
+	for (int i = 0; i < doors_front_to_open.size(); ++i)
+	{
+		doors_front_to_open[i]->Set_is_closed(false);
+	}
+
+	door5->Set_pos(sf::Vector2u(1588, 341));
+	door6->Set_pos(sf::Vector2u(1588, 649));
+	door4->Set_pos(sf::Vector2u(1030, 332));
+	door3->Set_pos(sf::Vector2u(406, 332));
+	door0->Set_pos(sf::Vector2u(1030, 24));
+	door1->Set_pos(sf::Vector2u(668, 34));
+	door2->Set_pos(sf::Vector2u(668, 341));
 
 	menuType = LEVEL_3;
 }
