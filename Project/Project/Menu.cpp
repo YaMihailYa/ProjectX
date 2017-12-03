@@ -1039,8 +1039,8 @@ void Menu::lev_3()
 	currStaticObject->setPosition(808, 785);
 	staticObjects.push_back(currStaticObject);
 
-	room3->setStaticObjects(staticObjects);
-	room3->setAnimatedObjects(animatedObjects);
+	room6->setStaticObjects(staticObjects);
+	room6->setAnimatedObjects(animatedObjects);
 
 	room6->setTreePosition(619, 649);
 
