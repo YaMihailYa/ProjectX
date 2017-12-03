@@ -169,6 +169,18 @@ Door* Room::getDoorByDirection(Direction_t direction)
 }
 
 
+void Room::Set_rect(sf::IntRect rect)
+{
+	this->m_rect = rect;
+
+	sf::Vector2f coef = Render::Get()->Get_coef();
+	m_rect.width *= coef.x;
+	m_rect.left *= coef.x;
+	m_rect.height *= coef.y;
+	m_rect.top *= coef.y;
+}
+
+
 void Room::display(sf::RenderWindow *window, unsigned int time) {
 	// Displaying static objects
 	for (int i = 0; i < this->m_staticObjects.size(); i++)

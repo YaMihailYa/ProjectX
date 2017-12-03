@@ -48,7 +48,7 @@ public:
 
 	Door* getDoorByDirection(Direction_t direction);
 
-	void Set_rect(sf::IntRect rect) { m_rect = rect; }
+	void Set_rect(sf::IntRect rect);
 	sf::IntRect Get_rect() const { return m_rect; }
 
 	sf::IntRect getRectOfRoom() { return this->m_rect; }
