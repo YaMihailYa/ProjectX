@@ -1,6 +1,7 @@
 #include "Render.h"
 #include "Level.h"
 #include "Menu.h"
+#include "Inventory.h"
 
 Render* Render::m_this = nullptr;
 
@@ -235,7 +236,10 @@ void Render::Rendering()
 		else
 		{
 			m_c_level->Display(m_window, time_delay_mcs);
+			Inventory::Get()->display(m_window);
 		}
+
+		
 		//s.Display(m_window, time_delay_mcs);
 		//Player::Get()->Move();
 		

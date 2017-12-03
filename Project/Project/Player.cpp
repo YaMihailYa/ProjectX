@@ -22,6 +22,11 @@ Player::Player(unsigned int speed)
 	this->m_right_anim = new Animated_Object(25, 1);
 	this->m_stay_anim = new Animated_Object(10, 2);
 
+	// Green
+	/*this->m_left_anim = new Animated_Object(25, 13);
+	this->m_right_anim = new Animated_Object(25, 14);
+	this->m_stay_anim = new Animated_Object(10, 12);*/
+
 	//this->m_rect = (sf::IntRect) this->m_stay_anim->Get_sprite().getGlobalBounds();
 	m_rect = (sf::IntRect)Animation_loader::Get()->getSprite(2, 0).getGlobalBounds();
 }
@@ -174,7 +179,27 @@ void Player::Move(/*Direction_t dir, unsigned int time*/)
 		{
 			m_target_pos = tagretPosCopy;
 		}
+
+		printf("\n\nDirections: ");
+		/*for (int i = 0; i < m_move_directions.size(); ++i)
+		{
+			switch (m_move_directions[i])
+			{
+			case LEFT:
+				printf("%")
+				break;
+			case RIGHT:
+				break;
+			case TOP:
+				break;
+			case DOWN:
+				break;
+			default:
+				break;
+			}
+		}*/
 	}
+
 }
 
 
@@ -206,6 +231,8 @@ void Player::move_to_x_coord(float _xCoord, unsigned int _time)
 			this->m_c_pos.x = _xCoord;
 		}
 	}
+	else
+		m_status = ANIMATION_STAY;
 }
 
 

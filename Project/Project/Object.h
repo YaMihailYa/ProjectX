@@ -3,7 +3,9 @@
 enum Object_t
 {
 	STATIC,
-	ANIMATED
+	ANIMATED,
+	HOVERED,
+	STORAGE
 };
 
 class Object
@@ -20,8 +22,10 @@ public:
 
 	sf::Sprite Get_sprite() const { return m_sprite; }
 
+	Object_t Get_type() const { return m_type; }
+
 protected:
 	sf::Sprite m_sprite;
-	const Object_t m_type;
+	Object_t m_type;
 };
 

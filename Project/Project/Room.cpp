@@ -2,7 +2,7 @@
 #include "Player.h"
 #include "Render.h"
 #include "Level.h"
-
+#include "Static_Object_Storage.h"
 
 Room::Room(Room_t type, unsigned int id, sf::IntRect rect)
 	:m_type(type), m_id(id), m_rect(rect)
@@ -174,6 +174,8 @@ void Room::display(sf::RenderWindow *window, unsigned int time) {
 	for (int i = 0; i < this->m_staticObjects.size(); i++)
 	{
 		this->m_staticObjects[i]->display(window);
+		if (m_staticObjects[i]->Get_type() == STORAGE)
+			((Static_Object_Storage*)m_staticObjects[i])->checkClickOnThis();
 	}
 
 	// Displaying animated objects

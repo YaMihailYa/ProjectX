@@ -6,6 +6,7 @@
 Static_Object_Hovered::Static_Object_Hovered(int id_main, int id_hovered)
 	: Static_Object(id_main)
 {
+	m_type = HOVERED;
 	Texture_loader *texture_loader = Texture_loader::Get();
 
 	sf::Texture *texture = texture_loader->Get_texture(id_hovered);

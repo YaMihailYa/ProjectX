@@ -20,11 +20,11 @@ public:
 
 	// Deleting all the items
 	void clearItems();
-
+	// Check if clicked on this
+	void checkClickOnThis();
 
 protected:
 	std::vector<Item_t> m_items;
 
-	// Check if clicked on this
-	void checkClickOnThis();
+	
 };
