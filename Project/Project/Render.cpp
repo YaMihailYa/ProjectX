@@ -194,6 +194,7 @@ void Render::Init()
 	m_animations->add(83, 10);	// 15
 	m_animations->add(84, 19);	// 16
 	m_animations->add(85, 19);	// 17
+	// #signaling
 	m_animations->add(95, 2);	// 18
 
 }

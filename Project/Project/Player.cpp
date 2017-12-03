@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "Render.h"
 #include "Room.h"
+ #include "Menu.h"
 
 Player* Player::m_this = nullptr;
 
@@ -18,9 +19,36 @@ Player::Player(unsigned int speed)
 	m_c_pos.y *= coef.y;
 	m_target_pos = m_c_pos;
 
-	this->m_left_anim = new Animated_Object(25, 0);
-	this->m_right_anim = new Animated_Object(25, 1);
-	this->m_stay_anim = new Animated_Object(10, 2);
+	switch (Menu::Get()->selected_option_id) // load skin
+	{
+	case 0: // read
+		this->m_left_anim = new Animated_Object(25, 0);
+		this->m_right_anim = new Animated_Object(25, 1);
+		this->m_stay_anim = new Animated_Object(10, 2);
+		break;
+	case 1: // green
+		this->m_left_anim = new Animated_Object(25, 13);
+		this->m_right_anim = new Animated_Object(25, 14);
+		this->m_stay_anim = new Animated_Object(10, 12);
+		break;
+	case 2: // pink
+		this->m_left_anim = new Animated_Object(25, 16);
+		this->m_right_anim = new Animated_Object(25, 17);
+		this->m_stay_anim = new Animated_Object(10, 15);
+		break;
+	case 3: // blue
+		this->m_left_anim = new Animated_Object(25, 10);
+		this->m_right_anim = new Animated_Object(25, 11);
+		this->m_stay_anim = new Animated_Object(10, 9);
+		break;
+	default: // default skin = read
+		this->m_left_anim = new Animated_Object(25, 0);
+		this->m_right_anim = new Animated_Object(25, 1);
+		this->m_stay_anim = new Animated_Object(10, 2);
+		break;
+	}
+
+	
 
 	// Green
 	/*this->m_left_anim = new Animated_Object(25, 13);
