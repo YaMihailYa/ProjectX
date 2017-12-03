@@ -23,7 +23,7 @@ Room_Grandma::~Room_Grandma()
 
 void Room_Grandma::setGrandmaPosition(float _x, float _y)
 {
-	this->m_grandmaActive->setPosition(_x, _y);
+	this->m_grandmaActive->setPosition(_x, _y + 47);
 	this->m_grandmaPassive->setPosition(_x, _y);
 }
 

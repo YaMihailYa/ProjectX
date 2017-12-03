@@ -103,33 +103,39 @@ void Player::display(sf::RenderWindow *window, unsigned int time)
 				this->move_to_x_coord(targetCoord, time);
 			}
 		}
-	}
-	else
-	{
-		// If we are in the target room
-		if (this->m_c_pos == this->m_target_pos)
+		else
 		{
-			if (m_was_clicked == true)
-			{
-				this->m_clicked = true;
-				this->m_was_clicked = false;
-			}
-
-			this->m_status = ANIMATION_STAY;
-
 			// If we are in the target room
-			if (this->m_c_pos == this->m_target_pos)
+			//if (this->m_c_pos == this->m_target_pos)
+			if (fabs(this->m_c_pos.x - this->m_target_pos.x) < 10)
 			{
-				this->m_clicked = true;
+				if (m_was_clicked == true)
+				{
+					this->m_clicked = true;
+					this->m_was_clicked = false;
+				}
+
 				this->m_status = ANIMATION_STAY;
+				/*
+				// If we are in the target room
+				//if (this->m_c_pos == this->m_target_pos)
+				if (fabs(this->m_c_pos.x - this->m_target_pos.x) < 10)
+				{
+					this->m_clicked = true;
+					this->m_status = ANIMATION_STAY;
+				}
+				else
+				{
+					this->move_to_x_coord(this->m_target_pos.x, time);
+				}*/
 			}
 			else
 			{
 				this->move_to_x_coord(this->m_target_pos.x, time);
 			}
-
 		}
 	}
+	
 
 	// Displaying the player
 	switch (m_status)

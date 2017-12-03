@@ -52,6 +52,13 @@ void Level::Display(sf::RenderWindow *window, unsigned int _time)
 	// Displaying background
 	this->m_backGround->display(window);
 
+	// Displaying the backgrounds of doors
+	int doorsSize = this->m_doors.size();
+	for (int i = 0; i < doorsSize; i++)
+	{
+		this->m_doors[i]->display_background(window);
+	}
+
 	// Displaying the rooms
 	int roomsSize = this->m_rooms.size();
 	for (int i = 0; i < roomsSize; i++)
@@ -81,13 +88,6 @@ void Level::Display(sf::RenderWindow *window, unsigned int _time)
 		}
 
 		this->m_rooms[i]->display(window, _time);
-	}
-
-	// Displaying the backgrounds of doors
-	int doorsSize = this->m_doors.size();
-	for (int i = 0; i < doorsSize; i++)
-	{
-		this->m_doors[i]->display_background(window);
 	}
 
 	// Displaying the player
