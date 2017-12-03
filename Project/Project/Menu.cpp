@@ -331,17 +331,31 @@ void Menu::onClick()
 
 void Menu::onKeyClick()
 {
+	temp = false;
+
 	switch (menuType)
 	{
 	case START:
 		break;
 	case PAUSE: {
-		if (Render::Get()->Get_c_level()->Get_status() == LEVEL_STATUS_PAUSE && buttons[0].getBtnName() == BTN_RESUME && buttons[0].isClicked()) {
+		if (Render::Get()->Get_c_level()->Get_status() == LEVEL_STATUS_PAUSE && buttons[0].isClicked()) {
 			if (Render::Get()->Get_c_level()->Get_level_id() == 1) { menuType = LEVEL_1; }
 			if (Render::Get()->Get_c_level()->Get_level_id() == 2) { menuType = LEVEL_2; }
 			if (Render::Get()->Get_c_level()->Get_level_id() == 3) { menuType = LEVEL_3; }
 
 			Render::Get()->Get_c_level()->Set_status(LEVEL_STATUS_GAME);
+		}
+		else if (buttons[1].isClicked()) {
+			Render::Get()->setStatus(RENDER_STATUS_MENU);
+			//Render::Get()->Get_c_level()->~Level();
+			//delete Render::Get()->Get_c_level();
+			fillVectorButtons(LEVEL_SELECTION);
+		}
+		else if (buttons[2].isClicked()) {
+			Render::Get()->setStatus(RENDER_STATUS_MENU);
+			//Render::Get()->Get_c_level()->~Level();
+			//delete Render::Get()->Get_c_level();
+			fillVectorButtons(START);
 		}
 		break;
 	}
@@ -365,14 +379,6 @@ void Menu::onKeyClick()
 			{
 				Render::Get()->Get_c_level()->Set_status(LEVEL_STATUS_PAUSE);
 			}
-			else if (Render::Get()->Get_c_level()->Get_status() == LEVEL_STATUS_PAUSE && sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-			{
-				Render::Get()->Get_c_level()->Set_status(LEVEL_STATUS_GAME);
-			}
-
-
-			//Render::Get()->Get_c_level()->Set_status(LEVEL_STATUS_PAUSE);
-			//Render::Get()->Get_c_level()->Set_status(LEVEL_STATUS_GAME);
 		}
 	}
 	case LEVEL_2: {
@@ -381,14 +387,6 @@ void Menu::onKeyClick()
 			{
 				Render::Get()->Get_c_level()->Set_status(LEVEL_STATUS_PAUSE);
 			}
-			else if (Render::Get()->Get_c_level()->Get_status() == LEVEL_STATUS_PAUSE && sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-			{
-				Render::Get()->Get_c_level()->Set_status(LEVEL_STATUS_GAME);
-			}
-
-
-			//Render::Get()->Get_c_level()->Set_status(LEVEL_STATUS_PAUSE);
-			//Render::Get()->Get_c_level()->Set_status(LEVEL_STATUS_GAME);
 		}
 	}
 	case LEVEL_3: {
@@ -397,14 +395,6 @@ void Menu::onKeyClick()
 			{
 				Render::Get()->Get_c_level()->Set_status(LEVEL_STATUS_PAUSE);
 			}
-			else if (Render::Get()->Get_c_level()->Get_status() == LEVEL_STATUS_PAUSE && sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-			{
-				Render::Get()->Get_c_level()->Set_status(LEVEL_STATUS_GAME);
-			}
-
-
-			//Render::Get()->Get_c_level()->Set_status(LEVEL_STATUS_PAUSE);
-			//Render::Get()->Get_c_level()->Set_status(LEVEL_STATUS_GAME);
 		}
 	}
 	default:
@@ -595,7 +585,6 @@ void Menu::again()
 	printf("BTN_AGAIN\n");
 }
 
-
 void Menu::next_level()
 {
 	printf("BTN_NEXT_LEVEL\n");
@@ -708,6 +697,8 @@ void Menu::lev_1()
 	doors.push_back(door0);
 	doors.push_back(door1);
 	doors.push_back(door2);
+
+	//if(Render::Get()->Get_c_level)
 
 	Level *level = new Level(1, background, rooms, doors);
 

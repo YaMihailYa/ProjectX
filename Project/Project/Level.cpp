@@ -19,7 +19,8 @@ Level::Level(unsigned int id, Static_Object *_backGround, std::vector<Room*> _ro
 
 Level::~Level()
 {
-	delete this->m_player;
+	delete m_player;
+	delete m_backGround;
 }
 
 
@@ -49,6 +50,7 @@ void Level::Set_status(Level_status_t status)
 
 void Level::Display(sf::RenderWindow *window, unsigned int _time)
 {
+
 	// Displaying background
 	this->m_backGround->display(window);
 
