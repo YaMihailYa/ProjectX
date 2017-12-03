@@ -6,7 +6,7 @@
 Player* Player::m_this = nullptr;
 
 Player::Player(unsigned int speed)
-	: m_c_pos(sf::Vector2u(1716, 181)), m_target_pos(sf::Vector2u(1716, 181)), m_status(ANIMATION_STAY),
+	: m_c_pos(sf::Vector2u(1716, 170)), m_target_pos(sf::Vector2u(1716, 170)), m_status(ANIMATION_STAY),
 		m_c_room_id(0), m_clicked(false), m_was_clicked(false)
 {
 	if (m_this != nullptr)
@@ -234,6 +234,11 @@ void Player::Move()
 				targetRoomId = rooms[i]->getID();
 				break;
 			}
+		}
+
+		if (targetRoomId == -1)
+		{
+
 		}
 
 		// If the room was found - find the route
