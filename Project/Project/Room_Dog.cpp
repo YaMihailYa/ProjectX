@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "Inventory.h"
 #include "Render.h"
+#include "Menu.h"
 
 Room_Dog::Room_Dog(Room_t type, unsigned int id, sf::IntRect rect, unsigned int timeOfBarking)
 	: Room(type, id, rect)
@@ -82,6 +83,8 @@ void Room_Dog::display(sf::RenderWindow *window, unsigned int time)
 		if (this->m_passedTime >= this->m_timeOfBarking)
 		{
 			Render::Get()->Set_level_status(LEVEL_STATUS_FAILED);
+			Render::Get()->setStatus(RENDER_STATUS_MENU);
+			Menu::Get()->fillVectorButtons(LEVEL_FAILED);
 		}
 		
 		this->m_dogActive->animate(time);
