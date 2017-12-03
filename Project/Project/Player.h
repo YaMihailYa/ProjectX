@@ -30,7 +30,7 @@ public:
 	static Player* Get() { return m_this; }
 
 	//void Set_pos(sf::Vector2f pos) { m_pos = pos; }
-	void Set_c_pos(sf::Vector2f c_pos) { m_c_pos = c_pos; }
+	void Set_c_pos(sf::Vector2f c_pos);
 	void Set_c_room(unsigned int id) { m_c_room_id = id; }
 
 	bool Get_clicked() const { return this->m_clicked; }

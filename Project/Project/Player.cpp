@@ -65,6 +65,13 @@ Player::~Player()
 	m_this = nullptr;
 }
 
+void Player::Set_c_pos(sf::Vector2f c_pos)
+{
+	m_c_pos = c_pos;
+	sf::Vector2f coef =  Render::Get()->Get_coef();
+	m_c_pos.x *= coef.x;
+	m_c_pos.y *= coef.y;
+}
 
 void Player::display(sf::RenderWindow *window, unsigned int time)
 {
