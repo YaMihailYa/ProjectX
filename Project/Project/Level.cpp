@@ -91,8 +91,11 @@ void Level::Display(sf::RenderWindow *window, unsigned int _time)
 	}
 
 	// Displaying the player
-	this->m_player->Move();
-	this->m_player->display(window, _time);
+	if (this->m_status == LEVEL_STATUS_GAME)
+	{
+		this->m_player->Move();
+		this->m_player->display(window, _time);
+	}
 
 	// Displaying the foregrounds of doors
 	for (int i = 0; i < doorsSize; i++)
