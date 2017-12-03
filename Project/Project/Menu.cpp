@@ -831,7 +831,7 @@ void Menu::lev_2()
 	room2->setStaticObjects(staticObjects);
 	room2->setAnimatedObjects(animatedObjects);
 
-	room2->setGrandmaPosition(792, 412);
+	room2->setGrandmaPosition(792, 402);
 
 
 	// Room 3
@@ -1007,9 +1007,9 @@ void Menu::lev_3()
 	staticObjects.clear();
 	animatedObjects.clear();
 
-	Static_Object_Hovered *currStaticObjectHovered = new Static_Object_Hovered(63, 71);		// Schitovaja
+	/*Static_Object_Hovered *currStaticObjectHovered = new Static_Object_Hovered(63, 71);		// Schitovaja
 	currStaticObject->setPosition(1485, 389);
-	staticObjects.push_back(currStaticObjectHovered);
+	staticObjects.push_back(currStaticObjectHovered);*/
 
 	room4->setStaticObjects(staticObjects);
 	room4->setAnimatedObjects(animatedObjects);
