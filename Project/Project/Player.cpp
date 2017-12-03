@@ -45,49 +45,51 @@ void Player::display(sf::RenderWindow *window, unsigned int time)
 
 	this->m_clicked = false;
 
-	if (!this->m_move_directions.empty())
+	if (Render::Get()->Get_c_level()->Get_status() == LEVEL_STATUS_GAME)
 	{
-		Direction_t currDirection = this->m_move_directions[0];
-		Room *currRoom = Render::Get()->Get_c_level()->Get_room_by_id(m_c_room_id);
-
-		float targetCoord = currRoom->getCoordByDirection(currDirection);
-
-		if (this->m_c_pos.x == targetCoord)
+		if (!this->m_move_directions.empty())
 		{
-			this->m_move_directions.erase(this->m_move_directions.begin());
+			Direction_t currDirection = this->m_move_directions[0];
+			Room *currRoom = Render::Get()->Get_c_level()->Get_room_by_id(m_c_room_id);
 
-			Door *currDoor = currRoom->getDoorByDirection(currDirection);
+			float targetCoord = currRoom->getCoordByDirection(currDirection);
 
-			if (currDoor->getIsClosed())
+			if (this->m_c_pos.x == targetCoord)
 			{
-				this->m_move_directions.clear();
+				this->m_move_directions.erase(this->m_move_directions.begin());
 
+				Door *currDoor = currRoom->getDoorByDirection(currDirection);
+
+				if (currDoor->getIsClosed())
+				{
+					this->m_move_directions.clear();
+
+					this->m_status = ANIMATION_STAY;
+				}
+				else
+				{
+					currDoor->go_throw_the_door();
+				}
+			}
+			else
+			{
+				this->move_to_x_coord(targetCoord, time);
+			}
+		}
+		else
+		{
+			// If we are in the target room
+			if (this->m_c_pos == this->m_target_pos)
+			{
+				this->m_clicked = true;
 				this->m_status = ANIMATION_STAY;
 			}
 			else
 			{
-				currDoor->go_throw_the_door();
+				this->move_to_x_coord(this->m_target_pos.x, time);
 			}
 		}
-		else
-		{
-			this->move_to_x_coord(targetCoord, time);
-		}
 	}
-	else
-	{
-		// If we are in the target room
-		if (this->m_c_pos == this->m_target_pos)
-		{
-			this->m_clicked = true;
-			this->m_status = ANIMATION_STAY;
-		}
-		else
-		{
-			this->move_to_x_coord(this->m_target_pos.x, time);
-		}		
-	}
-
 
 	// Displaying the player
 	switch (m_status)
