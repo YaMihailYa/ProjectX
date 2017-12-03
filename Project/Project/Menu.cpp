@@ -591,6 +591,17 @@ void Menu::resume()
 void Menu::again()
 {
 	printf("BTN_AGAIN\n");
+	int level_id = Render::Get()->Get_c_level()->Get_level_id();
+
+	delete Render::Get()->Get_c_level();
+	Render::Get()->setLevel(nullptr);
+
+	switch (level_id)
+	{
+	case 1: { lev_1(); break; }
+	case 2: { lev_2(); break; }
+	//case 3: { level_selection(); break; }
+	}
 }
 
 void Menu::next_level()
@@ -603,9 +614,9 @@ void Menu::next_level()
 
 	switch (level_id)
 	{
-	case 1: { lev_1(); break; }
-	case 2: { lev_2(); break; }
-	case 3: { lev_3(); break; }
+	case 1: { lev_2(); break; }
+	case 2: { level_selection(); break; }
+	//case 3: { level_selection(); break; }
 	}
 }
 

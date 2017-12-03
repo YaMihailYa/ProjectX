@@ -1,6 +1,7 @@
 #include "Room_Grandma.h"
 #include "Player.h"
 #include "Render.h"
+#include "Menu.h"
 
 Room_Grandma::Room_Grandma(Room_t type, unsigned int id, sf::IntRect rect, unsigned int timeOfPhase)
 	: Room(type, id, rect)
@@ -58,6 +59,8 @@ void Room_Grandma::display(sf::RenderWindow *window, unsigned int time)
 	if (Player::Get()->Get_c_room() == this->m_id && this->m_isActive)
 	{
 		Render::Get()->Set_level_status(LEVEL_STATUS_FAILED);
+		Render::Get()->setStatus(RENDER_STATUS_MENU);
+		Menu::Get()->fillVectorButtons(LEVEL_FAILED);
 	}
 
 	// Displaying other objects
