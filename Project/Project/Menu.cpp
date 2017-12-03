@@ -46,7 +46,7 @@ Menu::Menu(menu_type_t type)
 
 Menu::~Menu() { }
 
-void Menu::fillVectorButtons(menu_type_t type)
+void Menu::fillVectorButtons(menu_type_t type, int rate)
 {
 	menuType = type;
 
@@ -111,7 +111,12 @@ void Menu::fillVectorButtons(menu_type_t type)
 	}
 	case LEVEL_END:
 	{
-		menu = new Static_Object(17);
+		switch (rate)
+		{
+		case 0: { menu = new Static_Object(18); break; }
+		case 1: { menu = new Static_Object(19); break; }
+		case 2: { menu = new Static_Object(20); break; }
+		}
 
 		Button btn1 = Button(626, 772, 140, 92, LEVEL_END, BTN_NEXT_LEVEL);
 		Button btn2 = Button(890, 767, 140, 92, LEVEL_END, BTN_LEVEL_SELECTION);
@@ -182,9 +187,9 @@ void Menu::fillVectorButtons(menu_type_t type)
 	{
 		menu = new Static_Object(21);
 
-		Button btn1 = Button(626, 772, 140, 92, LEVEL_FAILED, BTN_AGAIN);
-		Button btn2 = Button(890, 767, 140, 92, LEVEL_FAILED, BTN_LEVEL_SELECTION);
-		Button btn3 = Button(1153, 767, 140, 92, LEVEL_FAILED, BTN_HOME);
+		Button btn1 = Button(626, 772, 140, 92, LOOT_BOX_END, BTN_AGAIN);
+		Button btn2 = Button(890, 767, 140, 92, LOOT_BOX_END, BTN_LEVEL_SELECTION);
+		Button btn3 = Button(1153, 767, 140, 92, LOOT_BOX_END, BTN_HOME);
 
 		buttons.push_back(btn1);
 		buttons.push_back(btn2);
@@ -591,6 +596,14 @@ void Menu::again()
 void Menu::next_level()
 {
 	printf("BTN_NEXT_LEVEL\n");
+	int level_id = Render::Get()->Get_c_level()->Get_level_id();
+
+	switch (level_id)
+	{
+	case 1: { lev_1(); break; }
+	case 2: { lev_2(); break; }
+	case 3: { lev_3(); break; }
+	}
 }
 
 void Menu::level_selection()

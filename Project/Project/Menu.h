@@ -11,7 +11,7 @@ public:
 	Menu(menu_type_t type);
 	~Menu();
 
-	void fillVectorButtons(menu_type_t type);
+	void fillVectorButtons(menu_type_t type, int rate = 0);
 	void onClick();
 	void onKeyClick();
 	menu_type_t getMenuType();
