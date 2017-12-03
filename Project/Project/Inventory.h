@@ -15,10 +15,10 @@ struct Inventory_item_t
 	Item_t type;
 	Static_Object *obj;
 	Inventory_item_t::Inventory_item_t() { }
-	Inventory_item_t::Inventory_item_t(Item_t &_type, Static_Object &_obj)
+	Inventory_item_t::Inventory_item_t(Item_t &_type, Static_Object *&_obj)
 	{
 		type = _type;
-		obj = &_obj;
+		obj = _obj;
 	}
 };
 

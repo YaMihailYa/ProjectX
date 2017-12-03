@@ -236,7 +236,6 @@ void Render::Rendering()
 		else
 		{
 			m_c_level->Display(m_window, time_delay_mcs);
-			Inventory::Get()->display(m_window);
 		}
 
 		

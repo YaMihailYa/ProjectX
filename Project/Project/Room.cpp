@@ -173,9 +173,10 @@ void Room::display(sf::RenderWindow *window, unsigned int time) {
 	// Displaying static objects
 	for (int i = 0; i < this->m_staticObjects.size(); i++)
 	{
+		Object_t t = m_staticObjects[i]->Get_type();
 		this->m_staticObjects[i]->display(window);
-		if (m_staticObjects[i]->Get_type() == STORAGE)
-			((Static_Object_Storage*)m_staticObjects[i])->checkClickOnThis();
+		/*if (m_staticObjects[i]->Get_type() == STORAGE)
+			((Static_Object_Storage*)m_staticObjects[i])->checkClickOnThis();*/
 	}
 
 	// Displaying animated objects
