@@ -37,7 +37,7 @@ void Room_Tree::checkClicked()
 	{
 		if (this->m_tree->Get_sprite().getGlobalBounds().contains((sf::Vector2f) Player::Get()->Get_c_pos()))
 		{
-			Render::Get()->Set_level_status(LEVEL_STATUS_FAILED);
+			Render::Get()->Set_level_status(LEVEL_STATUS_END);
 		}
 	}
 }
