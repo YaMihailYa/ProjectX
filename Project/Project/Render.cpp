@@ -162,7 +162,10 @@ void Render::Init()
 	// Load signaling
 	m_textures->Add_texture("Resurses/Images/gameplay/signaling.png");						// 95
 
-	
+	// Load menu
+	m_textures->Add_texture("Resurses/Images/menu/start.png");								// 96
+	m_textures->Add_texture("Resurses/Images/menu/options.png");							// 97
+	m_textures->Add_texture("Resurses/Images/menu/quit.png");								// 98
 
 	// Initialization animations
 	// #grandfather
