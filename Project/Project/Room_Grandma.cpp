@@ -11,7 +11,7 @@ Room_Grandma::Room_Grandma(Room_t type, unsigned int id, sf::IntRect rect, unsig
 	this->m_passedTime = 0;
 
 	this->m_grandmaActive = new Animated_Object(25, 3);
-	this->m_grandmaPassive = new Animated_Object(25, 4);
+	this->m_grandmaPassive = new Animated_Object(10, 4);
 }
 
 
