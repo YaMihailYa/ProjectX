@@ -96,27 +96,27 @@ void Player::display(sf::RenderWindow *window, unsigned int time)
 		if (Render::Get()->Get_c_level()->Get_status() == LEVEL_STATUS_GAME)
 		{
 			m_stay_anim->animate(time);
+			m_rect = (sf::IntRect) m_stay_anim->Get_sprite().getGlobalBounds();
+			m_stay_anim->setPosition(m_c_pos.x - m_rect.width / 2., m_c_pos.y - m_rect.width / 2.);
 		}
-		m_rect = (sf::IntRect) m_stay_anim->Get_sprite().getGlobalBounds();
-		m_stay_anim->setPosition(m_c_pos.x - m_rect.width / 2., m_c_pos.y - m_rect.width / 2.);
 		m_stay_anim->display(window);
 		break;
 	case ANIMATION_LEFT:
 		if (Render::Get()->Get_c_level()->Get_status() == LEVEL_STATUS_GAME)
 		{
 			m_left_anim->animate(time);
+			m_rect = (sf::IntRect) m_left_anim->Get_sprite().getGlobalBounds();
+			m_left_anim->setPosition(m_c_pos.x - m_rect.width / 2., m_c_pos.y - m_rect.height / 2.);
 		}
-		m_rect = (sf::IntRect) m_left_anim->Get_sprite().getGlobalBounds();
-		m_left_anim->setPosition(m_c_pos.x - m_rect.width / 2., m_c_pos.y - m_rect.height / 2.);
 		m_left_anim->display(window);
 		break;
 	case ANIMATION_RIGHT:
 		if (Render::Get()->Get_c_level()->Get_status() == LEVEL_STATUS_GAME)
 		{
 			m_right_anim->animate(time);
+			m_rect = (sf::IntRect) m_right_anim->Get_sprite().getGlobalBounds();
+			m_right_anim->setPosition(m_c_pos.x - m_rect.width / 2., m_c_pos.y - m_rect.height / 2.);
 		}
-		m_rect = (sf::IntRect) m_right_anim->Get_sprite().getGlobalBounds();
-		m_right_anim->setPosition(m_c_pos.x - m_rect.width / 2., m_c_pos.y - m_rect.height / 2.);
 		m_right_anim->display(window);
 		break;
 	default:
