@@ -680,7 +680,7 @@ void Menu::lev_2()
 
 
 	// Room 1
-	Room *room1 = new Room(TREE, 1, sf::IntRect(568, 24, 606, 285));
+	Room *room1 = new Room(REGULAR, 1, sf::IntRect(568, 24, 606, 285));
 
 	staticObjects.clear();
 	animatedObjects.clear();
@@ -699,7 +699,7 @@ void Menu::lev_2()
 
 
 	// Room 2
-	Room_Grandma *room2 = new Room_Grandma(REGULAR, 2, sf::IntRect(568, 332, 606, 285), 6000000);
+	Room_Grandma *room2 = new Room_Grandma(GRANDMA, 2, sf::IntRect(568, 332, 606, 285), 6000000);
 
 	staticObjects.clear();
 	animatedObjects.clear();
@@ -718,7 +718,7 @@ void Menu::lev_2()
 
 
 	// Room 3
-	Room_Tree *room3 = new Room_Tree(TREE, 1, sf::IntRect(1326, 332, 407, 285));
+	Room_Tree *room3 = new Room_Tree(TREE, 3, sf::IntRect(1326, 332, 407, 285));
 
 	staticObjects.clear();
 	animatedObjects.clear();
@@ -730,8 +730,8 @@ void Menu::lev_2()
 	currStaticObject->setPosition(1390, 362);
 	staticObjects.push_back(currStaticObject);
 
-	room1->setStaticObjects(staticObjects);
-	room1->setAnimatedObjects(animatedObjects);
+	room3->setStaticObjects(staticObjects);
+	room3->setAnimatedObjects(animatedObjects);
 
 	// Christmas tree
 	room3->setTreePosition(1553, 338);
@@ -803,7 +803,7 @@ void Menu::lev_3()
 	std::vector<Room*> rooms;
 
 	// Room 0
-	Room *room0 = new Room(REGULAR, 0, sf::IntRect(1238, 24, 473, 285));
+	Room *room0 = new Room(REGULAR, 0, sf::IntRect(1238, 24, 496, 285));
 
 	std::vector<Static_Object_Hovered*> staticObjects;
 	std::vector<Animated_Object*> animatedObjects;
@@ -813,18 +813,19 @@ void Menu::lev_3()
 
 
 	// Room 1
-	Room *room1 = new Room(TREE, 1, sf::IntRect(568, 24, 606, 285));
+	Room *room1 = new Room(REGULAR, 1, sf::IntRect(614, 24, 472, 285));
 
 	staticObjects.clear();
 	animatedObjects.clear();
 
 	std::vector<Item_t> items;
-	items.push_back(Item_t(COOKIE, YELLOW));
 	items.push_back(Item_t(KEY, GREEN));
-	items.push_back(Item_t(KEY, RED));
+	items.push_back(Item_t(KEY, ORANGE));
+	// Kee from safe
 
-	Static_Object_Storage *currStaticObject = new Static_Object_Storage(48, 49, items);		// Sofa
-	currStaticObject->setPosition(850, 52);
+	Static_Object_Storage *currStaticObject = new Static_Object_Storage(50, 51, items);		// Tumbochka
+
+	currStaticObject->setPosition(818, 167);
 	staticObjects.push_back(currStaticObject);
 
 	room1->setStaticObjects(staticObjects);
@@ -832,26 +833,27 @@ void Menu::lev_3()
 
 
 	// Room 2
-	Room_Grandma *room2 = new Room_Grandma(REGULAR, 2, sf::IntRect(568, 332, 606, 285), 6000000);
+	Room *room2 = new Room(REGULAR, 2, sf::IntRect(614, 332, 472, 285));
 
 	staticObjects.clear();
 	animatedObjects.clear();
 
 	items.clear();
+	items.push_back(Item_t(BONE, YELLOW));
+	items.push_back(Item_t(WRENCH, YELLOW));
 	items.push_back(Item_t(COOKIE, YELLOW));
+	items.push_back(Item_t(KEY, BLUE));
 
 	currStaticObject = new Static_Object_Storage(50, 51, items);		// Tumbochka
-	currStaticObject->setPosition(1017, 475);
+	currStaticObject->setPosition(969, 477);
 	staticObjects.push_back(currStaticObject);
 
 	room2->setStaticObjects(staticObjects);
 	room2->setAnimatedObjects(animatedObjects);
 
-	room2->setGrandmaPosition(792, 412);
-
 
 	// Room 3
-	Room_Tree *room3 = new Room_Tree(TREE, 1, sf::IntRect(1326, 332, 471, 285));
+	Room *room3 = new Room(REGULAR, 3, sf::IntRect(172, 332, 291, 285));
 
 	staticObjects.clear();
 	animatedObjects.clear();
@@ -860,14 +862,55 @@ void Menu::lev_3()
 	items.push_back(Item_t(COOKIE, YELLOW));
 
 	currStaticObject = new Static_Object_Storage(48, 49, items);		// Sofa
-	currStaticObject->setPosition(1390, 362);
+	currStaticObject->setPosition(193, 362);
 	staticObjects.push_back(currStaticObject);
 
-	room1->setStaticObjects(staticObjects);
-	room1->setAnimatedObjects(animatedObjects);
+	room3->setStaticObjects(staticObjects);
+	room3->setAnimatedObjects(animatedObjects);
 
-	// Christmas tree
-	room3->setTreePosition(1553, 338);
+
+	// Room 4
+	Room_Grandma *room4 = new Room_Grandma(GRANDMA, 4, sf::IntRect(1238, 332, 496, 285), 6000000);
+
+	staticObjects.clear();
+	animatedObjects.clear();
+
+	Static_Object_Hovered *currStaticObjectHovered = new Static_Object_Hovered(63, 71);		// Schitovaja
+	currStaticObject->setPosition(1485, 389);
+	staticObjects.push_back(currStaticObjectHovered);
+
+	room4->setStaticObjects(staticObjects);
+	room4->setAnimatedObjects(animatedObjects);
+
+	room4->setGrandmaPosition(1300, 412);
+
+
+	// Room 5
+	Room_Dog *room5 = new Room_Dog(DOG, 5, sf::IntRect(1238, 640, 496, 285), 3000000);
+
+	staticObjects.clear();
+	animatedObjects.clear();
+
+	room5->setStaticObjects(staticObjects);
+	room5->setAnimatedObjects(animatedObjects);
+
+	room5->setDogPosition(1340, 721);
+
+
+	// Room 6
+	Room_Tree *room6 = new Room_Tree(TREE, 6, sf::IntRect(614, 640, 472, 285));
+
+	items.clear();
+	items.push_back(Item_t(COOKIE, YELLOW));
+
+	currStaticObject = new Static_Object_Storage(52, 53, items);		// Safe
+	currStaticObject->setPosition(808, 785);
+	staticObjects.push_back(currStaticObject);
+
+	room3->setStaticObjects(staticObjects);
+	room3->setAnimatedObjects(animatedObjects);
+
+	room6->setTreePosition(619, 649);
 
 
 	// Setting the links
@@ -875,51 +918,89 @@ void Menu::lev_3()
 	room1->Set_down_room(room2);
 	room1->Set_right_room(room0);
 	room2->Set_top_room(room1);
-	room2->Set_right_room(room3);
-	room3->Set_left_room(room2);
+	room2->Set_left_room(room3);
+	room2->Set_right_room(room4);
+	room3->Set_right_room(room2);
+	room4->Set_left_room(room2);
+	room4->Set_down_room(room5);
+	room5->Set_top_room(room4);
+	room5->Set_left_room(room6);
+	room6->Set_right_room(room5);
 
 	// Creating the array of doors
 	std::vector<Door*> doors;
 
 	// Door 0
 	Door_rooms *door0 = new Door_rooms(0, false, YELLOW, 1, 0);
-	door0->Set_pos(sf::Vector2u(1118, 24));
+	door0->Set_pos(sf::Vector2u(1030, 24));
 
 	// Door 1 and 2
 	Door_front *door1 = new Door_front(1, true, GREEN, DOWN, 1, 2);
 	Door_front *door2 = new Door_front(2, true, GREEN, TOP, 2, 1);
 
-	door1->Set_pos(sf::Vector2u(618, 34));
-	door2->Set_pos(sf::Vector2u(618, 341));
+	door1->Set_pos(sf::Vector2u(668, 34));
+	door2->Set_pos(sf::Vector2u(668, 341));
 
 	// Door 3
-	Door_rooms *door3 = new Door_rooms(3, true, RED, 2, 3);
-	door3->Set_pos(sf::Vector2u(1118, 332));
+	Door_rooms *door3 = new Door_rooms(3, true, BLUE, 3, 2);
+	door3->Set_pos(sf::Vector2u(406, 332));
+
+	// Door 4
+	Door_rooms *door4 = new Door_rooms(4, false, RED, 2, 4);
+	door4->Set_pos(sf::Vector2u(1030, 332));
+
+	// Door 5 and 6
+	Door_front *door5 = new Door_front(5, false, PINK, DOWN, 4, 5);
+	Door_front *door6 = new Door_front(6, false, PINK, TOP, 5, 4);
+
+	door5->Set_pos(sf::Vector2u(1588, 341));
+	door6->Set_pos(sf::Vector2u(1588, 649));
+
+	// Door 7
+	Door_rooms *door7 = new Door_rooms(7, true, ORANGE, 5, 6);
+	door7->Set_pos(sf::Vector2u(1030, 641));
+
 
 	// Setting the links
 	door1->Set_adj_door_id(2);
 	door2->Set_adj_door_id(1);
 
+	door5->Set_adj_door_id(6);
+	door6->Set_adj_door_id(5);
+
 	room0->Set_left_door(door0);
 	room1->Set_right_door(door0);
 	room1->Set_down_door(door1);
 	room2->Set_top_door(door2);
-	room2->Set_right_door(door3);
-	room3->Set_left_door(door3);
+	room2->Set_left_door(door3);
+	room2->Set_right_door(door4);
+	room3->Set_right_door(door3);
+	room4->Set_left_door(door4);
+	room4->Set_down_door(door5);
+	room5->Set_top_door(door6);
+	room5->Set_left_door(door7);
+	room6->Set_right_door(door7);
 
 	// Adding rooms to the array
 	rooms.push_back(room0);
 	rooms.push_back(room1);
 	rooms.push_back(room2);
 	rooms.push_back(room3);
+	rooms.push_back(room4);
+	rooms.push_back(room5);
+	rooms.push_back(room6);
 
 	// Adding doors to the array
 	doors.push_back(door0);
 	doors.push_back(door1);
 	doors.push_back(door2);
 	doors.push_back(door3);
+	doors.push_back(door4);
+	doors.push_back(door5);
+	doors.push_back(door6);
+	doors.push_back(door7);
 
-	Level *level = new Level(2, background, rooms, doors);
+	Level *level = new Level(3, background, rooms, doors);
 
 	Render::Get()->setStatus(RENDER_STATUS_GAME);
 	Render::Get()->setLevel(level);
