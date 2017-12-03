@@ -227,19 +227,21 @@ void Render::Rendering()
 
 		m_window->clear();
 
-		// Here display level
-		if (this->m_status == RENDER_STATUS_MENU)
+		
+
+		if(m_c_level != nullptr)
 		{
-			m.display(m_window);
-			m.onKeyClick();
-			m.onClick();
-		}
-		else
-		{
-			m.onKeyClick();
+			//m.onKeyClick();
 			m_c_level->Display(m_window, time_delay_mcs);
 		}
 
+		// Here display level
+		m.onKeyClick();
+		if (this->m_status == RENDER_STATUS_MENU)
+		{
+			m.display(m_window);
+			m.onClick();
+		}
 		
 		//s.Display(m_window, time_delay_mcs);
 		//Player::Get()->Move();

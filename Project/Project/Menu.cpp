@@ -347,14 +347,17 @@ void Menu::onKeyClick()
 		}
 		else if (buttons[1].isClicked()) {
 			Render::Get()->setStatus(RENDER_STATUS_MENU);
-			//Render::Get()->Get_c_level()->~Level();
-			//delete Render::Get()->Get_c_level();
+			//-------------------
+			delete Render::Get()->Get_c_level();
+			Render::Get()->setLevel(nullptr);
 			fillVectorButtons(LEVEL_SELECTION);
 		}
 		else if (buttons[2].isClicked()) {
 			Render::Get()->setStatus(RENDER_STATUS_MENU);
+			//--------------------
 			//Render::Get()->Get_c_level()->~Level();
-			//delete Render::Get()->Get_c_level();
+			delete Render::Get()->Get_c_level();
+			Render::Get()->setLevel(nullptr);
 			fillVectorButtons(START);
 		}
 		break;
