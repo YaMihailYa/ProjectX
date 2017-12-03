@@ -138,6 +138,8 @@ void Player::display(sf::RenderWindow *window, unsigned int time)
 	
 
 	// Displaying the player
+	sf::Vector2f coef = Render::Get()->Get_coef();
+
 	switch (m_status)
 	{
 	case ANIMATION_STAY:	
@@ -145,7 +147,7 @@ void Player::display(sf::RenderWindow *window, unsigned int time)
 		{
 			m_stay_anim->animate(time);
 			m_rect = (sf::IntRect) m_stay_anim->Get_sprite().getGlobalBounds();
-			m_stay_anim->setPosition(m_c_pos.x - m_rect.width / 2., m_c_pos.y - m_rect.width / 2.);
+			m_stay_anim->setPosition((m_c_pos.x - m_rect.width / 2.) / coef.x, (m_c_pos.y - m_rect.width / 2.) / coef.y);
 		}
 		m_stay_anim->display(window);
 		break;
@@ -154,7 +156,7 @@ void Player::display(sf::RenderWindow *window, unsigned int time)
 		{
 			m_left_anim->animate(time);
 			m_rect = (sf::IntRect) m_left_anim->Get_sprite().getGlobalBounds();
-			m_left_anim->setPosition(m_c_pos.x - m_rect.width / 2., m_c_pos.y - m_rect.height / 2.);
+			m_left_anim->setPosition((m_c_pos.x - m_rect.width / 2.) / coef.x, (m_c_pos.y - m_rect.width / 2.) / coef.y);
 		}
 		m_left_anim->display(window);
 		break;
@@ -163,7 +165,7 @@ void Player::display(sf::RenderWindow *window, unsigned int time)
 		{
 			m_right_anim->animate(time);
 			m_rect = (sf::IntRect) m_right_anim->Get_sprite().getGlobalBounds();
-			m_right_anim->setPosition(m_c_pos.x - m_rect.width / 2., m_c_pos.y - m_rect.height / 2.);
+			m_right_anim->setPosition((m_c_pos.x - m_rect.width / 2.) / coef.x, (m_c_pos.y - m_rect.width / 2.) / coef.y);
 		}
 		m_right_anim->display(window);
 		break;
