@@ -33,7 +33,6 @@ Menu::Menu(menu_type_t type)
 		myfile.close();
 	}
 
-
 	m_this = this;
 	menu = nullptr;
 
