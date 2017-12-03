@@ -8,7 +8,7 @@
 // Сам придумаешь
 
 // Отступы между элементами инвентаря в пикселях:
-#define ITEM_PADDING 100
+#define ITEM_PADDING 130
 
 struct Inventory_item_t
 {

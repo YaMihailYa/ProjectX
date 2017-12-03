@@ -13,7 +13,7 @@ Level::Level(unsigned int id, Static_Object *_backGround, std::vector<Room*> _ro
 	this->m_player = new Player(100);
 
 	// Creating the inventory
-	Inventory *inventory = new Inventory(sf::IntRect(294, 1017, 1445, 63));
+	Inventory *inventory = new Inventory(sf::IntRect(294, 1007, 1445, 63));
 }
 
 

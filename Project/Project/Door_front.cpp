@@ -87,8 +87,8 @@ void Door_front::Set_is_closed(bool is_closed)
 		{
 			delete m_door_handle;
 		}
-
-		switch (m_key)
+		m_door_handle = new Static_Object(74);
+		/*switch (m_key)
 		{
 		case YELLOW:
 			m_door_handle = new Static_Object(30);
@@ -110,7 +110,7 @@ void Door_front::Set_is_closed(bool is_closed)
 			break;
 		default:
 			break;
-		}
+		}*/
 	}
 
 	Set_pos(m_pos);
@@ -136,9 +136,9 @@ void Door_front::control()
 			{
 				Inventory::Get()->del_item(Item_t(KEY, m_key));
 				Set_is_closed(false);
-				if (m_door_handle != nullptr)
+				/*if (m_door_handle != nullptr)
 					delete m_door_handle;
-				m_door_handle = new Static_Object(74);
+				m_door_handle = new Static_Object(74);*/
 				Render::Get()->Get_c_level()->Get_door_by_id(m_adj_door_id)->Set_is_closed(false);
 			}
 		}
