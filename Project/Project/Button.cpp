@@ -60,3 +60,15 @@ bool Button::isClicked()
 
 	return false;
 }
+
+bool Button::isHovered()
+{
+	if (sf::Mouse::getPosition().x >= getX0() && sf::Mouse::getPosition().x <= getX0() + getWidth()) {
+		if (sf::Mouse::getPosition().y >= getY0() && sf::Mouse::getPosition().y <= getY0() + getHeight()) {
+			return true;
+		}
+	}
+
+
+	return false;
+}

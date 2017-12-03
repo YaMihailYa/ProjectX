@@ -499,6 +499,15 @@ void Menu::display(sf::RenderWindow *window)
 		}
 
 	}
+	else if (menuType == START) {
+		Static_Object* light_text = nullptr;
+		
+		if (buttons[0].isHovered()) { light_text = new Static_Object(96); light_text->setPosition(889, 361); }
+		else if (buttons[1].isHovered()) { light_text = new Static_Object(97); light_text->setPosition(845, 576); }
+		else if (buttons[2].isHovered()) { light_text = new Static_Object(98); light_text->setPosition(909, 795); }
+	
+		if (light_text != nullptr) { light_text->display(window); }
+	}
 }
 
 void Menu::start()
