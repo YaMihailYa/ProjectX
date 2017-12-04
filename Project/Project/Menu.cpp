@@ -727,7 +727,7 @@ void Menu::lev_1()
 	std::vector<Door*> doors;
 
 	// Door 0
-	Door_rooms *door0 = new Door_rooms(0, true, YELLOW, 1, 0);
+	Door_rooms *door0 = new Door_rooms(0, false, YELLOW, 1, 0);
 	doors_to_open.push_back(door0);
 	
 
@@ -805,6 +805,7 @@ void Menu::lev_2()
 	std::vector<Item_t> items;
 	items.push_back(Item_t(COOKIE, YELLOW));
 	items.push_back(Item_t(KEY, GREEN));
+	items.push_back(Item_t(KEY, RED));
 
 	Static_Object_Storage *currStaticObject = new Static_Object_Storage(48, 49, items);		// Sofa
 	currStaticObject->setPosition(850, 52);
@@ -877,7 +878,7 @@ void Menu::lev_2()
 
 	// Door 3
 	Door_rooms *door3 = new Door_rooms(3, true, RED, 2, 3);
-	doors_to_open.push_back(door3);
+	
 
 	// Setting the links
 	door1->Set_adj_door_id(2);
