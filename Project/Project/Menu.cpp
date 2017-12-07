@@ -669,7 +669,7 @@ void Menu::lev_1()
 	std::vector<Room*> rooms;
 
 	// Room 0
-	Room *room0 = new Room(REGULAR, 0, sf::IntRect(1326, 24, 407, 285));
+	Room *room0 = new Room(REGULAR, 0, sf::IntRect(1246, 24, 567, 285));
 
 	std::vector<Static_Object_Hovered*> staticObjects;
 	std::vector<Animated_Object*> animatedObjects;
@@ -677,6 +677,7 @@ void Menu::lev_1()
 	std::vector<Item_t> items;
 	items.push_back(Item_t(COOKIE, YELLOW));
 	items.push_back(Item_t(KEY, GREEN));
+	items.push_back(Item_t(KEY, YELLOW));
 
 	Static_Object_Storage *currStaticObject = new Static_Object_Storage(50, 51, items);		// Tumbochka
 	currStaticObject->setPosition(1453, 166);
@@ -687,7 +688,7 @@ void Menu::lev_1()
 
 
 	// Room 1
-	Room_Tree *room1 = new Room_Tree(TREE, 1, sf::IntRect(568, 24, 606, 285));
+	Room_Tree *room1 = new Room_Tree(TREE, 1, sf::IntRect(488, 24, 766, 285));
 
 	staticObjects.clear();
 	animatedObjects.clear();
@@ -700,7 +701,7 @@ void Menu::lev_1()
 
 
 	// Room 2
-	Room *room2 = new Room(REGULAR, 2, sf::IntRect(568, 332, 606, 285));
+	Room *room2 = new Room(REGULAR, 2, sf::IntRect(488, 332, 766, 285));
 
 	staticObjects.clear();
 	animatedObjects.clear();
@@ -727,8 +728,8 @@ void Menu::lev_1()
 	std::vector<Door*> doors;
 
 	// Door 0
-	Door_rooms *door0 = new Door_rooms(0, false, YELLOW, 1, 0);
-	doors_to_open.push_back(door0);
+	Door_rooms *door0 = new Door_rooms(0, true, YELLOW, 1, 0);
+	//doors_to_open.push_back(door0);
 	
 
 	// Door 1 and 2

@@ -94,7 +94,7 @@ void Inventory::del_item(Item_t & item)
 {
 	if (m_items.empty()) return;
 	for (int i = 0; i < m_items.size(); i++)
-		if (m_items[i].type._type == item._type)
+		if (m_items[i].type._type == item._type && m_items[i].type._colour == item._colour)
 		{
 			delete m_items[i].obj;
 			m_items.erase(m_items.begin() + (i));

@@ -32,7 +32,7 @@ void Door_rooms::display_foreground(sf::RenderWindow *window)
 // pos without using coef
 void Door_rooms::Set_pos(sf::Vector2u pos)
 {
-
+	m_pos = pos;
 	if (m_background != nullptr)
 		m_background->setPosition(pos.x, pos.y);
 

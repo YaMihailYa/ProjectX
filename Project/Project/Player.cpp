@@ -98,7 +98,7 @@ void Player::display(sf::RenderWindow *window, unsigned int time)
 				if (currDoor->getIsClosed())
 				{
 					this->m_move_directions.clear();
-
+					m_target_pos.x = targetCoord;
 					this->m_status = ANIMATION_STAY;
 				}
 				else

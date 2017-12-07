@@ -56,8 +56,10 @@ void Animated_Object_Hovered::animate(unsigned int time)
 	int time_frame = m_animation_time / count_frames;
 
 	m_all_time += time;
+	m_all_time %= count_frames *time_frame;
 
-	int frame_we_need_id = m_all_time / time_frame;
+	unsigned int frame_we_need_id = (unsigned int)(((float)m_all_time) / ((float)m_animation_time)*count_frames);
 
 	m_sprite = loader->getSprite(currArrayIndex, frame_we_need_id);
+	m_sprite.setPosition(m_pos);
 }

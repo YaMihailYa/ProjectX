@@ -109,11 +109,11 @@ float Room::getCoordByDirection(Direction_t direction)
 	{
 	case LEFT:
 	{
-		return this->m_rect.left;
+		return this->m_rect.left+80;
 	}
 	case RIGHT:
 	{
-		return this->m_rect.left + this->m_rect.width;
+		return this->m_rect.left + this->m_rect.width-80;
 	}
 	case TOP:
 	{
