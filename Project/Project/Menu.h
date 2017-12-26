@@ -11,6 +11,7 @@ public:
 	Menu(menu_type_t type);
 	~Menu();
 
+
 	void fillVectorButtons(menu_type_t type, int rate = -1);
 	void onClick();
 	void onKeyClick();
@@ -47,4 +48,8 @@ private:
 
 	int last_x0_clicked;
 	int last_y0_clicked;
+
+	int cntr_1;
+	int cntr_2;
+	int cntr_3;
 };

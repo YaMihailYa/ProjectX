@@ -53,6 +53,24 @@ void Level::Set_status(Level_status_t status)
 		Render::Get()->setStatus(RENDER_STATUS_GAME);
 		break;
 	}
+	case LEVEL_HELP_1:
+	{
+		Render::Get()->setStatus(RENDER_STATUS_MENU);
+		Menu::Get()->fillVectorButtons(HELP_1);
+		break;
+	}
+	case LEVEL_HELP_2:
+	{
+		Render::Get()->setStatus(RENDER_STATUS_MENU);
+		Menu::Get()->fillVectorButtons(HELP_2);
+		break;
+	}
+	case LEVEL_HELP_3:
+	{
+		Render::Get()->setStatus(RENDER_STATUS_MENU);
+		Menu::Get()->fillVectorButtons(HELP_3);
+		break;
+	}
 	}
 }
 
