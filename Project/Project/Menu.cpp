@@ -1047,7 +1047,7 @@ void Menu::lev_3()
 
 
 	// Room 2
-	Room *room2 = new Room(REGULAR, 2, sf::IntRect(614, 332, 472, 285));
+	Room *room2 = new Room(REGULAR, 2, sf::IntRect(564, 332, 522, 285));
 
 	staticObjects.clear();
 	animatedObjects.clear();
@@ -1067,7 +1067,7 @@ void Menu::lev_3()
 
 
 	// Room 3
-	Room *room3 = new Room(REGULAR, 3, sf::IntRect(172, 332, 291, 285));
+	Room *room3 = new Room(REGULAR, 3, sf::IntRect(172, 332, 341, 285));
 
 	staticObjects.clear();
 	animatedObjects.clear();
@@ -1154,11 +1154,9 @@ void Menu::lev_3()
 	Door_front *door1 = new Door_front(1, true, GREEN, DOWN, 1, 2);
 	Door_front *door2 = new Door_front(2, true, GREEN, TOP, 2, 1);
 
-	
-
 	// Door 3
-	Door_rooms *door3 = new Door_rooms(3, false, BLUE, 3, 2);
-	doors_to_open.push_back(door3);
+	Door_rooms *door3 = new Door_rooms(3, true, BLUE, 3, 2);
+	//doors_to_open.push_back(door3);
 
 	// Door 4
 	Door_rooms *door4 = new Door_rooms(4, false, RED, 2, 4);
