@@ -68,6 +68,10 @@ void Menu::fillVectorButtons(menu_type_t type, int rate)
 	{
 		menu = new Static_Object(9);
 
+		cntr_1 = 0;
+		cntr_2 = 0;
+		cntr_3 = 0;
+
 		Button btn1 = Button(760, 335, 458, 140, START, BTN_START);
 		Button btn2 = Button(760, 551, 458, 140, START, BTN_OPTIONS);
 		Button btn3 = Button(760, 769, 458, 140, START, BTN_QUIT);
@@ -205,6 +209,21 @@ void Menu::fillVectorButtons(menu_type_t type, int rate)
 		buttons.push_back(btn2);
 		buttons.push_back(btn3);
 
+		break;
+	}
+	case HELP_1:
+	{
+		menu = new Static_Object(10);
+		break;
+	}
+	case HELP_2:
+	{
+		menu = new Static_Object(10);
+		break;
+	}
+	case HELP_3:
+	{
+		menu = new Static_Object(10);
 		break;
 	}
 	}
@@ -397,6 +416,16 @@ void Menu::onKeyClick()
 			{
 				Render::Get()->Get_c_level()->Set_status(LEVEL_STATUS_PAUSE);
 			}
+			else if (Render::Get()->Get_c_level()->Get_status() == LEVEL_STATUS_GAME && sf::Keyboard::isKeyPressed(sf::Keyboard::H))
+			{
+				Render::Get()->Get_c_level()->Set_status(LEVEL_HELP_1);
+			}
+			else if (Render::Get()->Get_c_level()->Get_status() == LEVEL_STATUS_GAME && cntr_1 == 0)
+			{
+				cntr_1 = 1;
+				Render::Get()->Get_c_level()->Set_status(LEVEL_HELP_1);
+			}
+			
 		}
 	}
 	case LEVEL_2: {
@@ -404,6 +433,15 @@ void Menu::onKeyClick()
 			if (Render::Get()->Get_c_level()->Get_status() == LEVEL_STATUS_GAME && sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 			{
 				Render::Get()->Get_c_level()->Set_status(LEVEL_STATUS_PAUSE);
+			}
+			else if (Render::Get()->Get_c_level()->Get_status() == LEVEL_STATUS_GAME && sf::Keyboard::isKeyPressed(sf::Keyboard::H))
+			{
+				Render::Get()->Get_c_level()->Set_status(LEVEL_HELP_2);
+			}
+			else if (Render::Get()->Get_c_level()->Get_status() == LEVEL_STATUS_GAME && cntr_2 == 0)
+			{
+				cntr_2 = 1;
+				Render::Get()->Get_c_level()->Set_status(LEVEL_HELP_2);
 			}
 		}
 	}
@@ -413,8 +451,51 @@ void Menu::onKeyClick()
 			{
 				Render::Get()->Get_c_level()->Set_status(LEVEL_STATUS_PAUSE);
 			}
+			else if (Render::Get()->Get_c_level()->Get_status() == LEVEL_STATUS_GAME && sf::Keyboard::isKeyPressed(sf::Keyboard::H))
+			{
+				Render::Get()->Get_c_level()->Set_status(LEVEL_HELP_3);
+			}
+			else if (Render::Get()->Get_c_level()->Get_status() == LEVEL_STATUS_GAME && cntr_3 == 0)
+			{
+				cntr_3 = 1;
+				Render::Get()->Get_c_level()->Set_status(LEVEL_HELP_3);
+			}
 		}
 	}
+	case HELP_1: {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+			if (Render::Get()->Get_c_level()->Get_level_id() == 1) { menuType = LEVEL_1; }
+			if (Render::Get()->Get_c_level()->Get_level_id() == 2) { menuType = LEVEL_2; }
+			if (Render::Get()->Get_c_level()->Get_level_id() == 3) { menuType = LEVEL_3; }
+
+			Render::Get()->Get_c_level()->Set_status(LEVEL_STATUS_GAME);
+		}
+		
+		break;
+	}
+	case HELP_2: {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+			if (Render::Get()->Get_c_level()->Get_level_id() == 1) { menuType = LEVEL_1; }
+			if (Render::Get()->Get_c_level()->Get_level_id() == 2) { menuType = LEVEL_2; }
+			if (Render::Get()->Get_c_level()->Get_level_id() == 3) { menuType = LEVEL_3; }
+
+			Render::Get()->Get_c_level()->Set_status(LEVEL_STATUS_GAME);
+		}
+
+		break;
+	}
+	case HELP_3: {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+			if (Render::Get()->Get_c_level()->Get_level_id() == 1) { menuType = LEVEL_1; }
+			if (Render::Get()->Get_c_level()->Get_level_id() == 2) { menuType = LEVEL_2; }
+			if (Render::Get()->Get_c_level()->Get_level_id() == 3) { menuType = LEVEL_3; }
+
+			Render::Get()->Get_c_level()->Set_status(LEVEL_STATUS_GAME);
+		}
+
+		break;
+	}
+	
 	default:
 		break;
 	}
