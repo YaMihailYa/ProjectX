@@ -1112,7 +1112,7 @@ void Menu::lev_3()
 
 
 	// Room 6
-	Room_Tree *room6 = new Room_Tree(TREE, 6, sf::IntRect(614, 640, 472, 285));
+	Room_Tree *room6 = new Room_Tree(TREE, 6, sf::IntRect(614, 640, 596, 285));
 
 	items.clear();
 	items.push_back(Item_t(COOKIE, YELLOW));
@@ -1157,8 +1157,9 @@ void Menu::lev_3()
 	
 
 	// Door 3
-	Door_rooms *door3 = new Door_rooms(3, true, BLUE, 3, 2);
-	
+	Door_rooms *door3 = new Door_rooms(3, false, BLUE, 3, 2);
+	doors_to_open.push_back(door3);
+
 	// Door 4
 	Door_rooms *door4 = new Door_rooms(4, false, RED, 2, 4);
 	doors_to_open.push_back(door4);
@@ -1173,7 +1174,9 @@ void Menu::lev_3()
 	
 
 	// Door 7
-	Door_rooms *door7 = new Door_rooms(7, true, ORANGE, 5, 6);
+	Door_rooms *door7 = new Door_rooms(7, false, ORANGE, 5, 6);
+	doors_to_open.push_back(door7);
+	
 	door7->Set_pos(sf::Vector2u(1030, 641));
 
 
