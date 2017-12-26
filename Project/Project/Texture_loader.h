@@ -3,6 +3,7 @@
 * Load all textures from files
 */
 
+
 class Texture_loader
 {
 public:
