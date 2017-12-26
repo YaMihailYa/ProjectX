@@ -1174,10 +1174,8 @@ void Menu::lev_3()
 	
 
 	// Door 7
-	Door_rooms *door7 = new Door_rooms(7, false, ORANGE, 5, 6);
-	doors_to_open.push_back(door7);
-	
-	door7->Set_pos(sf::Vector2u(1030, 641));
+	Door_rooms *door7 = new Door_rooms(7, true, ORANGE, 6, 5);
+	//doors_to_open.push_back(door7);
 
 
 	// Setting the links
@@ -1242,6 +1240,7 @@ void Menu::lev_3()
 	door0->Set_pos(sf::Vector2u(1030, 24));
 	door1->Set_pos(sf::Vector2u(668, 34));
 	door2->Set_pos(sf::Vector2u(668, 341));
+	door7->Set_pos(sf::Vector2u(1030, 641));
 
 	menuType = LEVEL_3;
 }
