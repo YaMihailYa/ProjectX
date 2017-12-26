@@ -1100,7 +1100,7 @@ void Menu::lev_3()
 
 
 	// Room 5
-	Room_Dog *room5 = new Room_Dog(DOG, 5, sf::IntRect(1238, 640, 496, 285), 3000000);
+	Room_Dog *room5 = new Room_Dog(DOG, 5, sf::IntRect(1188, 640, 596, 285), 3000000);
 
 	staticObjects.clear();
 	animatedObjects.clear();
