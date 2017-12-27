@@ -168,6 +168,9 @@ void Render::Init()
 	m_textures->Add_texture("Resurses/Images/menu/start.png");								// 96
 	m_textures->Add_texture("Resurses/Images/menu/options.png");							// 97
 	m_textures->Add_texture("Resurses/Images/menu/quit.png");								// 98
+	m_textures->Add_texture("Resurses/Images/menu/help1.png");								// 99
+	m_textures->Add_texture("Resurses/Images/menu/help2.png");								// 100
+	m_textures->Add_texture("Resurses/Images/menu/help3.png");								// 101
 
 	// Initialization animations
 	// #grandfather

@@ -213,17 +213,17 @@ void Menu::fillVectorButtons(menu_type_t type, int rate)
 	}
 	case HELP_1:
 	{
-		menu = new Static_Object(10);
+		menu = new Static_Object(99);
 		break;
 	}
 	case HELP_2:
 	{
-		menu = new Static_Object(10);
+		menu = new Static_Object(100);
 		break;
 	}
 	case HELP_3:
 	{
-		menu = new Static_Object(10);
+		menu = new Static_Object(101);
 		break;
 	}
 	}
