@@ -155,6 +155,7 @@ void Player::display(sf::RenderWindow *window, unsigned int time)
 		{
 			m_stay_anim->animate(time);
 			m_rect = (sf::IntRect) m_stay_anim->Get_sprite().getGlobalBounds();
+
 			m_stay_anim->setPosition((m_c_pos.x - m_rect.width / 2.) / coef.x, (m_c_pos.y - m_rect.width / 2.) / coef.y);
 		}
 		m_stay_anim->display(window);

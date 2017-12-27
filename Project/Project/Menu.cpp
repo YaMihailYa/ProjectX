@@ -299,6 +299,8 @@ void Menu::onClick()
 			case BTN_HOME:
 			{
 				temp = true;
+				//printf("home\n");
+				//exit(1);
 				home();
 				break;
 			}
@@ -740,6 +742,7 @@ void Menu::home()
 
 void Menu::lev_1()
 {
+
 	std::vector<Door_rooms*> doors_to_open;
 	// Preparing to creating the level
 	// Creating the background
