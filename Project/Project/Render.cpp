@@ -24,7 +24,7 @@ Render::~Render()
 void Render::Init()
 {
 	// Create window
-	m_window = new sf::RenderWindow(sf::VideoMode(1366, 768), "Game", sf::Style::Default);
+	m_window = new sf::RenderWindow(sf::VideoMode(1920, 1080), "Game", sf::Style::Fullscreen);
 	// Calculate coef
 	sf::Vector2u window_size = m_window->getSize();
 	m_coef_x = window_size.x / 1920.0f;
